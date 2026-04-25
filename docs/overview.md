@@ -43,7 +43,7 @@ the unit circle r = 1 at rate μ → −2, while z(t) grows linearly.  The limit
 **helical attractor** on the contact 3-manifold.
 
 **Honest correction.** The symmetric Gronwall estimate |r − 1| < 1/3 is not supported
-numerically. The empirical inner basin boundary is r\* ≈ 0.80 (asymmetric, tighter than
+numerically. The empirical inner basin boundary is r* ≈ 0.80 (asymmetric, tighter than
 claimed). See `docs/GCTC_REVIEW.md`.
 
 ---
@@ -56,7 +56,7 @@ The research programme is documented through four computational notebooks
 ### 1. `dm3_attractor.ipynb` — Helical attractor numerics
 - Integrate the dm³ system with DOP853 at rtol = 10⁻¹⁰
 - Reproduce phase portrait, ε vs. z, and basin boundary figures
-- Quantify the empirical r\* ≈ 0.80 correction
+- Quantify the empirical r* ≈ 0.80 correction
 
 ### 2. `schumann_real_variability.ipynb` — Schumann resonance & ELF background
 - Load real ELF/Schumann data (NOAA/GLD360 or synthetic proxy)
