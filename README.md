@@ -189,5 +189,5 @@ Art and soundworks: **MIT License**
 © 2026 Pablo Nogueira Grossi — G6 LLC  
 EIN: 33-2880433 · NJSOS: 0600484861  
 90 Tiffany Blvd Apt 242 · Newark NJ 07104  
-pablo@g6-llc.org · ORCID: 0009-0000-6496-2186  
+pg6llc@gmail.com· ORCID: 0009-0000-6496-2186  
 github.com/TOTOGT/GTCT · github.com/TOTOGT/AXLE · github.com/DM3-lab
