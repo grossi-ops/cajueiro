@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:#030a08;
+  color:#d4ede4;
+  font-family:'EB Garamond',Georgia,serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:3rem 2rem 2rem;
+  overflow:hidden;
+}
+
+/* OCEAN CANVAS */
+#ocean-canvas{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  width:100%;height:260px;
+  opacity:0.55;
+  pointer-events:none;
+}
+
+/* CAJUEIRO SVG */
+.cajueiro-wrap{
+  position:relative;
+  width:min(520px,90vw);
+  margin:0 auto 1.5rem;
+  z-index:2;
+}
+
+/* BRAND HEADER */
+.brand-strip{
+  display:flex;
+  align-items:center;
+  gap:1.2rem;
+  margin-bottom:3rem;
+  z-index:2;
+}
+.brand-strip .g6{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:#0ABAB5;
+  opacity:.8;
+}
+.brand-strip .sep{width:40px;height:1px;background:#0ABAB5;opacity:.3;}
+
+/* TITLE BLOCK */
+.title-block{
+  text-align:center;
+  z-index:2;
+  margin-bottom:2rem;
+}
+.title-block h1{
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:400;
+  font-style:italic;
+  color:#e8f5f0;
+  line-height:1.15;
+  margin-bottom:.5rem;
+}
+.title-block .subtitle{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#0ABAB5;
+  opacity:.75;
+  margin-bottom:1.2rem;
+}
+.title-block .tagline{
+  font-size:1.05rem;
+  color:#9ecfc4;
+  line-height:1.7;
+  max-width:480px;
+  margin:0 auto;
+}
+
+/* SOUND CONTROLS */
+.sound-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+  justify-content:center;
+  z-index:2;
+  margin-bottom:1.5rem;
+}
+.sound-btn{
+  background:transparent;
+  border:1px solid rgba(10,186,181,.35);
+  color:#0ABAB5;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.15em;
+  padding:.5rem 1.2rem;
+  cursor:pointer;
+  border-radius:2px;
+  transition:background .2s,border-color .2s;
+}
+.sound-btn:hover,.sound-btn.active{
+  background:rgba(10,186,181,.12);
+  border-color:rgba(10,186,181,.7);
+}
+.sound-btn.master{
+  border-color:rgba(10,186,181,.6);
+  color:#5de8e2;
+}
+
+/* STATUS */
+.status-line{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.2em;
+  color:#0ABAB5;
+  opacity:.5;
+  text-align:center;
+  z-index:2;
+  min-height:16px;
+  margin-bottom:2rem;
+}
+
+/* SECTIONS */
+.section{
+  max-width:860px;
+  margin:0 auto;
+  padding:3rem 2rem;
+  border-top:1px solid rgba(10,186,181,.12);
+}
+.section h2{
+  font-family:'EB Garamond',serif;
+  font-size:1.6rem;
+  font-weight:400;
+  font-style:italic;
+  color:#b8e8df;
+  margin-bottom:1.2rem;
+}
+.section p{
+  font-size:1.05rem;
+  line-height:1.8;
+  color:#9ecfc4;
+  margin-bottom:1rem;
+  max-width:640px;
+}
+.section .mono{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;
+  color:#5de8e2;
+  opacity:.8;
+}
+
+/* GRID */
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+  margin-top:1.5rem;
+}
+.card{
+  border:1px solid rgba(10,186,181,.2);
+  border-radius:4px;
+  padding:1.2rem;
+  background:rgba(10,186,181,.04);
+}
+.card .card-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:#0ABAB5;
+  opacity:.65;
+  margin-bottom:.5rem;
+}
+.card .card-title{font-size:1.05rem;color:#d4ede4;margin-bottom:.4rem;}
+.card .card-body{font-size:.9rem;color:#7ab8ac;line-height:1.6;}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:2rem;
+  border-top:1px solid rgba(10,186,181,.1);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.18em;
+  color:#0ABAB5;
+  opacity:.45;
+  line-height:2;
+}
+
+/* WAVEFORM */
+.waveform{
+  width:100%;
+  height:48px;
+  margin:1rem 0;
+  display:flex;
+  align-items:flex-end;
+  gap:2px;
+}
+.wave-bar{
+  flex:1;
+  background:#0ABAB5;
+  opacity:.25;
+  border-radius:1px;
+  transition:height .08s;
+  min-height:2px;
+}
+</style>
+</head>
+<body>
+<h2 class="sr-only">dm³ Soundworks — cajueiro machine: ocean and mangue resonance synthesizer by G6 LLC</h2>
+
+<div class="hero">
+
+  <div class="brand-strip">
+    <span class="g6">G6 LLC · Newark NJ · 2026</span>
+    <div class="sep"></div>
+    <span class="g6">github.com/DM3-lab</span>
+  </div>
+
+  <!-- CAJUEIRO SVG -->
+  <div class="cajueiro-wrap">
+    <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" aria-label="Cajueiro de Pirangi — one trunk, many roots, one organism">
+
+      <!-- MANGUE GROUND -->
+      <ellipse cx="260" cy="318" rx="220" ry="18" fill="#041a12" opacity="0.8"/>
+      <!-- water shimmer -->
+      <ellipse cx="260" cy="322" rx="190" ry="8" fill="#062a1e" opacity="0.6"/>
+      <ellipse cx="180" cy="326" rx="80" ry="4" fill="#0ABAB5" opacity="0.08"/>
+      <ellipse cx="340" cy="324" rx="60" ry="3" fill="#0ABAB5" opacity="0.07"/>
+
+      <!-- ROOTS — aerial, touching ground, re-rooting -->
+      <!-- main trunk -->
+      <path d="M260 310 C258 280 255 240 252 200 C250 175 248 155 250 130" stroke="#1a4a2e" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M260 310 C262 280 265 240 268 200 C270 175 272 155 270 130" stroke="#1a4a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+      <!-- lateral branch left — touches ground, re-roots -->
+      <path d="M252 200 C230 195 210 200 195 210 C180 222 170 240 165 270 C162 290 160 308 160 315" stroke="#1e5a35" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <ellipse cx="160" cy="316" rx="8" ry="3" fill="#0ABAB5" opacity="0.3"/>
+      <!-- sub-branch from re-root left -->
+      <path d="M165 270 C150 265 135 270 122 280 C112 290 108 305 108 315" stroke="#226040" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="108" cy="316" rx="5" ry="2" fill="#0ABAB5" opacity="0.25"/>
+
+      <!-- lateral branch right — touches ground, re-roots -->
+      <path d="M268 200 C290 195 310 200 325 212 C338 224 345 242 348 270 C350 290 351 308 352 315" stroke="#1e5a35" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <ellipse cx="352" cy="316" rx="8" ry="3" fill="#0ABAB5" opacity="0.3"/>
+      <!-- sub-branch from re-root right -->
+      <path d="M348 270 C365 265 378 268 388 278 C396 288 400 305 402 315" stroke="#226040" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="402" cy="316" rx="5" ry="2" fill="#0ABAB5" opacity="0.25"/>
+
+      <!-- far left reach -->
+      <path d="M195 210 C175 200 155 205 138 218 C126 228 120 248 118 270 C116 290 116 308 116 315" stroke="#1a4a2e" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+      <!-- CANOPY — layered -->
+      <!-- back layer -->
+      <ellipse cx="260" cy="95" rx="155" ry="75" fill="#0d2e1a" opacity="0.9"/>
+      <!-- mid layers -->
+      <ellipse cx="220" cy="88" rx="110" ry="58" fill="#113520" opacity="0.95"/>
+      <ellipse cx="298" cy="90" rx="95" ry="55" fill="#113520" opacity="0.95"/>
+      <ellipse cx="260" cy="75" rx="120" ry="55" fill="#165a2a"/>
+      <!-- front detail -->
+      <ellipse cx="240" cy="82" rx="80" ry="42" fill="#1a6b30" opacity="0.9"/>
+      <ellipse cx="278" cy="80" rx="72" ry="40" fill="#1a6b30" opacity="0.85"/>
+      <ellipse cx="260" cy="65" rx="90" ry="38" fill="#1e7535" opacity="0.9"/>
+
+      <!-- CASHEW FRUIT — hanging below canopy -->
+      <!-- fruit 1 -->
+      <line x1="215" y1="145" x2="212" y2="168" stroke="#1e5a35" stroke-width="1.5"/>
+      <ellipse cx="212" cy="176" rx="9" ry="14" fill="#c8a24a" opacity="0.85"/>
+      <path d="M208 162 C206 158 208 154 212 153 C216 152 218 155 217 159" fill="#8b5a1a" opacity="0.8"/>
+
+      <!-- fruit 2 -->
+      <line x1="300" y1="142" x2="305" y2="165" stroke="#1e5a35" stroke-width="1.5"/>
+      <ellipse cx="305" cy="174" rx="8" ry="13" fill="#d4832a" opacity="0.8"/>
+      <path d="M301 161 C299 157 301 153 305 152 C309 151 311 154 310 158" fill="#8b4a10" opacity="0.75"/>
+
+      <!-- small fruit 3 -->
+      <line x1="248" y1="148" x2="244" y2="166" stroke="#1e5a35" stroke-width="1.2"/>
+      <ellipse cx="244" cy="173" rx="7" ry="11" fill="#c84a2a" opacity="0.75"/>
+
+      <!-- TEAL ACCENT — the first root, the g6 moment -->
+      <circle cx="260" cy="130" r="4" fill="#0ABAB5" opacity="0.7"/>
+      <circle cx="160" cy="316" r="3" fill="#0ABAB5" opacity="0.5"/>
+      <circle cx="352" cy="316" r="3" fill="#0ABAB5" opacity="0.5"/>
+
+      <!-- LABEL -->
+      <text x="260" y="340" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#0ABAB5" opacity="0.55" font-style="italic">Anacardium occidentale · Pirangi · 8.500 m²</text>
+    </svg>
+  </div>
+
+  <div class="title-block">
+    <div class="subtitle">dm³ soundworks · mangue resonance machine</div>
+    <h1>The Cajueiro<br>Holds.</h1>
+    <p class="tagline">Ocean. Mangrove. The first stable root before the canopy.<br>Eight archaeoacoustic frequencies. Synthesized in-browser.</p>
+  </div>
+
+  <div class="sound-bar">
+    <button class="sound-btn master" id="btn-master" onclick="toggleMaster()">▶ play ocean + mangue</button>
+    <button class="sound-btn" id="btn-ocean" onclick="toggleLayer('ocean')">ocean</button>
+    <button class="sound-btn" id="btn-mangue" onclick="toggleLayer('mangue')">mangue</button>
+    <button class="sound-btn" id="btn-111" onclick="toggleLayer('freq111')">111 Hz · sacred</button>
+    <button class="sound-btn" id="btn-reeb" onclick="toggleLayer('reeb')">reeb helix</button>
+  </div>
+
+  <div class="status-line" id="status">— ready · click play to begin —</div>
+
+  <!-- WAVEFORM -->
+  <div class="waveform" id="waveform" style="max-width:460px;margin:0 auto 2rem;"></div>
+
+  <canvas id="ocean-canvas"></canvas>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <h2>O Princípio do Cajueiro</h2>
+  <p>The cajueiro de Pirangi — 20 km from the UFRN campus in Natal — covers more than 8,500 m² from a single trunk. Its branches touch the ground, re-root, and become new trunks. One organism. This is not a metaphor for the machine. It <em>is</em> the machine.</p>
+  <p>The dm³ soundworks synthesizes the acoustic environment where the cajueiro lives: the Atlantic mangue, tidal rhythms, the resonance frequencies documented from Malta to Giza to Chartres. All generated in-browser. No samples. Runs offline.</p>
+  <p class="mono">C → K → F → U → ∞ · the operator runs in the sound</p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="card-label">ocean layer</div>
+      <div class="card-title">Atlantic tide</div>
+      <div class="card-body">Pink noise shaped to the tidal breath of the Rio Grande do Norte coast. 0.05 Hz swell envelope.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">mangue layer</div>
+      <div class="card-title">Mangrove pulse</div>
+      <div class="card-body">Low filtered resonance at 40–80 Hz — the standing-wave frequency of a mangrove channel. Amplitude modulated at 0.12 Hz.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">111 Hz · sacred</div>
+      <div class="card-title">Hypogeum tone</div>
+      <div class="card-body">The frequency documented in the Malta Hypogeum and Chavín de Huántar. Theta-range binaural beat at 6 Hz.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">reeb helix</div>
+      <div class="card-title">dm³ attractor</div>
+      <div class="card-body">A sine tone at the Tribonacci constant η ≈ 1.8393 Hz — the dominant eigenvalue of the contact 3-manifold. Pitch-modulated by z(t).</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="section">
+  <h2>Research & Formal Verification</h2>
+  <p>The dm³ system — helical attractors on contact 3-manifolds — is formally verified in Lean 4 / Mathlib4 with zero axioms beyond the library. This soundworks machine is its acoustic instantiation.</p>
+  <p>Submitted to the XII Bienal da Sociedade Brasileira de Matemática, UFRN, Natal-RN, 3–7 agosto 2026. Minicurso: <em>Atratores Helicoidais em Variedades de Contato.</em></p>
+  <p class="mono">
+    Zenodo: 10.5281/zenodo.19117400<br>
+    github.com/TOTOGT/AXLE · github.com/TOTOGT/GTCT<br>
+    ORCID: 0009-0000-6496-2186
+  </p>
+</div>
+
+<footer>
+  © 2026 Pablo Nogueira Grossi — G6 LLC · MIT License · github.com/TOTOGT/GTCT<br>
+  90 Tiffany Blvd Apt 242 · Newark NJ 07104 · North Ward<br>
+  EIN 33-2880433 · pablo@g6-llc.org
+</footer>
+
+<script>
+const AC = window.AudioContext || window.webkitAudioContext;
+let ctx = null;
+let masterGain = null;
+let layers = {};
+let waveAnim = null;
+let oceanAnim = null;
+let playing = false;
+
+function getCtx(){
+  if(!ctx){ ctx = new AC(); masterGain = ctx.createGain(); masterGain.gain.value = 0.7; masterGain.connect(ctx.destination); }
+  return ctx;
+}
+
+function makeNoise(type){
+  const c = getCtx();
+  const buf = c.createBuffer(1, c.sampleRate*3, c.sampleRate);
+  const d = buf.getChannelData(0);
+  for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+  const src = c.createBufferSource(); src.buffer = buf; src.loop = true;
+  if(type==='pink'){
+    let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+    const pd = buf.getChannelData(0);
+    for(let i=0;i<pd.length;i++){
+      const w=pd[i];
+      b0=.99886*b0+w*.0555179; b1=.99332*b1+w*.0750759;
+      b2=.96900*b2+w*.1538520; b3=.86650*b3+w*.3104856;
+      b4=.55000*b4+w*.5329522; b5=-.7616*b5-.0168980*w;
+      pd[i]=(b0+b1+b2+b3+b4+b5+b6+w*.5362)*0.11; b6=w*.115926;
+    }
+  }
+  return src;
+}
+
+function makeSine(freq, gainVal){
+  const c = getCtx();
+  const osc = c.createOscillator(); osc.frequency.value = freq; osc.type = 'sine';
+  const g = c.createGain(); g.gain.value = gainVal;
+  osc.connect(g); return {osc, gain:g};
+}
+
+function makeLFO(freq, depth, target, paramName){
+  const c = getCtx();
+  const lfo = c.createOscillator(); lfo.frequency.value = freq;
+  const lfog = c.createGain(); lfog.gain.value = depth;
+  lfo.connect(lfog); lfog.connect(target[paramName]);
+  lfo.start(); return lfo;
+}
+
+function buildOcean(){
+  const c = getCtx();
+  const src = makeNoise('pink');
+  const lpf = c.createBiquadFilter(); lpf.type='lowpass'; lpf.frequency.value=380; lpf.Q.value=1.2;
+  const hpf = c.createBiquadFilter(); hpf.type='highpass'; hpf.frequency.value=80;
+  const g = c.createGain(); g.gain.value=0.28;
+  const lfo = c.createOscillator(); lfo.frequency.value=0.05; lfo.type='sine';
+  const lfoG = c.createGain(); lfoG.gain.value=0.18;
+  lfo.connect(lfoG); lfoG.connect(g.gain);
+  src.connect(lpf); lpf.connect(hpf); hpf.connect(g); g.connect(masterGain);
+  src.start(); lfo.start();
+  return {src, lfo, gain:g, stop(){ try{src.stop();lfo.stop();}catch(e){} }};
+}
+
+function buildMangue(){
+  const c = getCtx();
+  const src = makeNoise();
+  const lpf = c.createBiquadFilter(); lpf.type='lowpass'; lpf.frequency.value=90; lpf.Q.value=4;
+  const g = c.createGain(); g.gain.value=0.18;
+  const lfo = c.createOscillator(); lfo.frequency.value=0.12;
+  const lfoG = c.createGain(); lfoG.gain.value=0.14;
+  lfo.connect(lfoG); lfoG.connect(g.gain);
+  src.connect(lpf); lpf.connect(g); g.connect(masterGain);
+  src.start(); lfo.start();
+  return {src, lfo, gain:g, stop(){ try{src.stop();lfo.stop();}catch(e){} }};
+}
+
+function build111(){
+  const c = getCtx();
+  const {osc:o1,gain:g1} = makeSine(111, 0.12);
+  const {osc:o2,gain:g2} = makeSine(117, 0.10);
+  g1.connect(masterGain); g2.connect(masterGain);
+  o1.start(); o2.start();
+  return {stop(){ try{o1.stop();o2.stop();}catch(e){} }};
+}
+
+function buildReeb(){
+  const c = getCtx();
+  const eta = 1.8393;
+  const baseFreq = 110;
+  const {osc, gain} = makeSine(baseFreq, 0.09);
+  gain.connect(masterGain);
+  let t0 = c.currentTime;
+  function modulate(){
+    const t = c.currentTime - t0;
+    const z = t * eta;
+    const f = baseFreq * (1 + 0.12 * Math.sin(z * 0.3));
+    osc.frequency.setTargetAtTime(f, c.currentTime, 0.1);
+  }
+  osc.start();
+  const iv = setInterval(modulate, 120);
+  return {stop(){ try{osc.stop(); clearInterval(iv);}catch(e){} }};
+}
+
+const layerBuilders = {
+  ocean: buildOcean,
+  mangue: buildMangue,
+  freq111: build111,
+  reeb: buildReeb
+};
+
+const layerOn = {ocean:true, mangue:true, freq111:false, reeb:false};
+
+function toggleLayer(id){
+  if(!playing) return;
+  const btn = document.getElementById('btn-'+{ocean:'ocean',mangue:'mangue',freq111:'111',reeb:'reeb'}[id]);
+  if(layers[id]){
+    layers[id].stop(); layers[id]=null; layerOn[id]=false;
+    if(btn) btn.classList.remove('active');
+    setStatus('— '+id+' off');
+  } else {
+    layers[id]=layerBuilders[id](); layerOn[id]=true;
+    if(btn) btn.classList.add('active');
+    setStatus('— '+id+' on');
+  }
+}
+
+function toggleMaster(){
+  if(!playing){
+    getCtx();
+    if(ctx.state==='suspended') ctx.resume();
+    playing=true;
+    document.getElementById('btn-master').textContent='■ stop';
+    document.getElementById('btn-master').classList.add('active');
+    layers.ocean = buildOcean(); document.getElementById('btn-ocean').classList.add('active');
+    layers.mangue = buildMangue(); document.getElementById('btn-mangue').classList.add('active');
+    setStatus('— playing · ocean + mangue · Atlantic NE Brazil');
+    startWaveform(); startOcean();
+  } else {
+    Object.values(layers).forEach(l=>{ if(l) l.stop(); });
+    layers={};
+    playing=false;
+    document.getElementById('btn-master').textContent='▶ play ocean + mangue';
+    document.getElementById('btn-master').classList.remove('active');
+    ['ocean','mangue','111','reeb'].forEach(id=>document.getElementById('btn-'+id)?.classList.remove('active'));
+    setStatus('— stopped');
+    stopWaveform(); stopOcean();
+  }
+}
+
+function setStatus(msg){ document.getElementById('status').textContent=msg; }
+
+/* WAVEFORM BARS */
+const WF = document.getElementById('waveform');
+for(let i=0;i<48;i++){const b=document.createElement('div');b.className='wave-bar';WF.appendChild(b);}
+const bars = WF.querySelectorAll('.wave-bar');
+let wfRunning=false;
+function animWave(){
+  if(!wfRunning) return;
+  bars.forEach((b,i)=>{
+    const t=Date.now()/1000;
+    const h=8+28*Math.abs(Math.sin(t*1.1+i*0.28)*Math.cos(t*0.7+i*0.13));
+    b.style.height=h+'px';
+    b.style.opacity=0.15+0.45*(h/36);
+  });
+  requestAnimationFrame(animWave);
+}
+function startWaveform(){wfRunning=true;animWave();}
+function stopWaveform(){wfRunning=false;bars.forEach(b=>{b.style.height='2px';b.style.opacity=0.15;});}
+
+/* OCEAN CANVAS */
+const OC = document.getElementById('ocean-canvas');
+const octx = OC.getContext('2d');
+let ocRunning=false;
+function resizeOC(){ OC.width=OC.offsetWidth||window.innerWidth; OC.height=260; }
+resizeOC(); window.addEventListener('resize',resizeOC);
+
+function drawOcean(){
+  if(!ocRunning) return;
+  const W=OC.width, H=OC.height;
+  octx.clearRect(0,0,W,H);
+  const t=Date.now()/1000;
+  for(let wave=0;wave<4;wave++){
+    const spd=0.18+wave*0.06, amp=18-wave*3, yBase=H*0.55+wave*22;
+    const alpha=0.06-wave*0.01;
+    octx.beginPath();
+    octx.moveTo(0,yBase);
+    for(let x=0;x<=W;x+=4){
+      const y=yBase+amp*Math.sin(x*0.012+t*spd)+amp*0.4*Math.sin(x*0.022+t*(spd*0.7)+wave);
+      octx.lineTo(x,y);
+    }
+    octx.lineTo(W,H); octx.lineTo(0,H); octx.closePath();
+    octx.fillStyle=`rgba(10,186,181,${alpha})`;
+    octx.fill();
+  }
+  for(let i=0;i<6;i++){
+    const x=(i*W/5 + t*18*(i%2===0?1:-1)*0.4)%W;
+    const y=H*0.45+i*8+6*Math.sin(t*0.3+i);
+    octx.beginPath();
+    octx.moveTo(x,y);
+    octx.quadraticCurveTo(x+18,y-5,x+36,y);
+    octx.strokeStyle=`rgba(10,186,181,0.12)`;
+    octx.lineWidth=1.5; octx.stroke();
+  }
+  requestAnimationFrame(drawOcean);
+}
+function startOcean(){ocRunning=true;drawOcean();}
+function stopOcean(){ocRunning=false;octx.clearRect(0,0,OC.width,OC.height);}
+</script>
+</body>
+</html>
