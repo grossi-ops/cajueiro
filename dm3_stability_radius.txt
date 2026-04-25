@@ -1,0 +1,51 @@
+dm³ stability radius — empirical measurement
+==================================================
+
+System:
+  ṙ = r(1-r²) + 2(r-1)e^(-z)
+  θ̇ = 1
+  ż = r² - 2(r-1)²e^(-z)
+
+Attractor:  r = 1 helical surface (ṙ=0, θ̇=1, ż=1 on r=1)
+
+Linearization near r=1:  ṙ ≈ 2ε(e^(-z) - 1)
+  attracting when z > 0
+  marginal at z = 0
+  repelling when z < 0
+
+Measured basin of attraction (symmetric radius ε(z₀)):
+
+      z₀        ε⁺        ε⁻       min
+   -1.50     0.090     0.000     0.000
+   -1.33     0.211     0.005     0.005
+   -1.17     0.402     0.010     0.010
+   -1.00     0.653     0.020     0.020
+   -0.83     0.995     0.040     0.040
+   -0.67     1.437     0.065     0.065
+   -0.50     2.000     0.101     0.101
+   -0.33     2.000     0.136     0.136
+   -0.17     2.000     0.176     0.176
+   +0.00     2.000     0.221     0.221
+   +0.17     2.000     0.271     0.271
+   +0.33     2.000     0.317     0.317
+   +0.50     2.000     0.367     0.367
+   +0.67     2.000     0.417     0.417
+   +0.83     2.000     0.467     0.467
+   +1.00     2.000     0.513     0.513
+   +1.17     2.000     0.563     0.563
+   +1.33     2.000     0.608     0.608
+   +1.50     2.000     0.648     0.648
+   +1.67     2.000     0.688     0.688
+   +1.83     2.000     0.724     0.724
+   +2.00     2.000     0.759     0.759
+   +2.17     2.000     0.789     0.789
+   +2.33     2.000     0.819     0.819
+   +2.50     2.000     0.844     0.844
+
+Infimum of symmetric radius: ε₀ ≈ 0.000
+  attained at z₀ ≈ -1.50
+
+Comparison with paper's claim ε₀ = 1/3 = 0.333:
+  Empirical infimum: 0.000
+  → Paper's ε₀ = 1/3 appears TOO LARGE by numerics.
+    Suggests the Gronwall constant has a factor-of-2 issue.

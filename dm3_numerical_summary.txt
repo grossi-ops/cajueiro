@@ -1,0 +1,19 @@
+dm³ ODE numerical summary
+========================================
+
+System:
+  ṙ = r(1 - r²) + 2(r - 1) e^(-z)
+  θ̇ = 1
+  ż = r² - 2(r - 1)² e^(-z)
+
+Equilibrium structure:
+  Surface r = 1 is invariant (ṙ = 0 identically).
+  On r = 1:  θ̇ = 1, ż = 1.  Trajectory is a helix with pitch 2π.
+
+Linearization near r = 1:
+  ṙ ≈ 2ε(e^(-z) - 1) for r = 1 + ε
+  Attracting when z > 0, repelling when z < 0.
+  Since ż = 1 on r = 1, trajectories escape to z → ∞ and stay attracting.
+
+Empirical stability radius at z₀ = 0.5:  ε ≈ 0.375
+  (1/3 ≈ 0.333, 1/6 ≈ 0.167, 2/3 ≈ 0.667)
