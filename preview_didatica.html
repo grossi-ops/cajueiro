@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preview · Didática TOGT — Four Faces, One Object</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+/* Preview of just the Didática manifesto block.
+   Mirrors the CSS inserted into GTCT_V_Student_Edition.html
+   so Pablo can see the block in isolation. */
+:root{
+  --tiffany:#0ABAB5; --tiffany-soft:#9cf3ef; --tiffany-deep:#022b2a;
+  --br-green:#009c3b; --br-blue:#002776; --br-gold:#c8a24a;
+  --br-gold-soft:#ffe7a0; --br-white:#f2efe4; --paper:#fbfaf5; --ink:#0b0b0b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#05080a;color:#eaeaea;line-height:1.55;
+  font-family:"EB Garamond","Georgia","Cambria",serif;font-size:16px;
+  min-height:100vh;padding:30px 0;
+}
+.preview-caption{
+  max-width:1280px;margin:0 auto 20px;padding:0 30px;
+  font-family:"Playfair Display",serif;font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--tiffany);opacity:.6;
+}
+em{font-style:italic}
+
+.didatica{
+  max-width:1280px;margin:28px auto;padding:26px 30px;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(74,158,255,.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 0%, rgba(192,132,252,.06) 0%, transparent 55%),
+    linear-gradient(180deg,#080c10,#05080b);
+  border:1px solid #2a2a2a;border-radius:10px;
+}
+.didatica .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media (max-width:980px){.didatica .cols{grid-template-columns:1fr}}
+.didatica h2{font-family:"Playfair Display",serif;font-size:22px;margin-bottom:8px}
+.didatica .en h2{color:var(--tiffany)}
+.didatica .br h2{color:var(--br-gold)}
+.didatica .subhead{font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-bottom:14px}
+.didatica .en .subhead{color:var(--tiffany-soft)}
+.didatica .br .subhead{color:var(--br-gold-soft)}
+.didatica p{margin:10px 0;font-size:14.5px;opacity:.92;line-height:1.7}
+
+.four-faces{
+  display:grid;grid-template-columns:1fr;gap:0;margin:14px 0 6px;
+  border:1px solid #222;border-radius:8px;overflow:hidden;background:#030608;
+}
+.face{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;
+  padding:12px 16px;border-top:1px solid #161616;
+  border-left:4px solid;align-items:start;
+}
+.face:first-child{border-top:none}
+.face.face-c{border-left-color:#4a9eff}
+.face.face-k{border-left-color:#e05a3a}
+.face.face-f{border-left-color:#50c878}
+.face.face-u{border-left-color:#c084fc}
+.face-lead{display:flex;flex-direction:column;gap:2px;min-width:130px}
+.face-pt{font-family:"Playfair Display",serif;font-size:18px;font-weight:700;letter-spacing:.02em;}
+.face.face-c .face-pt{color:#9cc6ff}
+.face.face-k .face-pt{color:#f4a28a}
+.face.face-f .face-pt{color:#9ee2b4}
+.face.face-u .face-pt{color:#d9b7ff}
+.face-ipa{font-family:"JetBrains Mono",monospace;font-size:11.5px;opacity:.6;letter-spacing:.04em}
+.face-en{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.75;margin-top:1px}
+.face-why{font-size:13.5px;line-height:1.55;opacity:.88;padding-top:2px}
+.face-why em{font-style:italic;color:var(--tiffany-soft)}
+
+.glossa{
+  display:inline;position:relative;padding-bottom:1px;
+  border-bottom:1px dotted var(--br-gold);cursor:help;
+}
+.glossa .pt{font-style:italic;color:var(--br-gold-soft);font-weight:500;}
+.glossa .note{
+  display:inline;font-family:"JetBrains Mono","Fira Code",monospace;
+  font-size:11.5px;color:#a9c6c3;opacity:.85;
+  margin-left:4px;letter-spacing:.01em;
+}
+.glossa .note .ipa{color:var(--tiffany-soft);font-style:italic;margin-right:4px}
+.glossa .note .why{color:#c9b97a;font-style:italic}
+
+.didatica .pull{
+  margin:14px 0 4px;padding:12px 16px;
+  border-left:3px solid var(--br-gold);
+  background:rgba(200,162,74,.05);
+  font-style:italic;font-size:14px;line-height:1.7;color:#f0dda8;
+}
+.didatica .en .pull{border-left-color:var(--tiffany);color:#a6eee9}
+</style>
+</head>
+<body>
+
+<div class="preview-caption">Preview · Didática block only · will be inserted between Onboarding and Prelude II</div>
+
+<section class="didatica" id="didatica">
+  <div class="cols">
+    <div class="en">
+      <div class="subhead">Didática · four faces, one object</div>
+      <h2>This book has four faces.</h2>
+      <p>Not a hierarchy, not a ladder — four surfaces of the same mathematical object, each of which you can enter first. They are <em>Ler</em>, <em>Simular</em>, <em>Provar</em>, and <em>Ensinar</em> — to read, to simulate, to prove, to teach. They travel in Portuguese through every Level. Meet them once, in the legend below, and afterward they will carry you.</p>
+
+      <div class="four-faces" aria-label="The four faces of Didática TOGT">
+        <div class="face face-c">
+          <div class="face-lead">
+            <div class="face-pt">Ler</div>
+            <div class="face-ipa">/leɾ/</div>
+            <div class="face-en">Read · C · Contract</div>
+          </div>
+          <div class="face-why">From Latin <em>legere</em>, "to gather, to choose." In Portuguese <em>ler</em> is also the soft verb of <em>attention</em> — <em>ler alguém</em>, "to read a person." This is the face where the book speaks and you listen. Colour of the Contract operator, C.</div>
+        </div>
+        <div class="face face-k">
+          <div class="face-lead">
+            <div class="face-pt">Simular</div>
+            <div class="face-ipa">/simuˈlaɾ/</div>
+            <div class="face-en">Simulate · K · Curvature</div>
+          </div>
+          <div class="face-why">From Latin <em>simulare</em>, "to make alike." Portuguese keeps the theatrical sense: <em>simular</em> is to <em>stand in for</em>, to <em>play-act</em>, to let a model take the part of the thing. This is the face where you move the controls and watch the math answer. Colour of Curvature, K.</div>
+        </div>
+        <div class="face face-f">
+          <div class="face-lead">
+            <div class="face-pt">Provar</div>
+            <div class="face-ipa">/pɾoˈvaɾ/</div>
+            <div class="face-en">Prove · F · Filter</div>
+          </div>
+          <div class="face-why">From Latin <em>probare</em>, "to test." Portuguese keeps all three meanings alive at once: <em>provar</em> is to prove, to <em>taste</em>, and to <em>try on clothes</em>. A proof, in this book, is something the body checks — not only the mind. Colour of Filter, F.</div>
+        </div>
+        <div class="face face-u">
+          <div class="face-lead">
+            <div class="face-pt">Ensinar</div>
+            <div class="face-ipa">/ẽsiˈnaɾ/</div>
+            <div class="face-en">Teach · U · Unfold</div>
+          </div>
+          <div class="face-why">From Latin <em>insignare</em>, "to point out, to mark." <em>Ensinar</em> is not authority — it is a finger pointing. This is the face where the book hands you an unfinished problem and you carry it forward. Colour of Unfold, U.</div>
+        </div>
+      </div>
+
+      <p>Every Level offers all four faces. Each closes by leaving one open problem in your hands. Not because the book forgot to solve it, but because that is how the book knows you are learning. This is Axiom 9 (Honest Incompleteness) made <span class="glossa"><span class="pt">didática</span><span class="note"><span class="ipa">/d͡ʒiˈdatʃikɐ/</span>Greek <em>didaktikos</em>, "apt at teaching"; <span class="why">PT keeps the noun feminine and the stress light — didática is the <em>way</em>, not the authority.</span></span></span>.</p>
+
+      <p>You, the reader, this book will call <span class="glossa"><span class="pt">camará</span><span class="note"><span class="ipa">/kɐmaˈɾa/</span>capoeira-companion, <span class="why">the one in the <span class="glossa"><span class="pt">roda</span><span class="note"><span class="ipa">/ˈʁɔdɐ/</span>"the circle," where the practice is done</span></span> with you.</span></span></span> Not student, not pupil. Companion in the circle. When a Level hands you back an open problem and you carry it out of the book, the sound of your work returning to the roda has a name in Portuguese: <span class="glossa"><span class="pt">ressonância</span><span class="note"><span class="ipa">/ʁesoˈnɐ̃sjɐ/</span>resonance, <span class="why">but in capoeira it is specifically the <em>answer</em> the circle gives to what you played.</span></span></span>.</p>
+
+      <div class="pull">"Every session leaves one open problem in the student's hands. This is Axiom 9 (Honest Incompleteness) made pedagogical." — Vol IV landing (3M), sibling page.</div>
+    </div>
+
+    <div class="br">
+      <div class="subhead">Didática · quatro faces, um só objeto</div>
+      <h2>Este livro tem quatro faces.</h2>
+      <p>Não é hierarquia, não é escada — são quatro superfícies do mesmo objeto matemático, e você pode entrar por qualquer uma delas. São elas <em>Ler</em>, <em>Simular</em>, <em>Provar</em> e <em>Ensinar</em>. Atravessam todos os Níveis sem tradução.</p>
+
+      <p>As quatro faces respondem às quatro cores do encadeamento operatorial herdado do Volume IV — <strong style="color:#9cc6ff">C · Contract</strong> (Ler), <strong style="color:#f4a28a">K · Curvature</strong> (Simular), <strong style="color:#9ee2b4">F · Filter</strong> (Provar), <strong style="color:#d9b7ff">U · Unfold</strong> (Ensinar). Cada Nível oferece as quatro. Cada Nível se fecha deixando <em>um</em> problema em aberto nas suas mãos — não porque o livro esqueceu de resolvê-lo, mas porque é assim que o livro reconhece que você está aprendendo. Isso é o Axioma 9 (Incompletude Honesta) feito didática.</p>
+
+      <p>Você, leitor, este livro chama de <em>camará</em>. Não aluno, não pupilo. Companheiro na roda. Quando um Nível devolve um problema em aberto e você o carrega para fora do livro, o som do seu trabalho voltando à roda se chama <em>ressonância</em>.</p>
+
+      <div class="pull">"Cada sessão deixa um problema em aberto nas mãos do estudante. Este é o Axioma 9 (Incompletude Honesta) feito pedagogia." — Folha de rosto do Vol. IV (3M), página irmã.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
