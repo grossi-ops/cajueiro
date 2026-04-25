@@ -1,0 +1,153 @@
+# Roadmap — Open Issues
+
+Copy-paste each block below into a new GitHub Issue in this repository.
+Labels and milestones should be created first if they don't exist yet.
+
+---
+
+## Issue #1 — IRI integration into `schumann_real_variability.ipynb`
+
+**Title:** `IRI integration into schumann_real_variability.ipynb`
+
+**Labels:** `enhancement`  
+**Milestone:** `v0.4`
+
+**Body:**
+
+```
+### Context
+
+`notebooks/schumann_real_variability.ipynb` currently visualises ELF background
+amplitude variability alongside the dm³ 7.83 Hz resonant coupling, but uses a
+fixed ionosphere height assumption.
+
+### Goal
+
+Integrate the IRI-2016 ionosphere model so that the ionosphere electron-density
+height profile is computed dynamically and overlaid on the Schumann resonance plot.
+
+### Implementation steps
+
+1. Install the `iricore` Python wrapper (https://github.com/space-physics/iricore)
+   or use the `PyIRI` package (https://pypi.org/project/PyIRI/).
+2. Query IRI-2016 for the virtual height h′(f) at 7.83 Hz for a configurable
+   date/time/location.
+3. Add a secondary y-axis to the Schumann variability figure: ELF amplitude on
+   the left, h′ on the right.
+4. Annotate the plot with the dm³ coupling frequency (7.83 Hz fundamental,
+   14.3 Hz second mode, 20.8 Hz third mode).
+
+### Expected output
+
+A single figure panel showing:
+- ELF background spectral power (dB) vs. frequency
+- IRI ionosphere virtual height h′(f) overlay
+- dm³ resonant frequency markers
+
+### References
+
+- IRI-2016: https://irimodel.org
+- iricore Python wrapper: https://github.com/space-physics/iricore
+- PyIRI: https://pypi.org/project/PyIRI/
+```
+
+---
+
+## Issue #2 — Real Hypogeum mesh / COMSOL hook
+
+**Title:** `Real Hypogeum mesh / COMSOL hook`
+
+**Labels:** `research`  
+**Milestone:** `v0.5`
+
+**Body:**
+
+```
+### Context
+
+`notebooks/hypogeum_acoustics.ipynb` currently uses a placeholder rectangular
+cavity to compute the 111 Hz standing-wave modes attributed to the Malta Hypogeum
+(see: Devereux et al. 2009, *Time and Mind* 2(2)).
+
+### Goal
+
+Replace the placeholder geometry with either:
+(a) a simplified COMSOL-exported mesh of the Hypogeum Oracle Chamber, or
+(b) a FEniCSx mesh reconstructed from the published room dimensions.
+
+### Implementation steps
+
+1. Obtain or reconstruct the Oracle Chamber geometry:
+   - Primary source: Mifsud (1910) measurements; updated survey data if available.
+   - Fallback: simplified ellipsoidal chamber matching published volume ~20 m³.
+2. Import mesh into the notebook:
+   - COMSOL: export as `.mphtxt` or `.msh` and load via `meshio`.
+   - FEniCSx: build programmatically with `gmsh` Python API.
+3. Solve the Helmholtz equation for eigenfrequencies in 50–200 Hz range.
+4. Compare computed modes against published measurements (Jahn & Devereux 2011).
+5. Annotate the 111 Hz mode and its relationship to the dm³ 111 Hz synthesis layer.
+
+### Expected output
+
+- Mesh visualisation (2-D cross-section)
+- Eigenfrequency table with mode shapes
+- Comparison figure: measured vs. computed resonant frequencies
+
+### References
+
+- Devereux, P. et al. (2009). *Time and Mind* 2(2), 153–176.
+- Jahn, R. & Devereux, P. (2011). Archaeoacoustics conference proceedings.
+- FEniCSx: https://fenicsproject.org
+- meshio: https://github.com/nschloe/meshio
+```
+
+---
+
+## Issue #3 — Extend Lean theorem: toy → full box + thin-shell
+
+**Title:** `Extend Lean theorem: toy → full box + thin-shell`
+
+**Labels:** `formal-proof`  
+**Milestone:** `v1.0`
+
+**Body:**
+
+```
+### Context
+
+`axle/Main_v6.lean` proves the helical-attractor convergence result for the dm³
+toy ODE but carries 9 documented `sorry`s. The blocking obligation is
+`kappa_lipschitz` (tracked as AXLE Issue #12).
+
+### Goal
+
+Close all 9 `sorry`s and extend the formal statement from the toy r–θ–z model to
+the full box (rectangular domain) and thin-shell (S¹ × ℝ) forms of the dm³ system.
+
+### Priority obligations (in order)
+
+1. **`kappa_lipschitz`** — Lipschitz bound on the curvature operator κ.
+   This is the gate: closing it unblocks the main theorem.
+2. **Gronwall estimate correction** — Replace the symmetric |r − 1| < 1/3 bound
+   with the empirically-validated asymmetric r* ≈ 0.80 version.
+3. **Thin-shell extension** — State and prove the analogous convergence on
+   the contact structure S¹ × ℝ with the G = U ∘ F ∘ K ∘ C operator sequence.
+4. **Full-box extension** — Rectangular domain [0,1]³ with periodic boundary;
+   verify the helical attractor persists.
+5. Remaining 6 `sorry`s — enumerated in `notebooks/lean_sorry_tracker.ipynb`.
+
+### Acceptance criteria
+
+- `lean --check axle/Main_v6.lean` returns 0 warnings and 0 `sorry` messages.
+- CI passes on Mathlib4 nightly (no additional axioms introduced).
+
+### References
+
+- AXLE Issue #12: https://github.com/TOTOGT/AXLE/issues/12
+- Mathlib4: https://leanprover-community.github.io/mathlib4_docs/
+- dm³ ODE system: `numerics/dm3_simulation.py`
+```
+
+---
+
+*Generated by the dm³ research programme roadmap script — 2026-04-25*
