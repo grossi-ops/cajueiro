@@ -164,6 +164,38 @@ lemma f_schumann_monotone_in_κ
   · -- hκ h0 γ κ₁ ≤ hκ h0 γ κ₂ = Lκ_mono
     exact Lκ_mono h0 γ hh0 hγ hle
 
+/-! ## Monotonicity in Chamber Dimension
+
+The eigenvalue λ3D is also strictly antitone in each chamber length L0 (for fixed κ).
+This captures the Wolfe wall-offset sensitivity: enlarging a dimension lowers modes.
+-/
+
+/-- λ3D is strictly antitone in the first chamber dimension (Lx0) when nx ≠ 0.
+    Larger room → smaller eigenvalue, at fixed κ ≥ 0. -/
+lemma λ3D_strictAnti_in_Lx0
+    (ny nz : ℕ) (Lx1 Lx2 Ly0 Lz0 γ : ℝ)
+    (hLx1 : 0 < Lx1) (hLx2 : Lx1 < Lx2)
+    (hLy : 0 < Ly0) (hLz : 0 < Lz0) (hγ : 0 < γ)
+    {κ : ℝ} (hκ : 0 ≤ κ) :
+    λ3D 1 ny nz Lx2 Ly0 Lz0 γ κ < λ3D 1 ny nz Lx1 Ly0 Lz0 γ κ := by
+  dsimp [λ3D]
+  apply mul_lt_mul_of_pos_left _ (by positivity)
+  -- x-term is strictly smaller for the larger Lx2 (holds for nx = 1 ≠ 0)
+  have hLκ1 : 0 < Lκ Lx1 γ κ := Lκ_pos Lx1 γ κ hLx1 hγ hκ
+  have hLκ2 : 0 < Lκ Lx2 γ κ := Lκ_pos Lx2 γ κ (lt_trans hLx1 hLx2) hγ hκ
+  have hmono : Lκ Lx1 γ κ < Lκ Lx2 γ κ := by
+    unfold Lκ
+    apply mul_lt_mul_of_pos_right hLx2
+    have := mul_nonneg (le_of_lt hγ) hκ; linarith
+  have hx : (1 ^ 2 : ℝ) / (Lκ Lx2 γ κ) ^ 2 < (1 ^ 2 : ℝ) / (Lκ Lx1 γ κ) ^ 2 := by
+    rw [div_lt_div_iff (pow_pos hLκ2 2) (pow_pos hLκ1 2)]
+    have h3 := pow_lt_pow_left hmono (le_of_lt hLκ1) (by norm_num)
+    norm_num; exact h3
+  -- y- and z-terms are equal (same Ly0, Lz0, κ on both sides)
+  have hy : (ny ^ 2 : ℝ) / (Lκ Ly0 γ κ) ^ 2 = (ny ^ 2 : ℝ) / (Lκ Ly0 γ κ) ^ 2 := rfl
+  have hz : (nz ^ 2 : ℝ) / (Lκ Lz0 γ κ) ^ 2 = (nz ^ 2 : ℝ) / (Lκ Lz0 γ κ) ^ 2 := rfl
+  linarith
+
 /-! ## Universal Sensitivity -/
 
 /-- Universal curvature sensitivity: ∂λ/∂κ = −2Aγ/(1+γκ)³.

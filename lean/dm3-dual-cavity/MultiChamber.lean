@@ -114,18 +114,10 @@ lemma dm3_curvature_lowers_coupled_modes
 /-! ## Wall-offset sensitivity (Wolfe et al. 2020)
 
 A small positive wall offset ΔL > 0 strictly increases the x-dimension of the
-chamber from L0 to L0 + ΔL.  This strictly lowers the fundamental acoustic mode.
-This is the formal counterpart of the Wolfe et al. (2020) observation that
-10–25 cm wall movements produce noticeable frequency shifts
-(δf/f ≈ −0.04 to −0.10 for δL/L ≈ 0.02–0.05).
-
-Proof sketch:
-  λ3D 1 0 0 Lx L0 L0 γ κ = π² / (Lx·(1+γκ))²    (ny = nz = 0 terms vanish)
-  This is strictly decreasing in Lx (for Lx > 0, κ ≥ 0).
-  Taking Lx = L0 + ΔL vs Lx = L0 gives the strict inequality.
-  The full Lean proof needs `λ3D_antitone` applied to the Lx0 dimension,
-  which is analogous to the κ-antitone case (denominator grows → quotient shrinks).
--/
+chamber from L0 to L0 + ΔL.  By `λ3D_strictAnti_in_Lx0` (nx = 1, ny = nz = 0),
+this strictly lowers the fundamental acoustic mode.  This is the formal counterpart
+of the Wolfe et al. (2020) observation that 10–25 cm wall movements produce
+noticeable frequency shifts (δf/f ≈ −0.04 to −0.10 for δL/L ≈ 0.02–0.05). -/
 
 /-- A wall offset ΔL > 0 produces a strict downward shift of the fundamental (1,0,0)
     acoustic mode, at any κ ≥ 0. -/
@@ -134,11 +126,7 @@ lemma wall_offset_sensitivity
     (L0 : ℝ) (hL0 : 0 < L0)
     (γ : ℝ) (hγ : 0 < γ)
     (κ : ℝ) (hκ : 0 ≤ κ) :
-    λ3D 1 0 0 (L0 + ΔL) L0 L0 γ κ < λ3D 1 0 0 L0 L0 L0 γ κ := by
-  -- Key ingredients:
-  --   (1) π² > 0
-  --   (2) ny = nz = 0 terms vanish in λ3D (both sides, equal)
-  --   (3) x-term: 1/((L0+ΔL)·(1+γκ))² < 1/(L0·(1+γκ))² by strict monotonicity
-  -- The proof below reduces the goal to (3) via explicit computation of the 0-terms.
-  -- TODO: Replace `sorry` once `λ3D_antitone_in_L0` is added to Monotonicity.lean.
-  sorry
+    λ3D 1 0 0 (L0 + ΔL) L0 L0 γ κ < λ3D 1 0 0 L0 L0 L0 γ κ :=
+  -- The ny = nz = 0 terms are equal on both sides; only the nx = 1 x-term differs.
+  -- λ3D_strictAnti_in_Lx0 covers this case directly (L0 < L0 + ΔL).
+  λ3D_strictAnti_in_Lx0 0 0 L0 (L0 + ΔL) L0 L0 γ hL0 (by linarith) hL0 hL0 hγ hκ
