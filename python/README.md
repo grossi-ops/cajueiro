@@ -1,7 +1,8 @@
-# Differential Nonlinear Robustness of Critical States in Fibonacci and Tribonacci Substitution Chains
+ # Differential Nonlinear Robustness of Critical States in Fibonacci and Tribonacci Substitution Chains
 
 **Author:** Pablo Nogueira Grossi — G6 LLC, Newark NJ  
 **ORCID:** [0009-0000-6496-2186](https://orcid.org/0009-0000-6496-2186)  
+**Zenodo (this paper):** [10.5281/zenodo.20026943](https://doi.org/10.5281/zenodo.20026943)  
 **Zenodo (Principia Orthogona Vol. I):** [10.5281/zenodo.19117400](https://doi.org/10.5281/zenodo.19117400)  
 **AXLE Lean 4 repo:** [github.com/TOTOGT/AXLE](https://github.com/TOTOGT/AXLE)
 
@@ -91,6 +92,7 @@ DNLS results in this paper.
 
 | DOI | Title |
 |-----|-------|
+| [10.5281/zenodo.20026943](https://doi.org/10.5281/zenodo.20026943) | This paper (DNLS Fibonacci/Tribonacci) |
 | [10.5281/zenodo.19117400](https://doi.org/10.5281/zenodo.19117400) | Principia Orthogona, Volume I |
 | [10.5281/zenodo.19379385](https://doi.org/10.5281/zenodo.19379385) | The dm³ Operator |
 | [10.5281/zenodo.19199474](https://doi.org/10.5281/zenodo.19199474) | Wavenumber 6 |
