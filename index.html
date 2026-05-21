@@ -55,7 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* CH1 */
 #ch1{position:relative;z-index:2;background:linear-gradient(180deg,#050e0a,#040c08);padding:6rem 5vw}
 .ch1-inner{max-width:1100px;margin:0 auto}
-.ch1-book-ref{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--gold);opacity:.55;margin-bottom:3rem;display:block}
+.ch1-book-ref{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--gold);opacity:.55;margin-bottom:2rem;display:block}
 .didatica{padding:2.5rem;border:1px solid #2a2a2a;border-radius:10px;background:radial-gradient(ellipse at 20% 0%,rgba(74,158,255,.06) 0%,transparent 55%),radial-gradient(ellipse at 80% 0%,rgba(192,132,252,.06) 0%,transparent 55%),linear-gradient(180deg,#080c10,#05080b)}
 .didatica .cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
 @media(max-width:800px){.didatica .cols{grid-template-columns:1fr}}
@@ -214,28 +214,21 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
         <ellipse cx="260" cy="70" rx="95" ry="42" fill="#1e7535" opacity=".9"/>
         <ellipse cx="248" cy="62" rx="55" ry="25" fill="#226638" opacity=".6"/>
         <ellipse cx="260" cy="60" rx="90" ry="38" fill="none" stroke="#0ABAB5" stroke-width=".5" opacity=".14"/>
-
-        <!-- ===== CAJU 1 — orange/yellow, left branch tip — apple on top, nut visible below ===== -->
         <line x1="206" y1="158" x2="206" y2="172" stroke="#1a4a2e" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M 206 172 C 198 174 195 184 197 194 C 199 201 202 204 206 204 C 210 204 213 201 215 194 C 217 184 214 174 206 172 Z" fill="url(#appleA)" stroke="#7a4a10" stroke-width=".4"/>
         <ellipse cx="202" cy="182" rx="2.4" ry="5" fill="#fff0a0" opacity=".55"/>
         <path d="M 199 204 C 194 208 196 216 203 218 C 210 219 215 216 216 211 C 217 207 213 204 208 206 C 204 207 201 204 199 204 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
         <ellipse cx="203" cy="211" rx="1.8" ry=".9" fill="#fff7d6" opacity=".7"/>
-
-        <!-- ===== CAJU 2 — red, right branch tip — apple on top, nut visible below ===== -->
         <line x1="312" y1="156" x2="313" y2="170" stroke="#1a4a2e" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M 313 170 C 305 172 302 182 304 192 C 306 199 309 202 313 202 C 317 202 320 199 322 192 C 324 182 321 172 313 170 Z" fill="url(#appleB)" stroke="#5a1808" stroke-width=".4"/>
         <ellipse cx="309" cy="180" rx="2.4" ry="5" fill="#ff9070" opacity=".5"/>
         <path d="M 306 202 C 301 206 303 214 310 216 C 317 217 322 214 323 209 C 324 205 320 202 315 204 C 311 205 308 202 306 202 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
         <ellipse cx="310" cy="209" rx="1.8" ry=".9" fill="#fff7d6" opacity=".7"/>
-
-        <!-- ===== CAJU 3 — gold, center, smaller — apple on top, nut visible below ===== -->
         <line x1="244" y1="155" x2="242" y2="168" stroke="#1a4a2e" stroke-width="1.2" stroke-linecap="round"/>
         <path d="M 242 168 C 235 170 232 178 234 186 C 236 192 239 194 242 194 C 245 194 248 192 250 186 C 252 178 249 170 242 168 Z" fill="url(#appleC)" stroke="#7a6010" stroke-width=".4"/>
         <ellipse cx="239" cy="176" rx="2" ry="4.2" fill="#fff070" opacity=".5"/>
         <path d="M 236 194 C 232 197 234 204 240 205 C 245 206 249 203 250 199 C 251 196 247 194 243 195 C 240 196 237 194 236 194 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
         <ellipse cx="239" cy="200" rx="1.6" ry=".8" fill="#fff7d6" opacity=".7"/>
-
         <circle cx="260" cy="144" r="5" fill="#0ABAB5" opacity=".82"/>
         <circle cx="260" cy="144" r="11" fill="none" stroke="#0ABAB5" stroke-width=".8" opacity=".3"/>
         <circle cx="260" cy="144" r="20" fill="none" stroke="#0ABAB5" stroke-width=".4" opacity=".14"/>
@@ -264,12 +257,15 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <div class="rule"></div>
 
-<!-- CH1 -->
+<!-- CH1 — PATCH 5: Chapter 1 read link added below ch1-book-ref -->
 <section id="ch1">
   <div class="ch1-inner fade-in">
     <span class="section-tag">Chapter 1 · The Mini-Beast, Vol. III · Principia Orthogona · G6 LLC · 2026</span>
     <h2 class="section-title">O Princípio do Cajueiro<br><span style="font-size:.7em;opacity:.65;font-style:normal">The Cajueiro Principle</span></h2>
     <span class="ch1-book-ref">Free web exhibition · sample chapter · full series: g6llc.gumroad.com · $25-$250 living book access · Volumes I-VI</span>
+    <div style="margin-bottom:2.5rem;margin-top:-.5rem">
+      <a href="cajueiro_chapter1.html" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid var(--teal-line);padding:.5rem 1.2rem;border-radius:2px;display:inline-flex;align-items:center;gap:.6rem;transition:background .2s" onmouseover="this.style.background='rgba(10,186,181,.08)'" onmouseout="this.style.background='transparent'">&#9654; Read Chapter 1 &#8212; The Cajueiro Principle</a>
+    </div>
 
     <div class="didatica">
       <div class="cols">
@@ -313,8 +309,9 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
       </div>
     </div>
 
+    <!-- PATCH 4 applied: Zenodo 19117399 -->
     <div style="margin-top:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.2rem 1.8rem;border:1px solid rgba(200,162,74,.18);border-radius:4px;background:rgba(200,162,74,.03)">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--gold);opacity:.62">The Mini-Beast · Vol. III · Principia Orthogona · ISBN 979-8-9954416-6-3 · Zenodo 10.5281/zenodo.19117400 · G6 LLC</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--gold);opacity:.62">The Mini-Beast · Vol. III · Principia Orthogona · ISBN 979-8-9954416-6-3 · Zenodo 10.5281/zenodo.19117399 · G6 LLC</span>
       <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid var(--teal-line);padding:.5rem 1.1rem;border-radius:2px">Get Volumes I-VI</a>
     </div>
   </div>
@@ -370,7 +367,7 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <div class="rule"></div>
 
-<!-- TWO ASKS -->
+<!-- TWO ASKS — PATCH 1 & 2 applied -->
 <section id="asks" style="position:relative;z-index:2;padding:6rem 5vw;background:#000">
   <div style="max-width:1100px;margin:0 auto" class="fade-in">
     <span class="section-tag">Two things we ask</span>
@@ -399,8 +396,10 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
           <div class="ask-detail mag">Oficina — A Escada de Recorrência — k-nacci to τ = 2</div>
           <div class="ask-detail mag">O Princípio do Cajueiro — academic English for Brazilian researchers</div>
         </div>
-        <a href="https://www.sbm.org.br/bienal" target="_blank" class="btn-ask mag">Register for the Bienal</a>
-        <a href="https://zenodo.org/records/19117400" target="_blank" class="btn-sec" style="border-color:rgba(233,30,140,.3);color:var(--magenta)">Read all submissions</a>
+        <!-- PATCH 1: sbm.org.br/xii-bienal/ -->
+        <a href="https://sbm.org.br/xii-bienal/" target="_blank" class="btn-ask mag">Register for the Bienal</a>
+        <!-- PATCH 2: doi.org/10.5281/zenodo.19117399 -->
+        <a href="https://doi.org/10.5281/zenodo.19117399" target="_blank" class="btn-sec" style="border-color:rgba(233,30,140,.3);color:var(--magenta)">Read all submissions</a>
       </div>
     </div>
   </div>
@@ -415,42 +414,12 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
     <h2 class="section-title">Help us build all three homebases.<br>The moon. The stratosphere. Forest Hill.</h2>
     <p class="section-body" style="max-width:720px;margin-bottom:3rem">The <strong>moon homebase</strong> is <em>Orthogenesis</em> — a Lean 4 / Mathlib project formalising the hexagonal colony model inspired by NASA Moon Base phase architecture. It proves stage invariants, monotone expansion, and neighbor distinctness over axial hex grids. Phases 01–03 are proven (<code>stage_bound</code>, <code>expand_mono</code>, <code>stage_bound_general</code>); Phase 04+ are open. <a href="https://github.com/TOTOGT/geometry" target="_blank" style="color:var(--teal);text-decoration:underline">github.com/TOTOGT/geometry</a>. The <strong>stratospheric homebase</strong> couples to the planet itself: a resonance structure that attaches to the planetary stratosphere via <em>Schumann coupling</em> — the 7.83 Hz fundamental of the Earth-ionosphere cavity, with harmonics at 14.3, 20.8, 27.3 Hz. Civilization-scale antenna geometry, mathematically dual to the Reeb helix in dm³. The <strong>Forest Hill homebase</strong> is the embodied one: 229 Ballantine Pkwy, Newark — a wellness center, a sound studio, a contemplative healing space along the Boonton Line. Three homebases, three colonies, three scales — lunar, planetary, civic — the same g6 cascade the cajueiro reveals. We need contributors for both — and we are actively building the table. <strong style="color:var(--teal-soft)">Corporate sponsors, domain experts, and mission-aligned capital are especially welcome.</strong> The cajueiro principle is built to be carried — into biotech, finance, architecture, nursing, neuroscience, urban planning, climate, AI, the arts. If your field has a stable seed and a difficult soil, there is a chair for you in the roda. All code MIT licensed. All educational materials CC BY 4.0.</p>
     <div class="contrib-grid">
-      <div class="contrib-card">
-        <div class="contrib-icon">&#127807;</div>
-        <div class="contrib-type">Community · Workshops · Newark</div>
-        <div class="contrib-title">Bilingual facilitators</div>
-        <p class="contrib-desc">Portuguese/English facilitators for the Cajueiro Workshops. Newark and Elizabeth NJ. October 2026 – January 2027. Educator, social worker, artist — if you work with immigrant adults or youth in Newark, we want to talk.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="contrib-icon">&#127770;</div>
-        <div class="contrib-type">Lean 4 · Mathlib · NASA Moon Base</div>
-        <div class="contrib-title">Orthogenesis · the moon homebase</div>
-        <p class="contrib-desc">Formal colony architecture in Lean 4 / Mathlib — hexagonal grid, stage invariants, monotone expansion. Phases 01–03 proven; Phase 04+ open. AXLE sorry-codes (FN-A, FN-C…) and the dm³ kappa_lipschitz obligation live alongside it. github.com/TOTOGT/geometry · github.com/TOTOGT/AXLE</p>
-      </div>
-      <div class="contrib-card">
-        <div class="contrib-icon">&#127891;</div>
-        <div class="contrib-type">Domain experts · Pilots · BRIC + US</div>
-        <div class="contrib-title">Experts in other fields</div>
-        <p class="contrib-desc">Carry the cajueiro principle into your discipline — biotech, finance, architecture, nursing, neuroscience, urban planning, climate, AI, music, the arts. The Mini-Beast (Vol. III) has 33 task cycles ready to deploy. Researchers, clinicians, engineers, practitioners, and corporate R&amp;D leads in Brazil, India, Portugal, and the US invited to lead pilots in their field. Co-author the cross-domain volume.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="contrib-icon">&#127968;</div>
-        <div class="contrib-type">Architecture · Urban Planning</div>
-        <div class="contrib-title">Homebase design</div>
-        <p class="contrib-desc">229 Ballantine Pkwy, Forest Hill, Newark. The vision: a wellness center, sound studio, workshop space, and community garden along the Boonton Line greenway corridor. Architects, urban planners, community builders — open call.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="contrib-icon">&#127759;</div>
-        <div class="contrib-type">Schumann coupling · 7.83 Hz · Stratosphere</div>
-        <div class="contrib-title">Stratospheric homebase</div>
-        <p class="contrib-desc">A resonance structure that attaches to the planetary stratosphere via Schumann coupling — the 7.83 Hz fundamental of the Earth-ionosphere cavity. Civilization-scale antenna geometry, dual to the dm³ Reeb helix. RF physicists, atmospheric scientists, antenna engineers, ELF/VLF researchers, and aerospace partners invited. Translation roadmap (PT, RU, HI, ZH, ES, AR, BN, TA — 40 languages, CC BY 4.0) carries the structure across borders.</p>
-      </div>
-      <div class="contrib-card">
-        <div class="contrib-icon">&#128200;</div>
-        <div class="contrib-type">Sponsors · Foundations · Corporate · Government</div>
-        <div class="contrib-title">Corporate sponsors &amp; institutional partners</div>
-        <p class="contrib-desc">Mission-aligned capital welcome. Newark Arts ArtStart applied; NYFA fiscal sponsorship pending; NJSCA fellowship June 2026; Dodge Foundation LOI July 2026; NSF DRL Q3 2026. <strong>Corporations, foundations, family offices, universities, aerospace and biotech partners, government and civic agencies</strong> — sponsor a workshop, name a phase of the moon homebase, fund the Forest Hill build, underwrite a Schumann coupling experiment. grossiatwork@gmail.com</p>
-      </div>
+      <div class="contrib-card"><div class="contrib-icon">&#127807;</div><div class="contrib-type">Community · Workshops · Newark</div><div class="contrib-title">Bilingual facilitators</div><p class="contrib-desc">Portuguese/English facilitators for the Cajueiro Workshops. Newark and Elizabeth NJ. October 2026 – January 2027. Educator, social worker, artist — if you work with immigrant adults or youth in Newark, we want to talk.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">&#127770;</div><div class="contrib-type">Lean 4 · Mathlib · NASA Moon Base</div><div class="contrib-title">Orthogenesis · the moon homebase</div><p class="contrib-desc">Formal colony architecture in Lean 4 / Mathlib — hexagonal grid, stage invariants, monotone expansion. Phases 01–03 proven; Phase 04+ open. AXLE sorry-codes (FN-A, FN-C…) and the dm³ kappa_lipschitz obligation live alongside it. github.com/TOTOGT/geometry · github.com/TOTOGT/AXLE</p></div>
+      <div class="contrib-card"><div class="contrib-icon">&#127891;</div><div class="contrib-type">Domain experts · Pilots · BRIC + US</div><div class="contrib-title">Experts in other fields</div><p class="contrib-desc">Carry the cajueiro principle into your discipline — biotech, finance, architecture, nursing, neuroscience, urban planning, climate, AI, music, the arts. The Mini-Beast (Vol. III) has 33 task cycles ready to deploy. Researchers, clinicians, engineers, practitioners, and corporate R&amp;D leads in Brazil, India, Portugal, and the US invited to lead pilots in their field. Co-author the cross-domain volume.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">&#127968;</div><div class="contrib-type">Architecture · Urban Planning</div><div class="contrib-title">Homebase design</div><p class="contrib-desc">229 Ballantine Pkwy, Forest Hill, Newark. The vision: a wellness center, sound studio, workshop space, and community garden along the Boonton Line greenway corridor. Architects, urban planners, community builders — open call.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">&#127759;</div><div class="contrib-type">Schumann coupling · 7.83 Hz · Stratosphere</div><div class="contrib-title">Stratospheric homebase</div><p class="contrib-desc">A resonance structure that attaches to the planetary stratosphere via Schumann coupling — the 7.83 Hz fundamental of the Earth-ionosphere cavity. Civilization-scale antenna geometry, dual to the dm³ Reeb helix. RF physicists, atmospheric scientists, antenna engineers, ELF/VLF researchers, and aerospace partners invited. Translation roadmap (PT, RU, HI, ZH, ES, AR, BN, TA — 40 languages, CC BY 4.0) carries the structure across borders.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">&#128200;</div><div class="contrib-type">Sponsors · Foundations · Corporate · Government</div><div class="contrib-title">Corporate sponsors &amp; institutional partners</div><p class="contrib-desc">Mission-aligned capital welcome. Newark Arts ArtStart applied; NYFA fiscal sponsorship pending; NJSCA fellowship June 2026; Dodge Foundation LOI July 2026; NSF DRL Q3 2026. <strong>Corporations, foundations, family offices, universities, aerospace and biotech partners, government and civic agencies</strong> — sponsor a workshop, name a phase of the moon homebase, fund the Forest Hill build, underwrite a Schumann coupling experiment. grossiatwork@gmail.com</p></div>
     </div>
     <div style="text-align:center;margin-top:2.5rem">
       <p class="section-body" style="margin-bottom:1rem">Every contributor is a new root. Every root becomes a trunk.</p>
@@ -468,65 +437,23 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
     <span class="section-tag">Funder pack · diligence materials</span>
     <h2 class="section-title">Everything a funder needs in one place.</h2>
     <p class="section-body" style="max-width:62ch;margin-bottom:2.5rem">Project lead bio, NYFA-aligned budgets, the formal mathematical foundation, and the dm³ phase portraits that anchor the soundworks. Open the files below — they live in this fundraiser folder, alongside this page.</p>
-
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(10,186,181,.18);border:1px solid rgba(10,186,181,.18);border-radius:6px;overflow:hidden">
-
       <div style="display:flex;flex-direction:column;background:#040c08;transition:background .2s">
         <a href="Pablo_Grossi_Bio_ProjectLeader.docx" style="display:block;padding:1.6rem 1.4rem 1rem;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='transparent'">
           <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.docx · project lead</div>
           <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Pablo Grossi — bio</div>
           <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Project leader biography, lineage, and qualifications for the NYFA fiscal-sponsorship review.</div>
         </a>
-        <a href="https://www.linkedin.com/in/grossi" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.4rem 1rem;text-decoration:none;color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;border-top:1px solid rgba(10,186,181,.15);opacity:.85;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'">
-          <span>linkedin.com/in/grossi</span>
-          <span style="opacity:.5">→</span>
-        </a>
+        <a href="https://www.linkedin.com/in/grossi" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.4rem 1rem;text-decoration:none;color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;border-top:1px solid rgba(10,186,181,.15);opacity:.85;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'"><span>linkedin.com/in/grossi</span><span style="opacity:.5">→</span></a>
       </div>
-
-      <a href="NYFA_IncomeBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · income</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Income budget</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">NYFA-format income side: confirmed, applied, and pipeline funding for 2026–27.</div>
-      </a>
-
-      <a href="NYFA_ExpenseBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · expense</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Expense budget</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Programme costs: facilitation, soundworks build, Forest Hill homebase architecture, documentation.</div>
-      </a>
-
-      <a href="principia_orthogona_NPB_refs_resolved.pdf" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.pdf · monograph</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Principia Orthogona</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">The formal foundation. <em>G = U ∘ F ∘ K ∘ C.</em> Bibliography resolved, references cross-checked.</div>
-      </a>
-
-      <a href="dm3_phase_portrait.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Phase portrait</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">The dm³ ODE field — the geometric source of the Reeb-helix and 111 Hz layers.</div>
-      </a>
-
-      <a href="dm3_basin.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Basin of attraction</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Stability radius for the limit cycle — the "minimum stable condition" made visible.</div>
-      </a>
-
-      <a href="dm3_epsilon_vs_z.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">ε vs z</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Decay envelope along the depth axis — the cascade of recurrence over scale.</div>
-      </a>
-
-      <a href="dm3_numerical_summary.txt" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.txt · dm³ data</div>
-        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Numerical summary</div>
-        <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Integration parameters, fixed points, period — the numbers behind the figures.</div>
-      </a>
-
+      <a href="NYFA_IncomeBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · income</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Income budget</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">NYFA-format income side: confirmed, applied, and pipeline funding for 2026–27.</div></a>
+      <a href="NYFA_ExpenseBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · expense</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Expense budget</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Programme costs: facilitation, soundworks build, Forest Hill homebase architecture, documentation.</div></a>
+      <a href="principia_orthogona_NPB_refs_resolved.pdf" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.pdf · monograph</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Principia Orthogona</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">The formal foundation. <em>G = U ∘ F ∘ K ∘ C.</em> Bibliography resolved, references cross-checked.</div></a>
+      <a href="dm3_phase_portrait.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Phase portrait</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">The dm³ ODE field — the geometric source of the Reeb-helix and 111 Hz layers.</div></a>
+      <a href="dm3_basin.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Basin of attraction</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Stability radius for the limit cycle — the "minimum stable condition" made visible.</div></a>
+      <a href="dm3_epsilon_vs_z.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">ε vs z</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Decay envelope along the depth axis — the cascade of recurrence over scale.</div></a>
+      <a href="dm3_numerical_summary.txt" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.txt · dm³ data</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Numerical summary</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Integration parameters, fixed points, period — the numbers behind the figures.</div></a>
     </div>
-
     <p style="margin-top:2rem;font-size:.92rem;color:var(--muted);opacity:.7;font-style:italic">All materials live in the same NYFA fundraiser folder as this page. Reviewers can clone the folder and open every file locally — no portal logins, no broken links.</p>
   </div>
 </section>
@@ -539,18 +466,16 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
     <span class="section-tag">Network · the larger project</span>
     <h2 class="section-title">The cajueiro is a network of pages.</h2>
     <p class="section-body" style="max-width:62ch;margin-bottom:2.5rem">This NYFA landing page is one node. Around it: the bilingual student edition, the cymatics lab, the soundworks engine, the Lean 4 moon-base formalisation, and the source repos. Every link below opens another part of the same organism.</p>
-
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2rem">
-
       <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">In this folder</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
+          <li><a href="cajueiro_chapter1.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Chapter 1 — The Cajueiro Principle</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Seed text, recognition, bridge, mathematics, tasks.</span></li>
           <li><a href="GTCT_V_Student_Edition.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">GTCT V — Student Edition</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Bilingual exhibition didactics, Volume V.</span></li>
           <li><a href="berimbau_cymatics.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Berimbau cymatics</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Standing-wave atlas of the berimbau — the acoustic instrument behind the soundworks.</span></li>
           <li><a href="preview_didatica.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Preview · didática</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Pedagogical preview — the four faces (C · K · F · U) for visiting funders.</span></li>
         </ul>
       </div>
-
       <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">Live · GitHub Pages</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
@@ -559,7 +484,6 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
           <li><a href="https://totogt.github.io/geometry" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">totogt.github.io/geometry</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Orthogenesis · Lean 4 hexagonal colony model — the moon homebase architecture.</span></li>
         </ul>
       </div>
-
       <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">Source · repos</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
@@ -569,9 +493,7 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
           <li><a href="https://github.com/DM3-lab" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">github.com/DM3-lab</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">dm³ Lab — the ODE engine, phase portraits, and basin-stability tooling.</span></li>
         </ul>
       </div>
-
     </div>
-
     <p style="font-size:.92rem;color:var(--muted);opacity:.7;font-style:italic;max-width:62ch">All code MIT-licensed. All educational materials CC BY 4.0. The network is the work — every node strengthens every other node.</p>
   </div>
 </section>
@@ -609,10 +531,6 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
   <p class="boonton-body">The former Delaware, Lackawanna &amp; Western Railroad Boonton Line. Passenger service abandoned in 2002. Proposed as the Ice &amp; Iron Greenway — Montclair to Jersey City waterfront, through Glen Ridge, Bloomfield, Belleville, Newark North Ward, Kearny. The Tiffany &amp; Co. factory stood at Forest Hill station. The homebase is planned for Forest Hill. The walk between them is the operator.</p>
   <p class="boonton-line">One day we hope to walk the line.</p>
 </div>
-<!-- ================================================================
-  CONFIDENTIAL PRESS PACKAGE · G6 LLC · Newark NJ · 2026
-  Drop into the Cajueiro page. Self-contained — uses host CSS variables.
-  ================================================================ -->
 
 <style>
 #article{position:relative;z-index:2;padding:7rem 5vw;background:linear-gradient(180deg,#030a08,#040e0a)}
@@ -648,90 +566,40 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <section id="article">
   <div class="article-inner fade-in">
-
     <span class="article-kicker">The case for this work · G6 LLC · Newark NJ · 2026</span>
-
-    <h2 class="article-headline">
-      The pattern is everywhere.<br>
-      <em>Nobody is connecting the dots.</em>
-    </h2>
-
-    <p class="article-deck">
-      A geologist, an economist, a mycologist, and a nurse are each looking at the same curve. They have different names for it, different journals, different funding streams, different professional bodies that will not speak to each other. The cajueiro has been doing what they are all trying to describe — for centuries, alone, in difficult soil — and nobody asked it.
-    </p>
-
+    <h2 class="article-headline">The pattern is everywhere.<br><em>Nobody is connecting the dots.</em></h2>
+    <p class="article-deck">A geologist, an economist, a mycologist, and a nurse are each looking at the same curve. They have different names for it, different journals, different funding streams, different professional bodies that will not speak to each other. The cajueiro has been doing what they are all trying to describe — for centuries, alone, in difficult soil — and nobody asked it.</p>
     <div class="article-body">
-
-      <p>
-        There is a structure that appears, with remarkable fidelity, across dissipative systems at every scale: a seed compresses to a minimum viable condition, encounters resistance, overshoots, folds back, locks into a new stable band, and begins again. Geologists call it a fold. Economists call it a Kondratieff wave. Ecologists call it succession. Nurses call it a healing crisis. Mathematicians — very few of them — call it a limit cycle on a contact manifold. <strong>They are all describing the same operator chain. None of them know it.</strong>
-      </p>
-
-      <p>
-        This is not an academic observation. It is a structural failure with real costs. When the immunologist and the urban planner cannot read each other's work, cities get designed without immune-system logic. When the economist and the ecologist cannot share a mathematical grammar, climate models do not talk to market models. When the nurse at the bedside has no formal language for the pattern she recognizes every day in patient recovery — the overshoot, the resistance, the new lock point — her knowledge stays in her hands and dies with her retirement. <strong>The cost of this fragmentation is not measured in papers. It is measured in decisions made without the right frame.</strong>
-      </p>
-
-      <div class="article-pullquote">
-        The cajueiro is one organism. Eight thousand five hundred square metres. It did not plan the canopy. It compressed to a seed, touched the ground, re-rooted, became new trunks — each branch a new g6, each g6 tending toward its own g64. The forest is the proof.
-        <cite>— Principia Orthogona, Vol. III, Ch. 1</cite>
-      </div>
-
+      <p>There is a structure that appears, with remarkable fidelity, across dissipative systems at every scale: a seed compresses to a minimum viable condition, encounters resistance, overshoots, folds back, locks into a new stable band, and begins again. Geologists call it a fold. Economists call it a Kondratieff wave. Ecologists call it succession. Nurses call it a healing crisis. Mathematicians — very few of them — call it a limit cycle on a contact manifold. <strong>They are all describing the same operator chain. None of them know it.</strong></p>
+      <p>This is not an academic observation. It is a structural failure with real costs. When the immunologist and the urban planner cannot read each other's work, cities get designed without immune-system logic. When the economist and the ecologist cannot share a mathematical grammar, climate models do not talk to market models. When the nurse at the bedside has no formal language for the pattern she recognizes every day in patient recovery — the overshoot, the resistance, the new lock point — her knowledge stays in her hands and dies with her retirement. <strong>The cost of this fragmentation is not measured in papers. It is measured in decisions made without the right frame.</strong></p>
+      <div class="article-pullquote">The cajueiro is one organism. Eight thousand five hundred square metres. It did not plan the canopy. It compressed to a seed, touched the ground, re-rooted, became new trunks — each branch a new g6, each g6 tending toward its own g64. The forest is the proof.<cite>— Principia Orthogona, Vol. III, Ch. 1</cite></div>
       <div class="article-section-break"></div>
-
       <div class="article-subhead">The mathematics exists. It is not being used.</div>
-
-      <p>
-        The Principia Orthogona series — now spanning approximately forty volumes — formalizes this structure as Generative Orthogonal Matrix Compression Science (GOMC), operating through the operator chain <strong>C → K → F → U</strong> on contact manifolds, with a canonical invariant triple (T*, μmax, τ). The dm³ operator algebra provides a classical, falsifiable, computationally tractable framework for dissipative oscillatory systems. Phase portraits have been generated. Limit cycles have been integrated numerically. Stability radii have been computed. Lean 4 formalizations of the colony architecture are partially proven, with open obligations clearly marked. <strong>This is not speculative. It is unfinished — and it is unfinished because one researcher, working independently in Newark, New Jersey, cannot do in isolation what a properly resourced research program would require.</strong>
-      </p>
-
-      <p>
-        The Cajueiro de Pirangi — the largest cashew tree on Earth, one organism covering 8,500 square metres on the coast of Rio Grande do Norte — was not planted by an institution. It was not funded. It grew because the structure demanded it. But the work of <em>formalizing</em> that structure, of building the mathematical bridge that lets the immunologist and the urban planner and the nurse and the geologist finally read each other, requires resources that informal growth cannot provide. It requires a homebase. It requires time. It requires collaborators who are not yet in the room.
-      </p>
-
+      <p>The Principia Orthogona series — now spanning approximately forty volumes — formalizes this structure as Generative Orthogonal Matrix Compression Science (GOMC), operating through the operator chain <strong>C → K → F → U</strong> on contact manifolds, with a canonical invariant triple (T*, μmax, τ). The dm³ operator algebra provides a classical, falsifiable, computationally tractable framework for dissipative oscillatory systems. Phase portraits have been generated. Limit cycles have been integrated numerically. Stability radii have been computed. Lean 4 formalizations of the colony architecture are partially proven, with open obligations clearly marked. <strong>This is not speculative. It is unfinished — and it is unfinished because one researcher, working independently in Newark, New Jersey, cannot do in isolation what a properly resourced research program would require.</strong></p>
+      <p>The Cajueiro de Pirangi — the largest cashew tree on Earth, one organism covering 8,500 square metres on the coast of Rio Grande do Norte — was not planted by an institution. It was not funded. It grew because the structure demanded it. But the work of <em>formalizing</em> that structure, of building the mathematical bridge that lets the immunologist and the urban planner and the nurse and the geologist finally read each other, requires resources that informal growth cannot provide. It requires a homebase. It requires time. It requires collaborators who are not yet in the room.</p>
       <div class="article-section-break"></div>
-
       <div class="article-subhead">What is being asked — and why now.</div>
-
-      <p>
-        The XII Bienal of the Brazilian Mathematical Society meets in Natal, twenty kilometres from Pirangi, in August 2026. Five bilingual submissions are prepared. The Uceda School of Elizabeth has confirmed a venue for the Cajueiro installation in November. The NYFA fiscal sponsorship is pending. The Lean 4 moon-base formalization has three proven phases and open obligations that need collaborators. <strong>The window is not abstract. The window is this year.</strong>
-      </p>
-
-      <p>
-        What is being built is not a research paper. It is an infrastructure: a mathematical grammar shared across disciplines, embodied in a walking meditation through Newark's North Ward, anchored in a homebase that is also a wellness center, a sound studio, and a community space along a former railroad line named for an American silver factory. The formal and the embodied in the same building, on the same block, for the same community — immigrant adults, English-language learners, mathematicians, nurses, architects, the people who do not yet have a word for the pattern they already recognize.
-      </p>
-
-      <p>
-        <strong>The pattern is not missing. The language is missing. The infrastructure is missing. The funding is missing.</strong> The cajueiro principle is the argument that these three absences are one absence — and that solving them together, in one place, with one coherent mathematical framework, is both possible and urgent.
-      </p>
-
-      <p>
-        The root is in the ground. The question is whether the canopy gets to grow.
-      </p>
-
+      <p>The XII Bienal of the Brazilian Mathematical Society meets in Natal, twenty kilometres from Pirangi, in August 2026. Five bilingual submissions are prepared. The Uceda School of Elizabeth has confirmed a venue for the Cajueiro installation in November. The NYFA fiscal sponsorship is pending. The Lean 4 moon-base formalization has three proven phases and open obligations that need collaborators. <strong>The window is not abstract. The window is this year.</strong></p>
+      <p>What is being built is not a research paper. It is an infrastructure: a mathematical grammar shared across disciplines, embodied in a walking meditation through Newark's North Ward, anchored in a homebase that is also a wellness center, a sound studio, and a community space along a former railroad line named for an American silver factory. The formal and the embodied in the same building, on the same block, for the same community — immigrant adults, English-language learners, mathematicians, nurses, architects, the people who do not yet have a word for the pattern they already recognize.</p>
+      <p><strong>The pattern is not missing. The language is missing. The infrastructure is missing. The funding is missing.</strong> The cajueiro principle is the argument that these three absences are one absence — and that solving them together, in one place, with one coherent mathematical framework, is both possible and urgent.</p>
+      <p>The root is in the ground. The question is whether the canopy gets to grow.</p>
     </div>
-
+    <!-- PATCH 3: Zenodo DOI 19117399 -->
     <div class="article-coda">
-      <p>
-        <strong>G6 LLC</strong> · EIN 33-2880433 · Fiscal sponsor: New York Foundation for the Arts (NYFA) ·
-        ORCID 0009-0000-6496-2186 · Zenodo DOI 10.5281/zenodo.19117400 · ISBN 979-8-9954416-0-1<br>
-        Institutional inquiries, co-authorship, and sponsorship: <strong>grossiatwork@gmail.com</strong>
-      </p>
+      <p><strong>G6 LLC</strong> · EIN 33-2880433 · Fiscal sponsor: New York Foundation for the Arts (NYFA) · ORCID 0009-0000-6496-2186 · Zenodo DOI 10.5281/zenodo.19117399 · ISBN 979-8-9954416-0-1<br>Institutional inquiries, co-authorship, and sponsorship: <strong>grossiatwork@gmail.com</strong></p>
     </div>
-
     <div class="article-video-wrap fade-in">
       <span class="video-label">same pattern — different substrate — nobody talking</span>
       <a href="https://www.getyarn.io/yarn-clip/0f900550-e5f7-4494-a6ff-63649d0502d4" target="_blank" rel="noopener" class="article-clip-link">
         <span class="clip-play">&#9654;</span>
-        <span class="clip-text">
-          <span class="clip-title">Watch the clip</span>
-          <span class="clip-sub">getyarn.io · opens in new tab</span>
-        </span>
+        <span class="clip-text"><span class="clip-title">Watch the clip</span><span class="clip-sub">getyarn.io · opens in new tab</span></span>
         <span class="clip-arrow">→</span>
       </a>
       <p class="video-caption">This is what it looks like when people who study the same structure have never been in the same room.</p>
     </div>
-
   </div>
 </section>
+
 <footer>
   <p class="footer-copy">
     copyright 2026 Pablo Nogueira Grossi — G6 LLC · MIT License (code) · CC BY 4.0 (educational materials)<br>
