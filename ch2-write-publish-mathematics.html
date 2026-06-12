@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 2 — How to Write and Publish Mathematics | Principia Orthogona · G6 LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #1a1a1a;
+    --paper:  #f5f2eb;
+    --cream:  #ede9df;
+    --rust:   #b5401a;
+    --teal:   #1a6b5a;
+    --gold:   #c8973a;
+    --muted:  #6b6459;
+    --rule:   #c8b99a;
+    --mono:   'IBM Plex Mono', monospace;
+    --sans:   'IBM Plex Sans', sans-serif;
+    --serif:  'Playfair Display', Georgia, serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 40px;
+    display: flex;
+    gap: 32px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: var(--cream);
+    flex-wrap: wrap;
+  }
+  nav a { color: var(--teal); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  header {
+    padding: 64px 40px 48px;
+    border-bottom: 2px solid var(--ink);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .chapter-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 5vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  h1 em { font-style: italic; color: var(--teal); }
+  .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .tag.highlight { background: var(--teal); color: white; border-color: var(--teal); }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  .principle {
+    border-left: 4px solid var(--teal);
+    padding: 24px 28px;
+    margin: 48px 0 40px;
+    background: var(--cream);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--teal);
+  }
+  .stage {
+    margin: 48px 0 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+  .stage-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .stage-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .stage-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .stage-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 28px 0 12px;
+  }
+  p { margin-bottom: 14px; }
+  ol, ul { padding-left: 20px; margin-bottom: 14px; }
+  li { margin-bottom: 8px; font-size: 15px; line-height: 1.6; }
+  .mit-quote {
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    background: white;
+    padding: 20px 28px;
+    margin: 24px 0;
+  }
+  .mit-quote-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .mit-quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+  }
+  .mit-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    font-style: normal;
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .compare th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 10px 16px;
+    font-weight: 400;
+  }
+  .compare th:first-child { background: var(--ink); color: white; }
+  .compare th:nth-child(2) { background: var(--teal); color: white; }
+  .compare th:nth-child(3) { background: var(--rust); color: white; }
+  .compare td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .compare tr:last-child td { border-bottom: none; }
+  .compare td:first-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--cream);
+    white-space: nowrap;
+  }
+  .compare td:nth-child(2) { color: var(--teal); font-size: 13px; }
+  .compare td:nth-child(3) { color: var(--rust); font-size: 13px; }
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .vocab-table th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 8px 14px;
+    background: var(--teal);
+    color: white;
+    font-weight: 400;
+  }
+  .vocab-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .vocab-table tr:nth-child(even) td { background: var(--cream); }
+  .vocab-table td:first-child {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .callout {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+  .callout strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .honest {
+    background: var(--ink);
+    color: white;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .honest-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .honest p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #f0ece3;
+    margin-bottom: 10px;
+  }
+  .honest p:last-child { margin: 0; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card {
+    border: 1px solid var(--rule);
+    padding: 20px;
+    background: white;
+  }
+  .card-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+  .card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rule);
+    margin: 20px 0;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    background: var(--teal);
+    color: white;
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .step-content { padding: 16px 20px; }
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .step-content .cohn {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    margin: 6px 0 4px;
+  }
+  .step-content .teacher {
+    font-size: 13px;
+    color: var(--teal);
+    margin: 0;
+  }
+  .timing {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+  .timing th {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-align: left;
+    padding: 8px 16px;
+    background: var(--ink);
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+  .timing td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .timing td:last-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+  }
+  tr.total td {
+    font-weight: 600;
+    background: var(--cream);
+    border-top: 2px solid var(--ink);
+  }
+  .support {
+    margin: 48px 0 0;
+    padding: 28px 32px;
+    border: 2px solid var(--teal);
+    text-align: center;
+  }
+  .support p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .support-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid currentColor;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--teal); color: white; border-color: var(--teal); }
+  .btn-secondary { color: var(--teal); }
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+  code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--cream);
+    padding: 2px 6px;
+    border: 1px solid var(--rule);
+    color: var(--rust);
+  }
+  @media (max-width: 600px) {
+    nav { padding: 12px 20px; gap: 16px; }
+    header, main, footer { padding-left: 20px; padding-right: 20px; }
+    .step { grid-template-columns: 44px 1fr; }
+    .compare { font-size: 12px; }
+    .compare td, .compare th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://totogt.github.io/AXLE/index.html">← PRINCIPIA ORTHOGONA</a>
+  <a href="https://totogt.github.io/AXLE/portal.html">Student Portal</a>
+  <a href="https://totogt.github.io/AXLE/assignments/lessons/index.html">Lessons</a>
+  <a href="https://totogt.github.io/AXLE/assignments/lessons/ch0.html">Ch 0 — Credentials</a>
+  <a href="https://totogt.github.io/AXLE/assignments/lessons/index.html#lesson-01">Ch 1 — Vitruvian</a>
+  <a href="https://grossi-ops.github.io/Atratores">Cajueiro Project</a>
+</nav>
+<header>
+  <div class="chapter-label">Chapter 2 · After the First Paper</div>
+  <h1>How to Write and <em>Publish Mathematics</em></h1>
+  <p class="subtitle">
+    Advice from MIT. Evidence from Newark. — G6 LLC · Forest Hill, Newark NJ · Adult ESL
+  </p>
+  <div style="margin-top: 24px; font-size: 15px; max-width: 640px; color: var(--muted);">
+    A researcher at MIT wrote a page of advice for independent mathematicians.
+    Your teacher, living in Newark's Forest Hill neighborhood, followed it.
+    This lesson reads the advice and studies what happened — step by step,
+    honestly, including the parts that are still unfinished.
+  </div>
+  <div class="meta-row">
+    <span class="tag highlight">B2–C1</span>
+    <span class="tag">90 min</span>
+    <span class="tag">Reading · Speaking · Writing</span>
+    <span class="tag">Academic English · Research Skills</span>
+    <span class="tag">Critical Thinking</span>
+  </div>
+</header>
+<main>
+  <div class="principle">
+    "There's no reason why amateurs can't make worthwhile research
+    contributions in mathematics. It has happened many times in the past,
+    and I know of several cases today."
+    <br><br>
+    — Henry Cohn, Principal Researcher, Microsoft Research New England
+    &amp; MIT Department of Mathematics
+  </div>
+  <!-- ── OVERVIEW ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">OVERVIEW</span>
+      <span class="stage-title">Two People. One Page of Advice.</span>
+    </div>
+    <p>Henry Cohn is a mathematician at MIT and Microsoft Research. He wrote a page of advice for independent mathematicians — people who do research without a university position, without a laboratory, without a department to support them.</p>
+    <p>Your teacher, Pablo Nogueira Grossi, is one of those people. He lives in the Forest Hill neighborhood of Newark's North Ward. He teaches ESL at Uceda School of Elizabeth. He has no university position. He follows Cohn's advice — every step of it.</p>
+    <p>In this lesson you will read Cohn's advice and study your teacher's work as the live example. Every point Cohn makes, your teacher has either done or is doing right now.</p>
+    <p>Including waiting. We will talk about waiting.</p>
+    <div class="mit-quote">
+      <div class="mit-quote-label">Source — cohn.mit.edu/advice</div>
+      <p>"I don't have time to offer a lot of personal advice and guidance, but I figured I'd post some general advice here. None of this advice is specific to amateurs, but professionals already learn all these things from their advisors."</p>
+      <cite>— Henry Cohn, MIT</cite>
+    </div>
+    <p>You are reading what professionals learn from their advisors. You do not have an advisor. You have this lesson.</p>
+  </div>
+  <!-- ── VOCAB ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 1</span>
+      <span class="stage-title">Vocabulary</span>
+    </div>
+    <div class="stage-meta">10 minutes</div>
+    <table class="vocab-table">
+      <tr><th>Word</th><th>Meaning</th><th>In this lesson</th></tr>
+      <tr>
+        <td>amateur</td>
+        <td>someone who does something seriously without being paid professionally for it</td>
+        <td>"Cohn says amateurs can contribute to mathematics."</td>
+      </tr>
+      <tr>
+        <td>track record</td>
+        <td>a history of past work that shows you can do what you claim</td>
+        <td>"Your teacher built a track record by publishing on Zenodo first."</td>
+      </tr>
+      <tr>
+        <td>terminology</td>
+        <td>the specific words used in a field or subject</td>
+        <td>"Use standard mathematical terminology, not your own invented words."</td>
+      </tr>
+      <tr>
+        <td>referee</td>
+        <td>an expert who reads a paper before it is published and decides if it is correct</td>
+        <td>"The referee's report may take months to arrive."</td>
+      </tr>
+      <tr>
+        <td>submit</td>
+        <td>to send a paper to a journal for review and possible publication</td>
+        <td>"Your teacher submitted his paper to Nuclear Physics B."</td>
+      </tr>
+      <tr>
+        <td>reject / accept</td>
+        <td>what a journal does with a submitted paper</td>
+        <td>"Rejection is normal. Many good papers are rejected before they are published."</td>
+      </tr>
+      <tr>
+        <td>feedback</td>
+        <td>comments and criticism from others that help you improve your work</td>
+        <td>"Lean 4 gives machine-checked feedback on every proof."</td>
+      </tr>
+      <tr>
+        <td>affiliation</td>
+        <td>the institution or organization you are connected to as a researcher</td>
+        <td>"Your teacher's affiliation is G6 LLC, Newark, NJ."</td>
+      </tr>
+      <tr>
+        <td>LaTeX</td>
+        <td>a system for writing mathematical papers with professional formatting</td>
+        <td>"All volumes of Principia Orthogona were written in LaTeX."</td>
+      </tr>
+      <tr>
+        <td>conjecture</td>
+        <td>a mathematical statement believed to be true but not yet proved</td>
+        <td>"Honestly marking a sorry means: this is a conjecture, not a theorem."</td>
+      </tr>
+    </table>
+  </div>
+  <!-- ── COHN VS TEACHER ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 2</span>
+      <span class="stage-title">Cohn's Advice — Your Teacher's Example</span>
+    </div>
+    <div class="stage-meta">20 minutes · Read, then discuss each row</div>
+    <p>Read each piece of Cohn's advice. Then read what your teacher did. Discuss: did your teacher follow the advice? How?</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Develop a track record</strong>
+          <p class="cohn">"If you appear out of nowhere claiming to have solved a famous open problem, nobody will pay any attention. You need to develop a track record that separates you from the cranks."</p>
+          <p class="teacher">→ Teacher's track record: Principia Orthogona Volumes I–VI published on Zenodo. DOI: 10.5281/zenodo.19117400. Presented at Sociedade Brasileira de Matemática, Natal, Brazil, 2026. Formal Lean 4 proof: zero axioms beyond Mathlib4, zero sorry. GitHub: github.com/TOTOGT/GTCT.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Use standard terminology</strong>
+          <p class="cohn">"It's amazing how many people introduce their own terminology. Even when it's objectively better, doing this will just make it less likely that anyone will actually read your work."</p>
+          <p class="teacher">→ Teacher's choice: contact geometry, helical attractors, Lipschitz maps, SL(3,ℤ) companion matrix — all standard terms. The GTCT framework uses its own names (G-chain, g-series) only for new concepts, always defined carefully alongside the standard vocabulary.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Search the literature</strong>
+          <p class="cohn">"If you're not using MathSciNet, and you're not already an expert on the literature, then you have no idea what's out there."</p>
+          <p class="teacher">→ Teacher's approach: Mathlib4 (the world's largest formal mathematics library) serves as both the literature and the verification engine. Every theorem in the GTCT Lean formalization is built on Mathlib4. The Navrátil (Zenodo 18937195) synthesis connects the framework to particle physics literature including PDG 2022 and Planck 2018.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Write a clear introduction</strong>
+          <p class="cohn">"Think of the introduction as laying out the case for why the paper should be published and, later, why it should be read. Don't brag or exaggerate. Do it implicitly just by explaining the ideas and context."</p>
+          <p class="teacher">→ Teacher's introduction style: every volume of Principia Orthogona opens with a statement of what is known, what is claimed, what is honestly marked sorry, and what remains open. No overclaiming. The GCTC_REVIEW.md documents a correction — a previously wrong theorem — publicly, in the repository.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Use LaTeX</strong>
+          <p class="cohn">"If possible, you should write your paper using LaTeX. Almost all research papers in mathematics use LaTeX."</p>
+          <p class="teacher">→ Teacher's tools: all Principia Orthogona volumes written in LaTeX. Lean 4 for formal proofs — a language that is simultaneously code and mathematics. Both are professional standards in their respective communities.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>Get feedback before submitting</strong>
+          <p class="cohn">"You need to get feedback from friends or colleagues. This is a crucial step for clearing up ambiguities. If you haven't already fixed most of these problems before submission, you're making things unnecessarily hard for the referees."</p>
+          <p class="teacher">→ Teacher's feedback method: Lean 4 provides machine-checked feedback on every proof. If the proof compiles with zero sorry and zero error, the logic is correct. <code>lake build ✔ [1733/1734] Built GCTC</code>. The machine is the collaborator.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <strong>Submit professionally — and wait</strong>
+          <p class="cohn">"When a paper has been sent to referees, you may well have to wait months to hear back. Once six months have passed it may be reasonable to inquire about the status."</p>
+          <p class="teacher">→ Teacher's submissions: Volumes I &amp; II transferred to Nuclear Physics B (Elsevier). GCM submitted to Journal of Geometric Mechanics. dm³ toy model submitted to SIAM Journal on Applied Dynamical Systems. Status: waiting. That is not failure. That is the process.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── HONEST MOMENT ── -->
+  <div class="honest">
+    <div class="honest-label">The Honest Moment</div>
+    <p>"Your teacher submitted to Nuclear Physics B. He is still waiting. He submitted to the Journal of Geometric Mechanics. He is still waiting. He submitted to SIAM. He is still waiting."</p>
+    <p>"This is what research looks like from the inside. Not the finished paper. The waiting."</p>
+    <p>"Cohn says six months is when you may inquire. Your teacher is still inside that window. The work is done. The world takes time to notice."</p>
+  </div>
+  <!-- ── THE AFFILIATION QUESTION ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 3</span>
+      <span class="stage-title">The Affiliation Question</span>
+    </div>
+    <div class="stage-meta">10 minutes · Read and discuss</div>
+    <p>Every research paper requires an affiliation — the institution or organization the author represents. Most mathematicians write "Department of Mathematics, Harvard University" or "MIT CSAIL."</p>
+    <p>Your teacher writes: <strong>G6 LLC, Newark NJ 07104.</strong></p>
+    <p>That is a single-member limited liability company he registered himself. EIN: 33-2880433. One member: Pablo Nogueira Grossi. That is the affiliation on papers submitted to Nuclear Physics B.</p>
+    <div class="mit-quote">
+      <div class="mit-quote-label">From Cohn's advice</div>
+      <p>"There's no reason why amateurs can't make worthwhile research contributions in mathematics. It has happened many times in the past, and I know of several cases today."</p>
+      <cite>— Henry Cohn, MIT</cite>
+    </div>
+    <h3>Discussion — pairs, 5 minutes</h3>
+    <ol>
+      <li>What is your affiliation right now? Where do you work, study, or live?</li>
+      <li>Could that be the affiliation on a research paper? Why or why not?</li>
+      <li>What does it mean that a paper from "G6 LLC, Newark NJ" was submitted to Nuclear Physics B — the same journal that published discoveries about the Higgs boson?</li>
+    </ol>
+  </div>
+  <!-- ── READING: THE COHN PAGE ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 4</span>
+      <span class="stage-title">Close Reading — Cohn's Advice</span>
+    </div>
+    <div class="stage-meta">15 minutes · Individual then pairs</div>
+    <p>Go to: <a href="https://cohn.mit.edu/advice/" style="color: var(--teal); font-family: var(--mono); font-size: 13px;" target="_blank">cohn.mit.edu/advice</a></p>
+    <p>Read the full page. Then answer these questions individually (5 minutes), then compare with a partner (5 minutes):</p>
+    <ol>
+      <li>Cohn says: <em>"Along the way to developing a convincing track record you'll most likely realize that your purported solution was incorrect or incomplete."</em> What does "purported" mean? Has your teacher experienced this? How do you know?</li>
+      <li>Cohn says you cannot submit the same paper to two journals at once. Why do you think this rule exists?</li>
+      <li>Cohn says: <em>"If you can't get anyone to read your paper now, what makes you think anyone will want to read it after publication?"</em> This sounds harsh. Do you think it is fair? Why?</li>
+      <li>Cohn says to set a manuscript aside for a few months and return to it. Why might this help? Have you ever done something similar — in English, in your work, in your life?</li>
+      <li>Cohn's page is addressed to "amateur mathematicians." Does the word "amateur" feel like an insult, a neutral description, or something else? Why?</li>
+    </ol>
+  </div>
+  <!-- ── DISCUSSION CARDS ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 5</span>
+      <span class="stage-title">Discussion Cards</span>
+    </div>
+    <div class="stage-meta">15 minutes · Groups of 3–4</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Card A — The Crank</div>
+        <h4>"Many people claim to have solved famous problems. Virtually all of them are wrong."</h4>
+        <p>Cohn distinguishes researchers with track records from "cranks." What is the difference between a crank and an independent researcher? How does your teacher's work — Zenodo, Lean 4, Mathlib4 — answer that question? What would YOU need to do to not be a crank?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card B — The Machine</div>
+        <h4>"lake build ✔ [1733/1734] Built GCTC"</h4>
+        <p>Your teacher uses Lean 4 — a formal proof language — as his feedback system. The machine checks every step of every proof. Zero errors, zero sorry. Is a machine a good substitute for a human collaborator? What can a machine check that a human cannot? What can a human see that a machine cannot?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card C — The Waiting</div>
+        <h4>"You may well have to wait months to hear back."</h4>
+        <p>Your teacher submitted to three journals. He is waiting for all three. How do you think it feels to wait months for a response on work you spent years creating? What do you do while waiting? Have you waited for something important in your own life — a visa, a job, a result?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card D — Newark to the World</div>
+        <h4>"G6 LLC, Newark NJ 07104."</h4>
+        <p>This is the affiliation on papers submitted to Nuclear Physics B. Not a university. Not a laboratory. A company with one member, registered in New Jersey. What does this tell you about where research can come from? What does it tell you about your own situation? Can where you are right now be the starting point of something serious?</p>
+      </div>
+    </div>
+  </div>
+  <!-- ── GRAMMAR: MODALS ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 6</span>
+      <span class="stage-title">Grammar Focus — Modal Verbs for Advice</span>
+    </div>
+    <div class="stage-meta">10 minutes</div>
+    <p>Cohn's advice page is full of modal verbs. Modals express possibility, obligation, and advice. Study these examples from the text:</p>
+    <table class="vocab-table">
+      <tr><th>Modal</th><th>Meaning</th><th>Cohn's example</th></tr>
+      <tr><td>should</td><td>advice / recommendation</td><td>"You <strong>should</strong> write your paper using LaTeX."</td></tr>
+      <tr><td>must</td><td>strong obligation</td><td>"You <strong>must</strong> not submit to two journals at once."</td></tr>
+      <tr><td>may</td><td>possibility / permission</td><td>"You <strong>may</strong> well have to wait months."</td></tr>
+      <tr><td>might</td><td>weaker possibility</td><td>"You <strong>might</strong> just not know anyone interested in the topic."</td></tr>
+      <tr><td>can</td><td>ability / possibility</td><td>"Amateurs <strong>can</strong> make worthwhile contributions."</td></tr>
+      <tr><td>could</td><td>past ability / suggestion</td><td>"Things that seemed clear <strong>could</strong> already look cryptic."</td></tr>
+    </table>
+    <h3>Exercise — Rewrite with modals (5 minutes)</h3>
+    <p>Rewrite each sentence using the modal in brackets:</p>
+    <ol>
+      <li>"It is a good idea to read other papers in your field." [should]</li>
+      <li>"It is possible that the referee will ask for major revisions." [may]</li>
+      <li>"It is not permitted to submit the same paper to two journals." [must not]</li>
+      <li>"It is possible for independent researchers to publish in top journals." [can]</li>
+      <li>"It is possible that you will need to wait six months." [might]</li>
+    </ol>
+  </div>
+  <!-- ── EXIT WRITING ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 7</span>
+      <span class="stage-title">Exit Writing — Your Research Statement</span>
+    </div>
+    <div class="stage-meta">10 minutes · Individual</div>
+    <p>Write one paragraph (5–8 sentences) answering ONE of the following:</p>
+    <ol>
+      <li>
+        <strong>Option A — Your Track Record:</strong>
+        What is your track record so far? You do not need published papers. Think about your professional experience, your education, your knowledge from your home country. Write: "My track record includes..." Use at least three vocabulary words from Stage 1.
+      </li>
+      <li>
+        <strong>Option B — The Advice You Would Give:</strong>
+        Imagine a friend from your home country wants to publish a mathematical idea. They have no university position. What advice would you give them? Use at least four modal verbs (should, must, may, might, can, could).
+      </li>
+      <li>
+        <strong>Option C — The Honest Moment:</strong>
+        Cohn says: "Along the way you'll most likely realize that your purported solution was incorrect or incomplete — but that's another side benefit." Your teacher openly corrected a wrong theorem in his published repository. Write about a time you discovered you were wrong about something. What did you do? What did you learn?
+      </li>
+    </ol>
+  </div>
+  <!-- ── TIMING ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">TIMING</span>
+      <span class="stage-title">Lesson Summary</span>
+    </div>
+    <table class="timing">
+      <tr><th>#</th><th>Activity</th><th>Time</th></tr>
+      <tr><td>1</td><td>Vocabulary Preview</td><td>10 min</td></tr>
+      <tr><td>2</td><td>Cohn vs. Teacher — Step by Step</td><td>20 min</td></tr>
+      <tr><td>3</td><td>The Affiliation Question</td><td>10 min</td></tr>
+      <tr><td>4</td><td>Close Reading — Cohn's Page</td><td>15 min</td></tr>
+      <tr><td>5</td><td>Discussion Cards</td><td>15 min</td></tr>
+      <tr><td>6</td><td>Grammar — Modal Verbs</td><td>10 min</td></tr>
+      <tr><td>7</td><td>Exit Writing</td><td>10 min</td></tr>
+      <tr class="total"><td></td><td>TOTAL</td><td>90 min</td></tr>
+    </table>
+    <div class="callout" style="margin-top: 24px;">
+      <strong>Teacher Notes</strong>
+      For B2 students: provide the Cohn text printed out with the seven key sentences underlined — do not ask them to navigate the website independently. For C1 students: assign the full Cohn page as pre-reading homework before this lesson, and use class time for the discussion cards and exit writing only. The "honest moment" block should be read aloud by the teacher — slowly, with a pause after each sentence. Do not rush it.
+    </div>
+  </div>
+  <!-- ── NEXT ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">NEXT</span>
+      <span class="stage-title">What Comes Next</span>
+    </div>
+    <p>In <strong>Chapter 3 — The Cajueiro Principle</strong>, you will meet the image at the center of your teacher's research: the cashew tree, whose fruit exposes the nut rather than hiding it, and whose nut contains the forest.</p>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--teal); margin-top: 16px;">
+      "What you see is never the generator. The fruit exposes the nut. The nut tends to a forest."
+    </p>
+    <p style="margin-top: 16px;">
+      <a href="https://totogt.github.io/AXLE/assignments/lessons/index.html" style="color: var(--teal); font-family: var(--mono); font-size: 13px;">
+        → Back to all lessons
+      </a>
+    </p>
+  </div>
+  <!-- ── SUPPORT ── -->
+  <div class="support">
+    <p style="font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); margin-bottom: 8px;">
+      Support the Research — G6 LLC · Forest Hill, Newark NJ
+    </p>
+    <p>Help us keep these lessons free and open for immigrant and refugee learners in our community.</p>
+    <div class="support-links">
+      <a href="https://g6llc.gumroad.com" class="btn btn-primary" target="_blank">Buy the Membership</a>
+      <a href="https://www.ebay.com/str/principiaorthogona" class="btn btn-secondary" target="_blank">Buy the Book</a>
+    </div>
+  </div>
+</main>
+<footer>
+  © 2026 Pablo Nogueira Grossi / G6 LLC · Forest Hill, Newark NJ 07104 · EIN 33-2880433<br>
+  ORCID: <a href="https://orcid.org/0009-0000-6496-2186">0009-0000-6496-2186</a> ·
+  GitHub: <a href="https://github.com/TOTOGT">github.com/TOTOGT</a> ·
+  Zenodo: <a href="https://doi.org/10.5281/zenodo.19117400">10.5281/zenodo.19117400</a><br>
+  Principia Orthogona · AXLE v6.1 · CC BY-NC-ND 4.0 ·
+  Lesson designed using the CAELA Framework for Effective Lesson Planning for Adult English Language Learners<br>
+  External source: <a href="https://cohn.mit.edu/advice/" target="_blank">cohn.mit.edu/advice</a> — Henry Cohn, MIT (used for educational purposes)
+</footer>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch 0 — Creating Your Research Identity | Hour House · Principia Orthogona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1a1a;
+    --paper:     #f5f2eb;
+    --cream:     #ede9df;
+    --rust:      #b5401a;
+    --teal:      #1a6b5a;
+    --gold:      #c8973a;
+    --muted:     #6b6459;
+    --rule:      #c8b99a;
+    --mono:      'IBM Plex Mono', monospace;
+    --sans:      'IBM Plex Sans', sans-serif;
+    --serif:     'Playfair Display', Georgia, serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  /* ── NAV ── */
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 40px;
+    display: flex;
+    gap: 32px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: var(--cream);
+  }
+  nav a { color: var(--teal); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  /* ── HEADER ── */
+  header {
+    padding: 64px 40px 48px;
+    border-bottom: 2px solid var(--ink);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .chapter-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .tag.highlight {
+    background: var(--teal);
+    color: white;
+    border-color: var(--teal);
+  }
+  /* ── MAIN ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  /* ── PRINCIPLE BOX ── */
+  .principle {
+    border-left: 4px solid var(--teal);
+    padding: 24px 28px;
+    margin: 48px 0 40px;
+    background: var(--cream);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--teal);
+  }
+  /* ── STAGE ── */
+  .stage {
+    margin: 48px 0 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+  .stage-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .stage-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .stage-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .stage-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 28px 0 12px;
+  }
+  p { margin-bottom: 14px; }
+  /* ── STEP CARDS ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 20px 0;
+    border: 1px solid var(--rule);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    background: var(--ink);
+    color: white;
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .step-content {
+    padding: 16px 20px;
+  }
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--teal);
+  }
+  .step-content p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .step-content .url {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--rust);
+    margin-top: 6px;
+    display: block;
+  }
+  /* ── IDENTITY TABLE ── */
+  .id-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .id-table th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 10px 16px;
+    background: var(--ink);
+    color: white;
+    font-weight: 400;
+  }
+  .id-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .id-table tr:last-child td { border-bottom: none; }
+  .id-table td:first-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--rust);
+    white-space: nowrap;
+    background: var(--cream);
+  }
+  .id-table a {
+    color: var(--teal);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .id-table a:hover { text-decoration: underline; }
+  /* ── VOCAB TABLE ── */
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .vocab-table th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 8px 14px;
+    background: var(--teal);
+    color: white;
+    font-weight: 400;
+  }
+  .vocab-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .vocab-table tr:nth-child(even) td { background: var(--cream); }
+  .vocab-table td:first-child {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+  .callout strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  /* ── TEACHER EXAMPLE ── */
+  .teacher-example {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .teacher-example-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+  }
+  /* ── DISCUSSION CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card {
+    border: 1px solid var(--rule);
+    padding: 20px;
+    background: white;
+  }
+  .card-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+  /* ── TIMING TABLE ── */
+  .timing {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+  .timing th {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-align: left;
+    padding: 8px 16px;
+    background: var(--ink);
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+  .timing td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .timing td:first-child { font-variant-numeric: tabular-nums; }
+  .timing td:last-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+  }
+  tr.total td {
+    font-weight: 600;
+    background: var(--cream);
+    border-top: 2px solid var(--ink);
+  }
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+  /* ── SUPPORT BOX ── */
+  .support {
+    margin: 48px 0 0;
+    padding: 28px 32px;
+    border: 2px solid var(--teal);
+    text-align: center;
+  }
+  .support p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .support-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid currentColor;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--teal); color: white; border-color: var(--teal); }
+  .btn-secondary { color: var(--teal); }
+  ol, ul { padding-left: 20px; margin-bottom: 14px; }
+  li { margin-bottom: 6px; font-size: 15px; }
+  code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--cream);
+    padding: 2px 6px;
+    border: 1px solid var(--rule);
+    color: var(--rust);
+  }
+  @media (max-width: 600px) {
+    nav { padding: 12px 20px; gap: 16px; flex-wrap: wrap; }
+    header, main, footer { padding-left: 20px; padding-right: 20px; }
+    .step { grid-template-columns: 44px 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://totogt.github.io/AXLE/index.html">← PRINCIPIA ORTHOGONA</a>
+  <a href="https://totogt.github.io/AXLE/portal.html">Student Portal</a>
+  <a href="https://totogt.github.io/AXLE/assignments/lessons/index.html">Lessons</a>
+  <a href="https://grossi-ops.github.io/Atratores">Cajueiro Project</a>
+</nav>
+<header>
+  <div class="chapter-label">Chapter 0 · Before the First Paper</div>
+  <h1>Creating Your <em>Research Identity</em></h1>
+  <p class="subtitle">One email. One name. Everywhere. — Hour House · Newark, NJ · Adult ESL</p>
+  <div style="margin-top: 24px; font-size: 15px; max-width: 600px; color: var(--muted);">
+    Before you write a single equation, before you submit a single paper, you need one thing:
+    a consistent identity that follows you across every platform where research lives.
+    This lesson shows you how to build it in one afternoon.
+  </div>
+  <div class="meta-row">
+    <span class="tag highlight">A2–B1</span>
+    <span class="tag">60 min</span>
+    <span class="tag">Reading · Speaking · Writing</span>
+    <span class="tag">Academic English · Digital Literacy</span>
+    <span class="tag">Practical</span>
+  </div>
+</header>
+<main>
+  <div class="principle">
+    "What you see is never the generator.<br>
+    The fruit exposes the nut. The nut tends to a forest."
+  </div>
+  <!-- ── OVERVIEW ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">OVERVIEW</span>
+      <span class="stage-title">Why Your Research Identity Matters</span>
+    </div>
+    <p>Your teacher, Pablo Nogueira Grossi, is an independent researcher. He lives in the Forest Hill neighborhood of Newark's North Ward. He works at a language school in Elizabeth, NJ. He has no university department, no laboratory, no institution paying for his research.</p>
+    <p>And yet his papers are published on Zenodo. His code is on GitHub. His ORCID connects everything. His research was presented in Natal, Brazil, at the <em>Sociedade Brasileira de Matemática</em>.</p>
+    <p>How? One email. One name. The same identity everywhere.</p>
+    <p>This chapter shows you how to do the same thing. You do not need to be at a university. You need to be consistent.</p>
+    <div class="callout">
+      <strong>The Rule</strong>
+      Create one Gmail address. Use it for everything in your research life: ORCID, GitHub, Zenodo, ResearchGate, grant applications. Do not use your work email, your school email, or a personal email that might change. The Gmail is yours forever.
+    </div>
+  </div>
+  <!-- ── VOCAB ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 1</span>
+      <span class="stage-title">Vocabulary</span>
+    </div>
+    <div class="stage-meta">10 minutes</div>
+    <p>Study these words. You will use them today and for the rest of your research life.</p>
+    <table class="vocab-table">
+      <tr><th>Word</th><th>Meaning</th><th>Example</th></tr>
+      <tr>
+        <td>identity</td>
+        <td>who you are in a system; your name + email + number</td>
+        <td>"My research identity is the same on every platform."</td>
+      </tr>
+      <tr>
+        <td>credential</td>
+        <td>proof that you are who you say you are; a login, a certificate</td>
+        <td>"My ORCID is my academic credential."</td>
+      </tr>
+      <tr>
+        <td>platform</td>
+        <td>a website or service where you create an account</td>
+        <td>"GitHub is a platform for sharing code."</td>
+      </tr>
+      <tr>
+        <td>repository</td>
+        <td>a place where you store and share files, code, or papers</td>
+        <td>"My papers are in my Zenodo repository."</td>
+      </tr>
+      <tr>
+        <td>consistent</td>
+        <td>always the same; not changing</td>
+        <td>"Use a consistent name across all platforms."</td>
+      </tr>
+      <tr>
+        <td>profile</td>
+        <td>your public page on a platform; what others see about you</td>
+        <td>"Fill in your GitHub profile so people know who you are."</td>
+      </tr>
+      <tr>
+        <td>DOI</td>
+        <td>Digital Object Identifier — a permanent link to a paper or file</td>
+        <td>"My paper's DOI is doi.org/10.5281/zenodo.19984522"</td>
+      </tr>
+      <tr>
+        <td>ORCID</td>
+        <td>Open Researcher and Contributor ID — your unique researcher number</td>
+        <td>"My ORCID is 0009-0000-6496-2186"</td>
+      </tr>
+    </table>
+  </div>
+  <!-- ── YOUR TEACHER'S IDENTITY ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 2</span>
+      <span class="stage-title">Your Teacher's Research Identity</span>
+    </div>
+    <div class="stage-meta">10 minutes · Read and discuss</div>
+    <p>Before you create your own identity, study your teacher's. Everything connects to one name, one email, one number.</p>
+    <div class="teacher-example">
+      <div class="teacher-example-label">Teacher Example — Pablo Nogueira Grossi</div>
+      <table class="id-table">
+        <tr>
+          <th>Platform</th>
+          <th>What it is</th>
+          <th>His profile</th>
+        </tr>
+        <tr>
+          <td>Gmail</td>
+          <td>The center. Everything connects here.</td>
+          <td><code>pg6llc@gmail.com</code></td>
+        </tr>
+        <tr>
+          <td>ORCID</td>
+          <td>His permanent researcher ID number</td>
+          <td><a href="https://orcid.org/0009-0000-6496-2186" target="_blank">0009-0000-6496-2186</a></td>
+        </tr>
+        <tr>
+          <td>GitHub</td>
+          <td>Where his code and formal proofs live</td>
+          <td><a href="https://github.com/TOTOGT" target="_blank">github.com/TOTOGT</a></td>
+        </tr>
+        <tr>
+          <td>Zenodo</td>
+          <td>Where his papers are published with a DOI</td>
+          <td><a href="https://doi.org/10.5281/zenodo.19984522" target="_blank">doi.org/10.5281/zenodo.19984522</a></td>
+        </tr>
+        <tr>
+          <td>Project site</td>
+          <td>The public face of his research</td>
+          <td><a href="https://grossi-ops.github.io/Atratores" target="_blank">grossi-ops.github.io/Atratores</a></td>
+        </tr>
+        <tr>
+          <td>Lessons site</td>
+          <td>Where his ESL research lessons live</td>
+          <td><a href="https://totogt.github.io/AXLE/assignments/lessons/" target="_blank">totogt.github.io/AXLE/assignments/lessons</a></td>
+        </tr>
+      </table>
+    </div>
+    <h3>Discussion — 5 minutes</h3>
+    <p>With a partner, answer these questions:</p>
+    <ol>
+      <li>How many platforms does your teacher use? What do they have in common?</li>
+      <li>Why is it important to use the <em>same name</em> on every platform?</li>
+      <li>What happens if you use a different name or email on each platform?</li>
+      <li>Your teacher lives in Newark and works in Elizabeth. He has no university. Can he still publish research? How do you know?</li>
+    </ol>
+  </div>
+  <!-- ── STEP BY STEP ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 3</span>
+      <span class="stage-title">Build Your Identity — Step by Step</span>
+    </div>
+    <div class="stage-meta">25 minutes · Hands-on</div>
+    <p>Follow these steps in order. Use the same name and the same Gmail for every account.</p>
+    <div class="callout">
+      <strong>Before you begin</strong>
+      Decide on your research name now. Use your full legal name — the same name you would put on a paper. Example: <em>Pablo Nogueira Grossi</em>, not <em>Pablo G.</em>, not <em>P. Grossi</em>. Write it here: ___________________________
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Create a Gmail address for research</strong>
+          <p>Go to gmail.com. Create a new account using your full name if possible — for example <code>pablongrossi@gmail.com</code>. If your name is taken, add a number or your city: <code>pablongrossi.newark@gmail.com</code>. Write it down. This is your research email forever.</p>
+          <span class="url">→ gmail.com</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Create your ORCID</strong>
+          <p>Go to orcid.org. Click Register. Use your Gmail. Use your full legal name. ORCID gives you a 16-digit number — write it down. This number is yours for life. It follows you if you change jobs, change countries, change your email.</p>
+          <span class="url">→ orcid.org</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Create a GitHub account</strong>
+          <p>Go to github.com. Sign up with your Gmail. Choose a username that is close to your name — for example <code>pngrossi</code> or <code>pgrossi-research</code>. GitHub is where your code, writing, and projects will live. It is free. Your teacher's GitHub is at github.com/TOTOGT.</p>
+          <span class="url">→ github.com</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Create a Zenodo account</strong>
+          <p>Go to zenodo.org. Click Log in with GitHub — use the GitHub account you just created. Zenodo is where you will publish papers and receive a DOI. It is free, run by CERN, and permanent. Your paper will be there in 50 years.</p>
+          <span class="url">→ zenodo.org</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Connect your ORCID to Zenodo</strong>
+          <p>In Zenodo, go to your profile settings. Find the ORCID section. Click Connect. Log in to ORCID and authorize the connection. Now when you publish a paper on Zenodo, it automatically appears in your ORCID profile. One action, two places updated.</p>
+          <span class="url">→ zenodo.org/account/settings/linkedaccounts</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>Write your research identity card</strong>
+          <p>On a piece of paper, write: your full name, your research Gmail, your ORCID number, your GitHub username, your Zenodo profile URL. Keep this card. Put it in your notebook. This is who you are as a researcher.</p>
+          <span class="url">→ no link needed — pen and paper</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── DISCUSSION CARDS ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 4</span>
+      <span class="stage-title">Discussion Cards</span>
+    </div>
+    <div class="stage-meta">10 minutes · Groups of 3–4</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-label">Card A — The Name</div>
+        <h4>"Use a consistent name across all platforms."</h4>
+        <p>What name will you use for research? Is it different from the name people call you every day? Why might it be important to use your full legal name? What problems could happen if you use different names in different places?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card B — The Location</div>
+        <h4>"Newark, NJ. No university. Still published."</h4>
+        <p>Your teacher's papers say "Hour House ESL, Newark, NJ" as the affiliation. Not MIT. Not Harvard. What does this mean for you? Where are you right now? Can that be the starting point of your research identity?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card C — The Number</div>
+        <h4>"0009-0000-6496-2186"</h4>
+        <p>Your ORCID number is yours for life. It does not change if you move, if you change your name, if you change your email. Why is a permanent number more reliable than a name or email? What else in your life has a permanent number?</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Card D — The Seed</div>
+        <h4>"The nut tends to a forest."</h4>
+        <p>Today you are creating one Gmail, one ORCID, one GitHub. That is the seed. Your teacher started the same way. Where do you want your research identity to be in five years? What is the forest?</p>
+      </div>
+    </div>
+  </div>
+  <!-- ── EXIT ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">STAGE 5</span>
+      <span class="stage-title">Exit Writing</span>
+    </div>
+    <div class="stage-meta">5 minutes · Individual</div>
+    <p>Write 3–5 sentences answering ONE of the following:</p>
+    <ol>
+      <li><strong>Option A — Your Identity Card:</strong> Write your research name, your Gmail, your ORCID number, and your GitHub username. Then write one sentence about why you chose that Gmail address.</li>
+      <li><strong>Option B — The Comparison:</strong> How is a research identity similar to an identity document — like a passport or a driver's license? How is it different?</li>
+      <li><strong>Option C — The Forest:</strong> "The nut tends to a forest." What does this mean to you as a researcher starting today? What is the first root you are putting into the ground?</li>
+    </ol>
+  </div>
+  <!-- ── TIMING ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">TIMING</span>
+      <span class="stage-title">Lesson Summary</span>
+    </div>
+    <table class="timing">
+      <tr><th>#</th><th>Activity</th><th>Time</th></tr>
+      <tr><td>1</td><td>Vocabulary Preview</td><td>10 min</td></tr>
+      <tr><td>2</td><td>Teacher Example — Read and Discuss</td><td>10 min</td></tr>
+      <tr><td>3</td><td>Build Your Identity — Hands-on</td><td>25 min</td></tr>
+      <tr><td>4</td><td>Discussion Cards</td><td>10 min</td></tr>
+      <tr><td>5</td><td>Exit Writing</td><td>5 min</td></tr>
+      <tr class="total"><td></td><td>TOTAL</td><td>60 min</td></tr>
+    </table>
+    <div class="callout" style="margin-top: 24px;">
+      <strong>Teacher Notes</strong>
+      For A2 students: skip Card D and Option C in the exit writing. Focus on Steps 1–3 only (Gmail, ORCID, GitHub). Zenodo can be a homework task. For B1 students: assign Step 5 (connecting ORCID to Zenodo) as homework and ask them to bring their identity card to the next class. Mix levels for Stage 4 cards — stronger students explain platforms to newer arrivals.
+    </div>
+  </div>
+  <!-- ── NEXT LESSON ── -->
+  <div class="stage">
+    <div class="stage-header">
+      <span class="stage-num">NEXT</span>
+      <span class="stage-title">What Comes Next</span>
+    </div>
+    <p>In <strong>Chapter 1 — The Vitruvian Approximation</strong>, you will read your teacher's first published paper and discuss what it means to write mathematics from Newark, NJ — the same question Leonardo da Vinci asked from Florence, 500 years ago.</p>
+    <p style="margin-top: 12px;">
+      <a href="https://totogt.github.io/AXLE/assignments/lessons/index.html#lesson-01" style="color: var(--teal); font-family: var(--mono); font-size: 13px;">
+        → Open Chapter 1
+      </a>
+    </p>
+  </div>
+  <!-- ── SUPPORT ── -->
+  <div class="support">
+    <p style="font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); margin-bottom: 8px;">
+      Support Hour House — Forest Hill, Newark NJ
+    </p>
+    <p>Help us keep these lessons free and open for immigrant and refugee learners in our community.</p>
+    <div class="support-links">
+      <a href="https://g6llc.gumroad.com" class="btn btn-primary" target="_blank">Buy the Membership</a>
+      <a href="https://www.ebay.com/str/principiaorthogona" class="btn btn-secondary" target="_blank">Buy the Book</a>
+    </div>
+  </div>
+</main>
+<footer>
+  © 2026 Pablo Nogueira Grossi / Hour House · 229 Ballantine Pkwy, Forest Hill, Newark NJ 07104<br>
+  ORCID: <a href="https://orcid.org/0009-0000-6496-2186">0009-0000-6496-2186</a> ·
+  GitHub: <a href="https://github.com/TOTOGT">github.com/TOTOGT</a> ·
+  Zenodo: <a href="https://doi.org/10.5281/zenodo.19117400">10.5281/zenodo.19117400</a><br>
+  Principia Orthogona · AXLE v6.1 · CC BY-NC-ND 4.0 ·
+  Lesson designed using the CAELA Framework for Effective Lesson Planning for Adult English Language Learners
+</footer>
+</body>
+</html>

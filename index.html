@@ -14,9 +14,9 @@
 html{scroll-behavior:smooth}
 body{background:var(--deep);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden}
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:linear-gradient(to bottom,rgba(3,10,8,.96),transparent)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:linear-gradient(to bottom,rgba(3,10,8,.96),transparent);flex-wrap:wrap;gap:.5rem}
 .nav-brand{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);opacity:.85;text-decoration:none}
-.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
 .nav-links a{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--teal)}
 @media(max-width:700px){nav{padding:1rem 1.5rem}.nav-links{gap:1rem}.nav-links a{font-size:7.5px}}
@@ -51,11 +51,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .section-body{font-size:1.02rem;color:var(--muted);line-height:1.85}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-
-/* CH1 */
 #ch1{position:relative;z-index:2;background:linear-gradient(180deg,#050e0a,#040c08);padding:6rem 5vw}
 .ch1-inner{max-width:1100px;margin:0 auto}
-.ch1-book-ref{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--gold);opacity:.55;margin-bottom:2rem;display:block}
+.ch1-book-ref{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--gold);opacity:.55;margin-bottom:3rem;display:block}
 .didatica{padding:2.5rem;border:1px solid #2a2a2a;border-radius:10px;background:radial-gradient(ellipse at 20% 0%,rgba(74,158,255,.06) 0%,transparent 55%),radial-gradient(ellipse at 80% 0%,rgba(192,132,252,.06) 0%,transparent 55%),linear-gradient(180deg,#080c10,#05080b)}
 .didatica .cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
 @media(max-width:800px){.didatica .cols{grid-template-columns:1fr}}
@@ -77,8 +75,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .face-why em{font-style:italic;color:var(--teal-soft)}
 .didatica .pull{margin:14px 0 4px;padding:12px 16px;border-left:3px solid var(--gold);background:rgba(200,162,74,.05);font-style:italic;font-size:14px;line-height:1.7;color:#f0dda8}
 .didatica .en .pull{border-left-color:var(--teal);color:#a6eee9}
-
-/* WALK */
 #walk{position:relative;z-index:2;padding:6rem 5vw;background:linear-gradient(180deg,#040c08,#030a08)}
 .walk-inner{max-width:900px;margin:0 auto}
 .walk-route{margin:2.5rem 0;display:flex;flex-direction:column;gap:0}
@@ -91,8 +87,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .walk-cta{margin-top:2.5rem;padding:1.5rem 2rem;border:1px solid rgba(10,186,181,.15);border-radius:4px;background:rgba(10,186,181,.03)}
 .walk-cta p{font-size:.95rem;color:var(--muted);line-height:1.75}
 .walk-cta em{font-style:italic;color:var(--teal-soft)}
-
-/* TWO ASKS */
 #asks{position:relative;z-index:2;padding:6rem 5vw;background:#000}
 .asks-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:3rem}
 @media(max-width:700px){.asks-grid{grid-template-columns:1fr}}
@@ -111,8 +105,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-ask:hover{opacity:.85}
 .btn-sec{display:inline-block;padding:.65rem 1.4rem;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid var(--teal-line);color:var(--teal);border-radius:2px;transition:background .2s}
 .btn-sec:hover{background:var(--teal-dim)}
-
-/* CONTRIBUTORS */
 #contributors{position:relative;z-index:2;padding:6rem 5vw;background:#000}
 .contrib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:3rem;border:1px solid rgba(255,255,255,.05)}
 @media(max-width:700px){.contrib-grid{grid-template-columns:1fr}}
@@ -122,8 +114,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .contrib-type{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);opacity:.52;margin-bottom:.5rem}
 .contrib-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:#d4ede4;margin-bottom:.6rem}
 .contrib-desc{font-size:.87rem;color:var(--muted);line-height:1.65;opacity:.8}
-
-/* MOONBASE */
 #moonbase{position:relative;z-index:2;padding:6rem 5vw;background:linear-gradient(180deg,#000,#020e06,#030a08);border-top:1px solid rgba(200,162,74,.12)}
 .moon-inner{max-width:900px;margin:0 auto}
 .moon-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.52;display:block;margin-bottom:1.2rem}
@@ -141,8 +131,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-moon.secondary{border:1px solid rgba(200,162,74,.4);color:var(--gold);background:transparent}
 .btn-moon:hover{opacity:.82}
 .moon-note{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.12em;color:var(--gold);opacity:.3;line-height:1.9}
-
-/* BOONTON + FOOTER */
 .boonton{position:relative;z-index:2;text-align:center;padding:5rem 5vw 4rem}
 .boonton-body{max-width:520px;margin:0 auto 2rem;font-size:.95rem;color:var(--muted);line-height:1.85}
 .boonton-line{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-style:italic;color:var(--teal-soft);opacity:.8;letter-spacing:.02em}
@@ -154,36 +142,30 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 <canvas id="bg"></canvas>
 
 <nav>
-  <a href="#" class="nav-brand">Cajueiro · G6 LLC · NYFA Fundraiser · Newark NJ</a>
+  <a href="index.html" class="nav-brand">Cajueiro · G6 LLC · Newark NJ</a>
   <ul class="nav-links">
     <li><a href="#sound">Sound</a></li>
     <li><a href="#ch1">Chapter 1</a></li>
     <li><a href="#walk">The Walk</a></li>
+    <li><a href="#gseries">g-series</a></li>
+    <li><a href="#join" style="color:var(--teal);opacity:1">Join</a></li>
     <li><a href="#asks">Two asks</a></li>
-    <li><a href="#contributors">Contribute</a></li>
-    <li><a href="#funder-pack">Funder pack</a></li>
-    <li><a href="#network">Network</a></li>
     <li><a href="#moonbase">Homebase</a></li>
+    <li><a href="ch1.html">Mini-Beast</a></li>
+    <li><a href="ch6-resonance.html">Ch 6</a></li>
+    <li><a href="impa-portal.html">IMPA</a></li>
     <li><a href="https://github.com/grossi-ops/cajueiro" target="_blank">GitHub</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="sound">
   <div class="cajueiro-col fade-in">
     <div class="cajueiro-wrap">
       <div class="root-pulse" style="width:10px;height:10px;bottom:20%;left:22%;animation-delay:0s"></div>
       <div class="root-pulse" style="width:8px;height:8px;bottom:19%;right:19%;animation-delay:1.4s"></div>
       <div class="root-pulse" style="width:7px;height:7px;bottom:15%;left:8%;animation-delay:2.3s"></div>
-      <svg viewBox="0 0 520 370" xmlns="http://www.w3.org/2000/svg" aria-label="Cajueiro de Pirangi — one organism, 8500 square metres. Three caju with the seed revealed: seed tends to a tree, tree tends to a forest. Revealing the truth, not hiding it.">
-        <defs>
-          <radialGradient id="gl" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#0ABAB5" stop-opacity=".13"/><stop offset="100%" stop-color="#030a08" stop-opacity="0"/></radialGradient>
-          <filter id="bs"><feGaussianBlur stdDeviation="2.5"/></filter>
-          <radialGradient id="appleA" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#ffd070"/><stop offset="55%" stop-color="#e8941a"/><stop offset="100%" stop-color="#7a4a10"/></radialGradient>
-          <radialGradient id="appleB" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#ff8060"/><stop offset="55%" stop-color="#c8301a"/><stop offset="100%" stop-color="#5a1808"/></radialGradient>
-          <radialGradient id="appleC" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#fff070"/><stop offset="55%" stop-color="#d8b81a"/><stop offset="100%" stop-color="#7a6010"/></radialGradient>
-          <radialGradient id="nutG" cx="40%" cy="38%" r="70%"><stop offset="0%" stop-color="#fff7d6"/><stop offset="55%" stop-color="#a88a3a"/><stop offset="100%" stop-color="#3a2a08"/></radialGradient>
-        </defs>
+      <svg viewBox="0 0 520 370" xmlns="http://www.w3.org/2000/svg" aria-label="Cajueiro de Pirangi — one organism, 8500 square metres">
+        <defs><radialGradient id="gl" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#0ABAB5" stop-opacity=".13"/><stop offset="100%" stop-color="#030a08" stop-opacity="0"/></radialGradient><filter id="bs"><feGaussianBlur stdDeviation="2.5"/></filter></defs>
         <ellipse cx="260" cy="112" rx="180" ry="100" fill="url(#gl)"/>
         <ellipse cx="260" cy="340" rx="230" ry="22" fill="#041a10" opacity=".9"/>
         <ellipse cx="260" cy="347" rx="200" ry="10" fill="#062a1e" opacity=".6"/>
@@ -214,39 +196,42 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
         <ellipse cx="260" cy="70" rx="95" ry="42" fill="#1e7535" opacity=".9"/>
         <ellipse cx="248" cy="62" rx="55" ry="25" fill="#226638" opacity=".6"/>
         <ellipse cx="260" cy="60" rx="90" ry="38" fill="none" stroke="#0ABAB5" stroke-width=".5" opacity=".14"/>
-        <line x1="206" y1="158" x2="206" y2="172" stroke="#1a4a2e" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M 206 172 C 198 174 195 184 197 194 C 199 201 202 204 206 204 C 210 204 213 201 215 194 C 217 184 214 174 206 172 Z" fill="url(#appleA)" stroke="#7a4a10" stroke-width=".4"/>
-        <ellipse cx="202" cy="182" rx="2.4" ry="5" fill="#fff0a0" opacity=".55"/>
-        <path d="M 199 204 C 194 208 196 216 203 218 C 210 219 215 216 216 211 C 217 207 213 204 208 206 C 204 207 201 204 199 204 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
-        <ellipse cx="203" cy="211" rx="1.8" ry=".9" fill="#fff7d6" opacity=".7"/>
-        <line x1="312" y1="156" x2="313" y2="170" stroke="#1a4a2e" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M 313 170 C 305 172 302 182 304 192 C 306 199 309 202 313 202 C 317 202 320 199 322 192 C 324 182 321 172 313 170 Z" fill="url(#appleB)" stroke="#5a1808" stroke-width=".4"/>
-        <ellipse cx="309" cy="180" rx="2.4" ry="5" fill="#ff9070" opacity=".5"/>
-        <path d="M 306 202 C 301 206 303 214 310 216 C 317 217 322 214 323 209 C 324 205 320 202 315 204 C 311 205 308 202 306 202 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
-        <ellipse cx="310" cy="209" rx="1.8" ry=".9" fill="#fff7d6" opacity=".7"/>
-        <line x1="244" y1="155" x2="242" y2="168" stroke="#1a4a2e" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M 242 168 C 235 170 232 178 234 186 C 236 192 239 194 242 194 C 245 194 248 192 250 186 C 252 178 249 170 242 168 Z" fill="url(#appleC)" stroke="#7a6010" stroke-width=".4"/>
-        <ellipse cx="239" cy="176" rx="2" ry="4.2" fill="#fff070" opacity=".5"/>
-        <path d="M 236 194 C 232 197 234 204 240 205 C 245 206 249 203 250 199 C 251 196 247 194 243 195 C 240 196 237 194 236 194 Z" fill="url(#nutG)" stroke="#3a2a08" stroke-width=".4"/>
-        <ellipse cx="239" cy="200" rx="1.6" ry=".8" fill="#fff7d6" opacity=".7"/>
+        <!-- Fruit 1: orange apple + nut below -->
+        <line x1="210" y1="157" x2="206" y2="180" stroke="#1a4a2e" stroke-width="1.8"/>
+        <ellipse cx="206" cy="189" rx="10" ry="15" fill="#c8742a" opacity=".9"/>
+        <ellipse cx="206" cy="182" rx="8" ry="6" fill="#e8941a" opacity=".85"/>
+        <path d="M202 174 C199 169 201 164 206 163 C211 162 214 166 212 170" fill="#7a4a1a" opacity=".82"/>
+        <line x1="206" y1="203" x2="206" y2="209" stroke="#5a4a2a" stroke-width="1.2"/>
+        <path d="M200 212 C198 208 200 205 204 205 C210 205 213 208 212 212 C211 217 206 219 202 217 C199 215 199 213 200 212 Z" fill="#7a6040" opacity=".92"/>
+        <!-- Fruit 2: red apple + nut below -->
+        <line x1="308" y1="154" x2="314" y2="176" stroke="#1a4a2e" stroke-width="1.8"/>
+        <ellipse cx="314" cy="185" rx="9" ry="14" fill="#b8301a" opacity=".85"/>
+        <path d="M310 172 C307 167 309 162 314 161 C319 160 321 164 319 168" fill="#7a2a10" opacity=".75"/>
+        <line x1="314" y1="198" x2="314" y2="204" stroke="#5a4a2a" stroke-width="1.2"/>
+        <path d="M308 207 C306 203 308 200 312 200 C318 200 321 203 320 207 C319 212 314 214 310 212 C307 210 307 208 308 207 Z" fill="#7a6040" opacity=".9"/>
+        <!-- Fruit 3: yellow apple + nut below -->
+        <line x1="245" y1="154" x2="240" y2="172" stroke="#1a4a2e" stroke-width="1.5"/>
+        <ellipse cx="240" cy="180" rx="7" ry="11" fill="#c8a21a" opacity=".8"/>
+        <line x1="240" y1="190" x2="240" y2="195" stroke="#5a4a2a" stroke-width="1"/>
+        <path d="M235 198 C233 194 235 192 238 192 C243 192 246 194 245 198 C244 202 239 204 236 202 C234 200 234 199 235 198 Z" fill="#7a6040" opacity=".85"/>
         <circle cx="260" cy="144" r="5" fill="#0ABAB5" opacity=".82"/>
         <circle cx="260" cy="144" r="11" fill="none" stroke="#0ABAB5" stroke-width=".8" opacity=".3"/>
         <circle cx="260" cy="144" r="20" fill="none" stroke="#0ABAB5" stroke-width=".4" opacity=".14"/>
         <text x="270" y="140" font-family="JetBrains Mono,monospace" font-size="7" fill="#0ABAB5" opacity=".5">g6</text>
       </svg>
     </div>
-    <p class="pirangi-label">Anacardium occidentale · Pirangi-RN · 8.500 m² · one organism · the seed revealed</p>
+    <p class="pirangi-label">Anacardium occidentale · Pirangi-RN · 8.500 m² · one organism</p>
   </div>
 
   <div class="hero-text fade-in" style="transition-delay:.15s">
     <span class="hero-eyebrow">dm³ soundworks · be here now · Newark NJ · 2026</span>
     <h1 class="hero-title">The root touches<br>the ground.<br><em>It holds.</em></h1>
-    <p class="hero-sub">A healing walking meditation. An acoustic machine. A bilingual exhibition. A community in formation. The cajueiro establishes itself in difficult soil — branches, touches the ground, re-roots, becomes new trunks. One organism. 8,500 m². <em style="color:var(--teal-soft);font-style:italic">The caju reveals the seed — not hidden, revealed. The seed tends to a tree. The tree tends to a forest.</em> This is the g6 — the minimum stable condition for a living civilization. A home in Forest Hill. A lab for the moon homebase. A place for contemplative healing.</p>
+    <p class="hero-sub">A healing walking meditation. An acoustic machine. A bilingual exhibition. A community in formation. The cajueiro establishes itself in difficult soil — branches, touches the ground, re-roots, becomes new trunks. One organism. 8,500 m².</p>
     <div class="sound-engine">
       <button class="layer-toggle" id="tog-ocean" onclick="toggleLayer('ocean')"><span class="layer-dot"></span><span class="layer-name">Ocean</span><span class="layer-desc">Atlantic tide · 0.05 Hz</span></button>
-      <button class="layer-toggle" id="tog-mangue" onclick="toggleLayer('mangue')"><span class="layer-dot"></span><span class="layer-name">Mangue</span><span class="layer-desc">mangrove channel · 40-80 Hz</span></button>
+      <button class="layer-toggle" id="tog-mangue" onclick="toggleLayer('mangue')"><span class="layer-dot"></span><span class="layer-name">Mangue</span><span class="layer-desc">mangrove channel · 40–80 Hz</span></button>
       <button class="layer-toggle" id="tog-111" onclick="toggleLayer('hz111')"><span class="layer-dot"></span><span class="layer-name">111 Hz</span><span class="layer-desc">Hypogeum · theta 6 Hz</span></button>
-      <button class="layer-toggle" id="tog-reeb" onclick="toggleLayer('reeb')"><span class="layer-dot"></span><span class="layer-name">Reeb helix</span><span class="layer-desc">z(t) · eta 1.8393</span></button>
+      <button class="layer-toggle" id="tog-reeb" onclick="toggleLayer('reeb')"><span class="layer-dot"></span><span class="layer-name">Reeb helix</span><span class="layer-desc">z(t) · η 1.8393</span></button>
     </div>
     <div class="waveform" id="waveform"></div>
     <button class="btn-play" id="btn-master" onclick="toggleMaster()">
@@ -257,16 +242,11 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <div class="rule"></div>
 
-<!-- CH1 — PATCH 5: Chapter 1 read link added below ch1-book-ref -->
 <section id="ch1">
   <div class="ch1-inner fade-in">
     <span class="section-tag">Chapter 1 · The Mini-Beast, Vol. III · Principia Orthogona · G6 LLC · 2026</span>
     <h2 class="section-title">O Princípio do Cajueiro<br><span style="font-size:.7em;opacity:.65;font-style:normal">The Cajueiro Principle</span></h2>
-    <span class="ch1-book-ref">Free web exhibition · sample chapter · full series: g6llc.gumroad.com · $25-$250 living book access · Volumes I-VI</span>
-    <div style="margin-bottom:2.5rem;margin-top:-.5rem">
-      <a href="cajueiro_chapter1.html" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid var(--teal-line);padding:.5rem 1.2rem;border-radius:2px;display:inline-flex;align-items:center;gap:.6rem;transition:background .2s" onmouseover="this.style.background='rgba(10,186,181,.08)'" onmouseout="this.style.background='transparent'">&#9654; Read Chapter 1 &#8212; The Cajueiro Principle</a>
-    </div>
-
+    <span class="ch1-book-ref">Free web exhibition · sample chapter · full series: g6llc.gumroad.com · $25–$250 living book access · Volumes I–VI · <a href="ch1.html" style="color:var(--teal);text-decoration:none">Read Chapter 1 →</a></span>
     <div class="didatica">
       <div class="cols">
         <div class="en">
@@ -284,10 +264,10 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
             </div>
             <div class="face face-f">
               <div class="face-lead"><div class="face-pt">Provar</div><div class="face-ipa">/proˈvar/</div><div class="face-en">Prove · F · Fold</div></div>
-              <div class="face-why">From Latin <em>probare</em>, to test. Portuguese keeps all three meanings alive: to prove, to <em>taste</em>, to <em>try on clothes</em>. The fold point — the root touching the ground, the threshold where the old form cannot continue. A proof, in this book, is something the body checks. The meditation arrives here.</div>
+              <div class="face-why">From Latin <em>probare</em>, to test. Portuguese keeps all three meanings alive: to prove, to <em>taste</em>, to <em>try on clothes</em>. The fold point — the root touches the ground, the threshold where the old form cannot continue. A proof, in this book, is something the body checks. The meditation arrives here.</div>
             </div>
             <div class="face face-u">
-              <div class="face-lead"><div class="face-pt">Ensinar</div><div class="face-ipa">/esiˈnar/</div><div class="face-en">Teach · U · Unfold</div></div>
+              <div class="face-lead"><div class="face-pt">Ensinar</div><div class="face-ipa">/ẽsiˈnar/</div><div class="face-en">Teach · U · Unfold</div></div>
               <div class="face-why">From Latin <em>insignare</em>, to point out, to mark. <em>Ensinar</em> is not authority — it is a finger pointing. The unfolding: expansion, the canopy, the 8,500 m² from one root. The book hands you an open problem and you carry it forward. The walk becomes the forest.</div>
             </div>
           </div>
@@ -308,66 +288,189 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
         </div>
       </div>
     </div>
-
-    <!-- PATCH 4 applied: Zenodo 19117399 -->
     <div style="margin-top:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.2rem 1.8rem;border:1px solid rgba(200,162,74,.18);border-radius:4px;background:rgba(200,162,74,.03)">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--gold);opacity:.62">The Mini-Beast · Vol. III · Principia Orthogona · ISBN 979-8-9954416-6-3 · Zenodo 10.5281/zenodo.19117399 · G6 LLC</span>
-      <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid var(--teal-line);padding:.5rem 1.1rem;border-radius:2px">Get Volumes I-VI</a>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--gold);opacity:.62">The Mini-Beast · Vol. III · Principia Orthogona · ISBN 979-8-9954416-6-3 · Zenodo 10.5281/zenodo.19117400 · G6 LLC</span>
+      <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid var(--teal-line);padding:.5rem 1.1rem;border-radius:2px">Get Volumes I–VI</a>
     </div>
   </div>
 </section>
 
 <div class="rule"></div>
 
-<!-- THE WALK -->
 <section id="walk">
   <div class="walk-inner fade-in">
     <span class="section-tag">The healing walking meditation · C K F U · Newark North Ward</span>
     <h2 class="section-title">Walk the Boonton Line</h2>
     <p class="section-body">The former Delaware, Lackawanna &amp; Western Railroad Boonton Line runs past 90 Tiffany Blvd. The street is named for the Tiffany &amp; Co. manufacturing plant that stood at Forest Hill station — where American silver was made, where the train served the factory, where the station planned a subway connection that was never built. Passenger service abandoned in 2002. Now proposed as the Ice &amp; Iron Greenway. Put the soundworks on. Begin.</p>
     <div class="walk-route">
-      <div class="walk-step">
-        <span class="step-num">C</span>
-        <div>
-          <div class="step-place">90 Tiffany Blvd — the seed</div>
-          <div class="step-desc">Start here. Stand on the Boonton Line right-of-way. Listen to the ocean layer. This is the compression — arrive in this body, in this soil, in Newark North Ward. Find the irreducible kernel. Be here now.</div>
-          <div class="step-operator">compress · be here now · the first root</div>
-        </div>
-      </div>
-      <div class="walk-step">
-        <span class="step-num">K</span>
-        <div>
-          <div class="step-place">Branch Brook Park — the branches</div>
-          <div class="step-desc">Walk south through Branch Brook Park. The 1936 Boonton Line railroad bridge — stone arches built to carry silver from the Tiffany factory — spans the Second River. Add the mangue layer. Feel the constraint: the park boundary, the rail corridor, the city around you. The curvature accumulates.</div>
-          <div class="step-operator">constrain · curvature accumulates · feel the boundary</div>
-        </div>
-      </div>
-      <div class="walk-step">
-        <span class="step-num">F</span>
-        <div>
-          <div class="step-place">Forest Hill station site — the root touches ground</div>
-          <div class="step-desc">The fold point. Where the Boonton Line station stood opposite the Tiffany factory. Where the rail network planned a subway connection that was never built. Add 111 Hz. This is the threshold — the aerial root touches the ground, the old form ends, the new form is not yet visible. Stay here. Let it fold.</div>
-          <div class="step-operator">fold · root touches ground · re-root · threshold</div>
-        </div>
-      </div>
-      <div class="walk-step">
-        <span class="step-num">U</span>
-        <div>
-          <div class="step-place">229 Ballantine Pkwy · Forest Hill — the canopy</div>
-          <div class="step-desc">The homebase. The Newark Wellness Center. The cajueiro workshops. Add the Reeb helix. The unfold: expansion from the stable root, the canopy above the difficult soil. The 8,500 m² of one organism reaching across the neighborhood. One day we hope to walk the line.</div>
-          <div class="step-operator">unfold · expansion · canopy · G = U ∘ F ∘ K ∘ C</div>
-        </div>
-      </div>
+      <div class="walk-step"><span class="step-num">C</span><div><div class="step-place">90 Tiffany Blvd — the seed</div><div class="step-desc">Start here. Stand on the Boonton Line right-of-way. Listen to the ocean layer. This is the compression — arrive in this body, in this soil, in Newark North Ward. Find the irreducible kernel. Be here now.</div><div class="step-operator">compress · be here now · the first root</div></div></div>
+      <div class="walk-step"><span class="step-num">K</span><div><div class="step-place">Branch Brook Park — the branches</div><div class="step-desc">Walk south through Branch Brook Park. The 1936 Boonton Line railroad bridge — stone arches built to carry silver from the Tiffany factory — spans the Second River. Add the mangue layer. Feel the constraint: the park boundary, the rail corridor, the city around you. The curvature accumulates.</div><div class="step-operator">constrain · curvature accumulates · feel the boundary</div></div></div>
+      <div class="walk-step"><span class="step-num">F</span><div><div class="step-place">Forest Hill station site — the root touches ground</div><div class="step-desc">The fold point. Where the Boonton Line station stood opposite the Tiffany factory. Where the rail network planned a subway connection that was never built. Add 111 Hz. This is the threshold — the aerial root touches the ground, the old form ends, the new form is not yet visible. Stay here. Let it fold.</div><div class="step-operator">fold · root touches ground · re-root · threshold</div></div></div>
+      <div class="walk-step"><span class="step-num">U</span><div><div class="step-place">229 Ballantine Pkwy · Forest Hill — the canopy</div><div class="step-desc">The homebase. The Newark Wellness Center. The cajueiro workshops. Add the Reeb helix. The unfold: expansion from the stable root, the canopy above the difficult soil. The seed tends to forest. One day we hope to walk the line.</div><div class="step-operator">unfold · expansion · canopy · G = U ∘ F ∘ K ∘ C</div></div></div>
     </div>
-    <div class="walk-cta">
-      <p>The soundworks is the score for this walk. Play it before you come. Play it while you walk. <em>After you donate, you are invited to visit the cajueiro</em> — the physical installation at Uceda School of Elizabeth (November 2026) and, when it opens, the homebase at Forest Hill. The donation is the root touching the ground. The visit is the re-rooting.</p>
+    <div class="walk-cta"><p>The soundworks is the score for this walk. Play it before you come. Play it while you walk. <em>After you donate, you are invited to visit the cajueiro</em> — the physical installation at Uceda School of Elizabeth (November 2026) and, when it opens, the homebase at Forest Hill.</p></div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- G-SERIES -->
+<section id="gseries" style="position:relative;z-index:2;padding:6rem 5vw;background:linear-gradient(180deg,#030a08,#040e08)">
+  <div style="max-width:900px;margin:0 auto" class="fade-in">
+    <span class="section-tag">g-series · dm³ stability ladder · formal verification · GCTC Chain.lean</span>
+    <h2 class="section-title">From seed to canopy:<br>the g-series</h2>
+    <p class="section-body" style="max-width:660px;margin-bottom:3rem">The dm³ dynamical system passes through five regimes before the helical attractor locks. Each regime has a name, a cycle count, a place on the walk, and a place in the learning body. The g-series is the formal taxonomy — proved in Lean 4, walked in Newark, taught in the book.</p>
+
+    <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(10,186,181,.12);border-radius:6px;overflow:hidden">
+
+      <!-- g0 -->
+      <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid rgba(10,186,181,.08)">
+        <div style="padding:1.4rem 1.2rem;background:rgba(10,186,181,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:var(--teal);opacity:.5">g⁰</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);opacity:.5">0 cycles</span>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#d4ede4;margin-bottom:.3rem">Quiescent — the seed at rest</div>
+          <div style="font-size:.9rem;color:var(--muted);line-height:1.65">The system is initialised but has not yet oscillated. In the walk: standing at 90 Tiffany Blvd before the first step. In the learner: arrival, full attention, no prior compression. The cajueiro nut before germination.</div>
+          <div style="margin-top:.5rem;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);opacity:.4">C · compress · be here now · 90 Tiffany Blvd</div>
+        </div>
+      </div>
+
+      <!-- g2 -->
+      <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid rgba(10,186,181,.08)">
+        <div style="padding:1.4rem 1.2rem;background:rgba(10,186,181,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:var(--teal);opacity:.65">g²</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);opacity:.5">2 cycles</span>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#d4ede4;margin-bottom:.3rem">Nascent oscillation — the first branches</div>
+          <div style="font-size:.9rem;color:var(--muted);line-height:1.65">Two passes through the operator chain. The system is oscillating but not yet stable. The first aerial root is growing toward the ground. In the learner: two genuine K-crossings have fired — something real has changed, but the new structure is fragile. The tree is not yet the tree.</div>
+          <div style="margin-top:.5rem;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);opacity:.4">K · constrain · Branch Brook Park · the branches reach</div>
+        </div>
+      </div>
+
+      <!-- g6 -->
+      <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid rgba(10,186,181,.08)">
+        <div style="padding:1.4rem 1.2rem;background:rgba(10,186,181,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:var(--teal);opacity:.78">g⁶</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);opacity:.5">6 cycles</span>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#d4ede4;margin-bottom:.3rem">Stable micro-cycle — the root touches ground</div>
+          <div style="font-size:.9rem;color:var(--muted);line-height:1.65">Six passes. A stable local attractor has formed. The first aerial root has touched the ground and begun to re-root. In the learner: six K-crossings have consolidated into a micro-competence — you can navigate a narrow domain reliably. The g6 moment is the first stable seed before the canopy.</div>
+          <div style="margin-top:.5rem;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);opacity:.4">F · fold · Forest Hill station · root re-roots · fold point</div>
+        </div>
+      </div>
+
+      <!-- g33 -->
+      <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid rgba(10,186,181,.08)">
+        <div style="padding:1.4rem 1.2rem;background:rgba(10,186,181,.11);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:var(--teal);opacity:.9">g³³</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);opacity:.5">33 cycles</span>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#d4ede4;margin-bottom:.3rem">Stability threshold — the practitioner</div>
+          <div style="font-size:.9rem;color:var(--muted);line-height:1.65">Thirty-three consolidated K-crossings. The formal threshold: in the Lean 4 proof, <code style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--teal-soft)">poincare_collatz_contracting</code> guarantees that consecutive iterates enter the r* basin at or after step 33. In the learner: cortical activation has reduced, dorsal striatum dominates — the practitioner thinks in the domain, not about it. The generator has grown. The apple has begun to shrink.</div>
+          <div style="margin-top:.5rem;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);opacity:.4">U · unfold · practitioner threshold · C is small · 33 K-events</div>
+        </div>
+      </div>
+
+      <!-- g64 -->
+      <div style="display:grid;grid-template-columns:80px 1fr">
+        <div style="padding:1.4rem 1.2rem;background:rgba(10,186,181,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;color:var(--teal)">g⁶⁴</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--muted);opacity:.5">64 cycles</span>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:#d4ede4;margin-bottom:.3rem">Circuit saturation — the full canopy</div>
+          <div style="font-size:.9rem;color:var(--muted);line-height:1.65">Sixty-four passes. The helical attractor is fully locked. The Spiral Return theorem (T1) guarantees a non-trivial second circuit: <code style="font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--teal-soft)">G^{128}(x₀) ≠ x₀</code>. In the learner: the Cajueiro de Pirangi. One seed, 8,500 m², 70 years. The seed tends to forest — in Forest Hill, then on the moon. This is not the end. It is the point from which the next seed falls.</div>
+          <div style="margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:#9cf3ef;opacity:.7">The caju forest in Forest Hill, then on the moon. We dream big.</div>
+          <div style="margin-top:.4rem;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);opacity:.4">G = U ∘ F ∘ K ∘ C · 229 Ballantine · the canopy · the moon cajueiro</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;padding:1.2rem 1.8rem;border-left:3px solid rgba(10,186,181,.3);background:rgba(10,186,181,.03)">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);opacity:.5;display:block;margin-bottom:.4rem">Lean 4 · GCTC Chain.lean · formally verified</span>
+      <p style="font-size:.9rem;color:var(--muted);line-height:1.75">The g-series is not a metaphor. It is a formally proved regime taxonomy in <code style="font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--teal-soft)">GCTC.Operators.Chain</code>, built on Mathlib4, zero axioms beyond the library. The <code style="font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--teal-soft)">poincare_collatz_contracting</code> theorem guarantees entry into the r* basin at n ≥ 33 for any contracting G-chain. The Spiral Return theorem T1 guarantees a non-trivial orbit at g64. <a href="https://github.com/TOTOGT/GTCT" target="_blank" style="color:var(--teal);text-decoration:none">github.com/TOTOGT/GTCT →</a></p>
     </div>
   </div>
 </section>
 
 <div class="rule"></div>
 
-<!-- TWO ASKS — PATCH 1 & 2 applied -->
+<!-- MEMBERSHIP -->
+<section id="join" style="position:relative;z-index:2;padding:6rem 5vw;background:linear-gradient(180deg,#000,#030a08)">
+  <div style="max-width:1000px;margin:0 auto" class="fade-in">
+    <span class="section-tag">Living book membership · Principia Orthogona · Volumes I–VI · g6llc.gumroad.com</span>
+    <h2 class="section-title">Join the roda.</h2>
+    <p class="section-body" style="max-width:580px;margin-bottom:.8rem">The Principia Orthogona series is a living book — updated as the research advances, the proofs close, and the workshops run. Members receive all volumes, full soundworks access, and GitHub collaborator status. Pay what you can. Every amount funds the same work.</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);opacity:.5;margin-bottom:3rem">After payment, send your GitHub username to grossiatwork@gmail.com — you will be added as a collaborator within 24 hours.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:2.5rem">
+      <!-- SEMENTE -->
+      <div style="background:#0a0a0a;border:1px solid rgba(10,186,181,.18);padding:2.2rem;display:flex;flex-direction:column;gap:1.2rem">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);opacity:.5;margin-bottom:.4rem">Tier 1</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:#c8f0ee">Semente</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;color:var(--muted);opacity:.6">The seed</div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:600;color:var(--teal)">$25</div>
+        <div style="display:flex;flex-direction:column;gap:.55rem;flex:1">
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(10,186,181,.3)">All 6 volumes — PDF + web access</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(10,186,181,.3)">dm³ Soundworks — full browser engine</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(10,186,181,.3)">GitHub collaborator access — TOTOGT/GTCT + AXLE</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(10,186,181,.3)">All future volume updates as they publish</div>
+        </div>
+        <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="display:block;text-align:center;padding:.85rem;background:transparent;border:1px solid rgba(10,186,181,.4);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s" onmouseover="this.style.background='rgba(10,186,181,.1)'" onmouseout="this.style.background='transparent'">Plant the seed →</a>
+      </div>
+
+      <!-- RAIZ -->
+      <div style="background:#0d1210;border:1px solid rgba(10,186,181,.45);padding:2.2rem;display:flex;flex-direction:column;gap:1.2rem;position:relative">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--teal);color:#030a08;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .8rem;font-weight:600">Most chosen</div>
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);opacity:.6;margin-bottom:.4rem">Tier 2</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:#c8f0ee">Raiz</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;color:var(--muted);opacity:.6">The root</div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:600;color:var(--teal)">$75</div>
+        <div style="display:flex;flex-direction:column;gap:.55rem;flex:1">
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid var(--teal)">Everything in Semente</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid var(--teal)">Invitation to the Cajueiro installation — Uceda School, Elizabeth NJ, November 2026</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid var(--teal)">Name in the workshop program</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid var(--teal)">Access to the closing celebration — Branch Brook Park, April 2027</div>
+        </div>
+        <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="display:block;text-align:center;padding:.85rem;background:var(--teal);color:#030a08;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:600">Put down roots →</a>
+      </div>
+
+      <!-- COPA -->
+      <div style="background:#0a0a0a;border:1px solid rgba(200,162,74,.25);padding:2.2rem;display:flex;flex-direction:column;gap:1.2rem">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:.4rem">Tier 3</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:#f0dda8">Copa</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;color:var(--muted);opacity:.6">The canopy</div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:600;color:var(--gold)">$250</div>
+        <div style="display:flex;flex-direction:column;gap:.55rem;flex:1">
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(200,162,74,.5)">Everything in Raiz</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(200,162,74,.5)">Named patron — 229 Ballantine Pkwy homebase</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(200,162,74,.5)">Bienal SBM credit on all 5 submissions</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.6;padding-left:.8rem;border-left:2px solid rgba(200,162,74,.5)">Direct correspondence with Pablo — research, pedagogy, formal verification</div>
+        </div>
+        <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="display:block;text-align:center;padding:.85rem;background:transparent;border:1px solid rgba(200,162,74,.4);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s" onmouseover="this.style.background='rgba(200,162,74,.08)'" onmouseout="this.style.background='transparent'">Become a patron →</a>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:1.5rem;border:1px solid rgba(10,186,181,.1);border-radius:4px;background:rgba(10,186,181,.02)">
+      <p style="font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:.8rem">All memberships are pay-what-you-can starting at each tier. If $25 is too much right now, reach out — no one is turned away. The roda is open.</p>
+      <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);text-decoration:none;opacity:.7">g6llc.gumroad.com/l/soundworks</a>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
 <section id="asks" style="position:relative;z-index:2;padding:6rem 5vw;background:#000">
   <div style="max-width:1100px;margin:0 auto" class="fade-in">
     <span class="section-tag">Two things we ask</span>
@@ -379,7 +482,7 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
         <h3 class="ask-title teal">Donate to the cajueiro.<br>Then visit it.</h3>
         <p class="ask-body">Fund the soundworks, the workshops, the homebase. Every contribution goes directly to the Newark Wellness Center vision and five free public workshops at Uceda School of Elizabeth. As a donor you are invited to visit the cajueiro in person.</p>
         <div>
-          <div class="ask-detail teal">$25-$250 living book membership — Volumes I-VI + dm³ soundworks full access</div>
+          <div class="ask-detail teal">$25–$250 living book membership — Volumes I–VI + dm³ soundworks full access</div>
           <div class="ask-detail teal">Workshop visitor invitation — Cajueiro installation, Uceda School, November 2026</div>
           <div class="ask-detail teal">Homebase patron — named contributor to 229 Ballantine Pkwy, Forest Hill</div>
         </div>
@@ -389,18 +492,15 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
       <div class="ask-card ask-natal">
         <span class="ask-num mag">Ask two</span>
         <h3 class="ask-title mag">Be in Natal.<br>XII Bienal SBM.</h3>
-        <p class="ask-body">3-7 agosto 2026. UFRN, Natal, Rio Grande do Norte. Five submissions — all accepted. Come to the exposição, the minicurso, the oficina, the pôster, the comunicação oral. Bring your students. Bring your research. The Cajueiro de Pirangi is 20 km from the campus.</p>
+        <p class="ask-body">3–7 agosto 2026. UFRN, Natal, Rio Grande do Norte. Five bilingual submissions. Come to the exposition, the minicurso, the oficina. Bring your students. Bring your research. The Cajueiro de Pirangi is 20 km from the campus.</p>
         <div>
-          <div class="ask-detail mag">Minicurso ✓ — Atratores Helicoidais em Variedades de Contato, sistema dm³, Lean 4</div>
-          <div class="ask-detail mag">Exposição ✓ — Cimática com Máquinas: Figuras de Chladni e ressonância</div>
-          <div class="ask-detail mag">Comunicação Oral ✓ — O Princípio do Cajueiro: Inglês para Pesquisadores via TOGT</div>
-          <div class="ask-detail mag">Oficina ✓ — A Escada de Recorrência: do k-nacci ao limiar τ = 2</div>
-          <div class="ask-detail mag">Pôster ✓ — Atratores Helicoidais em Variedades de Contato: EDO de Brinquedo</div>
+          <div class="ask-detail mag">Cymatics with Machines — live Chladni exposition + dm³ Soundworks</div>
+          <div class="ask-detail mag">Minicurso — helical attractors on contact 3-manifolds, Lean 4 formalization</div>
+          <div class="ask-detail mag">Oficina — A Escada de Recorrência — k-nacci to τ = 2</div>
+          <div class="ask-detail mag">O Princípio do Cajueiro — academic English for Brazilian researchers</div>
         </div>
-        <!-- PATCH 1: sbm.org.br/xii-bienal/ -->
-        <a href="https://sbm.org.br/xii-bienal/" target="_blank" class="btn-ask mag">Register for the Bienal</a>
-        <!-- PATCH 2: doi.org/10.5281/zenodo.19117399 -->
-        <a href="https://doi.org/10.5281/zenodo.19117399" target="_blank" class="btn-sec" style="border-color:rgba(233,30,140,.3);color:var(--magenta)">Read all submissions</a>
+        <a href="https://www.sbm.org.br/bienal" target="_blank" class="btn-ask mag">Register for the Bienal</a>
+        <a href="https://zenodo.org/records/19117400" target="_blank" class="btn-sec" style="border-color:rgba(233,30,140,.3);color:var(--magenta)">Read all submissions</a>
       </div>
     </div>
   </div>
@@ -408,19 +508,18 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <div class="rule"></div>
 
-<!-- CONTRIBUTORS -->
 <section id="contributors" style="position:relative;z-index:2;padding:6rem 5vw;background:#000">
   <div style="max-width:1100px;margin:0 auto" class="fade-in">
-    <span class="section-tag">Open project · corporate sponsors · domain experts · build the three homebases</span>
-    <h2 class="section-title">Help us build all three homebases.<br>The moon. The stratosphere. Forest Hill.</h2>
-    <p class="section-body" style="max-width:720px;margin-bottom:3rem">The <strong>moon homebase</strong> is <em>Orthogenesis</em> — a Lean 4 / Mathlib project formalising the hexagonal colony model inspired by NASA Moon Base phase architecture. It proves stage invariants, monotone expansion, and neighbor distinctness over axial hex grids. Phases 01–03 are proven (<code>stage_bound</code>, <code>expand_mono</code>, <code>stage_bound_general</code>); Phase 04+ are open. <a href="https://github.com/TOTOGT/geometry" target="_blank" style="color:var(--teal);text-decoration:underline">github.com/TOTOGT/geometry</a>. The <strong>stratospheric homebase</strong> couples to the planet itself: a resonance structure that attaches to the planetary stratosphere via <em>Schumann coupling</em> — the 7.83 Hz fundamental of the Earth-ionosphere cavity, with harmonics at 14.3, 20.8, 27.3 Hz. Civilization-scale antenna geometry, mathematically dual to the Reeb helix in dm³. The <strong>Forest Hill homebase</strong> is the embodied one: 229 Ballantine Pkwy, Newark — a wellness center, a sound studio, a contemplative healing space along the Boonton Line. Three homebases, three colonies, three scales — lunar, planetary, civic — the same g6 cascade the cajueiro reveals. We need contributors for both — and we are actively building the table. <strong style="color:var(--teal-soft)">Corporate sponsors, domain experts, and mission-aligned capital are especially welcome.</strong> The cajueiro principle is built to be carried — into biotech, finance, architecture, nursing, neuroscience, urban planning, climate, AI, the arts. If your field has a stable seed and a difficult soil, there is a chair for you in the roda. All code MIT licensed. All educational materials CC BY 4.0.</p>
+    <span class="section-tag">Open project · pilot opportunities · build both moons</span>
+    <h2 class="section-title">Help us build the moon cajueiro<br>and the homebase.</h2>
+    <p class="section-body" style="max-width:640px;margin-bottom:3rem">The moon cajueiro is the digital expansion: soundworks, Lean 4 formalization, Web Audio engine, bilingual education platform. The homebase is the physical one: 229 Ballantine Pkwy, Forest Hill. We need contributors for both. All code MIT licensed. All educational materials CC BY 4.0.</p>
     <div class="contrib-grid">
-      <div class="contrib-card"><div class="contrib-icon">&#127807;</div><div class="contrib-type">Community · Workshops · Newark</div><div class="contrib-title">Bilingual facilitators</div><p class="contrib-desc">Portuguese/English facilitators for the Cajueiro Workshops. Newark and Elizabeth NJ. October 2026 – January 2027. Educator, social worker, artist — if you work with immigrant adults or youth in Newark, we want to talk.</p></div>
-      <div class="contrib-card"><div class="contrib-icon">&#127770;</div><div class="contrib-type">Lean 4 · Mathlib · NASA Moon Base</div><div class="contrib-title">Orthogenesis · the moon homebase</div><p class="contrib-desc">Formal colony architecture in Lean 4 / Mathlib — hexagonal grid, stage invariants, monotone expansion. Phases 01–03 proven; Phase 04+ open. AXLE sorry-codes (FN-A, FN-C…) and the dm³ kappa_lipschitz obligation live alongside it. github.com/TOTOGT/geometry · github.com/TOTOGT/AXLE</p></div>
-      <div class="contrib-card"><div class="contrib-icon">&#127891;</div><div class="contrib-type">Domain experts · Pilots · BRIC + US</div><div class="contrib-title">Experts in other fields</div><p class="contrib-desc">Carry the cajueiro principle into your discipline — biotech, finance, architecture, nursing, neuroscience, urban planning, climate, AI, music, the arts. The Mini-Beast (Vol. III) has 33 task cycles ready to deploy. Researchers, clinicians, engineers, practitioners, and corporate R&amp;D leads in Brazil, India, Portugal, and the US invited to lead pilots in their field. Co-author the cross-domain volume.</p></div>
-      <div class="contrib-card"><div class="contrib-icon">&#127968;</div><div class="contrib-type">Architecture · Urban Planning</div><div class="contrib-title">Homebase design</div><p class="contrib-desc">229 Ballantine Pkwy, Forest Hill, Newark. The vision: a wellness center, sound studio, workshop space, and community garden along the Boonton Line greenway corridor. Architects, urban planners, community builders — open call.</p></div>
-      <div class="contrib-card"><div class="contrib-icon">&#127759;</div><div class="contrib-type">Schumann coupling · 7.83 Hz · Stratosphere</div><div class="contrib-title">Stratospheric homebase</div><p class="contrib-desc">A resonance structure that attaches to the planetary stratosphere via Schumann coupling — the 7.83 Hz fundamental of the Earth-ionosphere cavity. Civilization-scale antenna geometry, dual to the dm³ Reeb helix. RF physicists, atmospheric scientists, antenna engineers, ELF/VLF researchers, and aerospace partners invited. Translation roadmap (PT, RU, HI, ZH, ES, AR, BN, TA — 40 languages, CC BY 4.0) carries the structure across borders.</p></div>
-      <div class="contrib-card"><div class="contrib-icon">&#128200;</div><div class="contrib-type">Sponsors · Foundations · Corporate · Government</div><div class="contrib-title">Corporate sponsors &amp; institutional partners</div><p class="contrib-desc">Mission-aligned capital welcome. Newark Arts ArtStart applied; NYFA fiscal sponsorship pending; NJSCA fellowship June 2026; Dodge Foundation LOI July 2026; NSF DRL Q3 2026. <strong>Corporations, foundations, family offices, universities, aerospace and biotech partners, government and civic agencies</strong> — sponsor a workshop, name a phase of the moon homebase, fund the Forest Hill build, underwrite a Schumann coupling experiment. grossiatwork@gmail.com</p></div>
+      <div class="contrib-card"><div class="contrib-icon">🌿</div><div class="contrib-type">Community · Workshops · Newark</div><div class="contrib-title">Bilingual facilitators</div><p class="contrib-desc">Portuguese/English facilitators for the Cajueiro Workshops. Newark and Elizabeth NJ. October 2026 — January 2027. Educator, social worker, artist — if you work with immigrant adults or youth in Newark, we want to talk.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">⚙️</div><div class="contrib-type">Code · Lean 4 · Web Audio</div><div class="contrib-title">Formal verification + sound</div><p class="contrib-desc">Close the kappa_lipschitz sorry in AXLE (Lean 4 + Mathlib4). Extend the dm³ Web Audio engine. Build the interactive Chladni simulator for the Bienal exposition. github.com/TOTOGT/AXLE</p></div>
+      <div class="contrib-card"><div class="contrib-icon">🎓</div><div class="contrib-type">Research · BRIC · Pilot</div><div class="contrib-title">Domain pilots</div><p class="contrib-desc">Test the TOGT pedagogical framework in your domain — biology, finance, architecture, nursing, music. The Mini-Beast (Vol. III) has 33 task cycles ready to deploy. Partner institutions in Brazil, India, Portugal, and the US invited.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">🏠</div><div class="contrib-type">Architecture · Urban Planning</div><div class="contrib-title">Homebase design</div><p class="contrib-desc">229 Ballantine Pkwy, Forest Hill, Newark. The vision: a wellness center, sound studio, workshop space, and community garden along the Boonton Line greenway corridor. Architects, urban planners, community builders — open call.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">🌍</div><div class="contrib-type">Translation · 40 languages</div><div class="contrib-title">Multilingual deployment</div><p class="contrib-desc">Tier 1: Portuguese, Russian, Hindi, Mandarin. Tier 2: Spanish, Arabic, Bengali, Tamil. The series has a 40-language roadmap. Translators, educators, and ministry contacts invited. All translations CC BY 4.0.</p></div>
+      <div class="contrib-card"><div class="contrib-icon">📈</div><div class="contrib-type">Funding · Institutions</div><div class="contrib-title">Funding partners</div><p class="contrib-desc">Newark Arts ArtStart applied. NYFA fiscal sponsorship pending. NJSCA fellowship June 2026. Dodge Foundation LOI July 2026. NSF DRL Q3 2026. Reach out: grossiatwork@gmail.com</p></div>
     </div>
     <div style="text-align:center;margin-top:2.5rem">
       <p class="section-body" style="margin-bottom:1rem">Every contributor is a new root. Every root becomes a trunk.</p>
@@ -432,85 +531,16 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
 
 <div class="rule"></div>
 
-<!-- FUNDER PACK -->
-<section id="funder-pack" style="position:relative;z-index:2;padding:6rem 5vw;background:linear-gradient(180deg,#040c08,#030a08)">
-  <div style="max-width:1100px;margin:0 auto" class="fade-in">
-    <span class="section-tag">Funder pack · diligence materials</span>
-    <h2 class="section-title">Everything a funder needs in one place.</h2>
-    <p class="section-body" style="max-width:62ch;margin-bottom:2.5rem">Project lead bio, NYFA-aligned budgets, the formal mathematical foundation, and the dm³ phase portraits that anchor the soundworks. Open the files below — they live in this fundraiser folder, alongside this page.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(10,186,181,.18);border:1px solid rgba(10,186,181,.18);border-radius:6px;overflow:hidden">
-      <div style="display:flex;flex-direction:column;background:#040c08;transition:background .2s">
-        <a href="Pablo_Grossi_Bio_ProjectLeader.docx" style="display:block;padding:1.6rem 1.4rem 1rem;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='transparent'">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.docx · project lead</div>
-          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Pablo Grossi — bio</div>
-          <div style="font-size:.92rem;color:var(--muted);line-height:1.6">Project leader biography, lineage, and qualifications for the NYFA fiscal-sponsorship review.</div>
-        </a>
-        <a href="https://www.linkedin.com/in/grossi" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.4rem 1rem;text-decoration:none;color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;border-top:1px solid rgba(10,186,181,.15);opacity:.85;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'"><span>linkedin.com/in/grossi</span><span style="opacity:.5">→</span></a>
-      </div>
-      <a href="NYFA_IncomeBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · income</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Income budget</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">NYFA-format income side: confirmed, applied, and pipeline funding for 2026–27.</div></a>
-      <a href="NYFA_ExpenseBudget.xlsx" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.xlsx · expense</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Expense budget</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Programme costs: facilitation, soundworks build, Forest Hill homebase architecture, documentation.</div></a>
-      <a href="principia_orthogona_NPB_refs_resolved.pdf" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.pdf · monograph</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Principia Orthogona</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">The formal foundation. <em>G = U ∘ F ∘ K ∘ C.</em> Bibliography resolved, references cross-checked.</div></a>
-      <a href="dm3_phase_portrait.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Phase portrait</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">The dm³ ODE field — the geometric source of the Reeb-helix and 111 Hz layers.</div></a>
-      <a href="dm3_basin.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Basin of attraction</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Stability radius for the limit cycle — the "minimum stable condition" made visible.</div></a>
-      <a href="dm3_epsilon_vs_z.png" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.png · dm³ figure</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">ε vs z</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Decay envelope along the depth axis — the cascade of recurrence over scale.</div></a>
-      <a href="dm3_numerical_summary.txt" target="_blank" style="display:block;padding:1.6rem 1.4rem;background:#040c08;text-decoration:none;color:inherit;transition:background .2s" onmouseover="this.style.background='#06140e'" onmouseout="this.style.background='#040c08'"><div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.5rem">.txt · dm³ data</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:#e8f5f0;margin-bottom:.4rem">Numerical summary</div><div style="font-size:.92rem;color:var(--muted);line-height:1.6">Integration parameters, fixed points, period — the numbers behind the figures.</div></a>
-    </div>
-    <p style="margin-top:2rem;font-size:.92rem;color:var(--muted);opacity:.7;font-style:italic">All materials live in the same NYFA fundraiser folder as this page. Reviewers can clone the folder and open every file locally — no portal logins, no broken links.</p>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- NETWORK -->
-<section id="network" style="position:relative;z-index:2;padding:6rem 5vw;background:#000">
-  <div style="max-width:1100px;margin:0 auto" class="fade-in">
-    <span class="section-tag">Network · the larger project</span>
-    <h2 class="section-title">The cajueiro is a network of pages.</h2>
-    <p class="section-body" style="max-width:62ch;margin-bottom:2.5rem">This NYFA landing page is one node. Around it: the bilingual student edition, the cymatics lab, the soundworks engine, the Lean 4 moon-base formalisation, and the source repos. Every link below opens another part of the same organism.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2rem">
-      <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">In this folder</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
-          <li><a href="cajueiro_chapter1.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Chapter 1 — The Cajueiro Principle</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Seed text, recognition, bridge, mathematics, tasks.</span></li>
-          <li><a href="GTCT_V_Student_Edition.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">GTCT V — Student Edition</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Bilingual exhibition didactics, Volume V.</span></li>
-          <li><a href="berimbau_cymatics.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Berimbau cymatics</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Standing-wave atlas of the berimbau — the acoustic instrument behind the soundworks.</span></li>
-          <li><a href="preview_didatica.html" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Preview · didática</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Pedagogical preview — the four faces (C · K · F · U) for visiting funders.</span></li>
-        </ul>
-      </div>
-      <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">Live · GitHub Pages</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
-          <li><a href="https://grossi-ops.github.io/cajueiro/" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">grossi-ops.github.io/cajueiro</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">The public Cajueiro site — the source page this fundraiser was forked from.</span></li>
-          <li><a href="https://grossi-ops.github.io/cajueiro/cajueiro_soundworks_homepage.html" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">Cajueiro Soundworks · homepage</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Web Audio engine — Ocean, Mangue, 111 Hz, the Reeb helix at η=1.8393.</span></li>
-          <li><a href="https://totogt.github.io/geometry" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">totogt.github.io/geometry</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Orthogenesis · Lean 4 hexagonal colony model — the moon homebase architecture.</span></li>
-        </ul>
-      </div>
-      <div style="border:1px solid rgba(10,186,181,.22);border-radius:6px;padding:1.6rem 1.4rem;background:linear-gradient(180deg,#040c08,#030a08)">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:1rem">Source · repos</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
-          <li><a href="https://github.com/grossi-ops/cajueiro" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">github.com/grossi-ops/cajueiro</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">The Cajueiro source — pages, soundworks, walking-meditation kit. MIT.</span></li>
-          <li><a href="https://github.com/TOTOGT/geometry" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">github.com/TOTOGT/geometry</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">Orthogenesis — Lean 4 / Mathlib NASA Moon Base phase architecture.</span></li>
-          <li><a href="https://github.com/TOTOGT/AXLE" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">github.com/TOTOGT/AXLE</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">AXLE — the orthogonal-axis foundation for the larger TOTOGT programme.</span></li>
-          <li><a href="https://github.com/DM3-lab" target="_blank" rel="noopener" style="color:var(--teal-soft);text-decoration:none;font-style:italic;border-bottom:1px solid rgba(10,186,181,.25);padding-bottom:.4rem;display:block">github.com/DM3-lab</a><span style="font-size:.85rem;color:var(--muted);opacity:.7">dm³ Lab — the ODE engine, phase portraits, and basin-stability tooling.</span></li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:.92rem;color:var(--muted);opacity:.7;font-style:italic;max-width:62ch">All code MIT-licensed. All educational materials CC BY 4.0. The network is the work — every node strengthens every other node.</p>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- MOONBASE -->
 <section id="moonbase">
   <div class="moon-inner fade-in">
     <span class="moon-tag">Vision · the homebase · the canopy · Forest Hill</span>
-    <h2 class="moon-title">229 Ballantine Pkwy.<br>Forest Hill. Newark.</h2>
+    <h2 class="moon-title">229 Ballantine Pkwy.<br>Forest Hill. Newark.<br><span style="color:var(--teal);font-size:.72em">Then the moon.</span></h2>
     <p class="moon-body">The seed tends to a forest with a home. The cajueiro does not plan the canopy — it becomes one. 90 Tiffany Blvd is where the root is. Forest Hill is where it reaches.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.2vw,1.6rem);font-style:italic;color:#f0dda8;line-height:1.6;margin-bottom:1.8rem;max-width:580px">The caju forest in Forest Hill, then on the moon.<br><span style="font-family:'JetBrains Mono',monospace;font-size:.45em;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.6">We dream big.</span></p>
     <span class="moon-address">229 Ballantine Pkwy · Forest Hill · Newark NJ · North Ward · one walk from 90 Tiffany Blvd</span>
     <p class="moon-tiffany">Tiffany Blvd is named for the Tiffany &amp; Co. manufacturing plant that stood at Forest Hill station on the Boonton Line — where American silver was made from 1877, where the rail served the factory, where early 20th-century planners designed a Newark City Subway connection that was never built. The homebase is planned for Forest Hill. When the Ice &amp; Iron Greenway opens, the walk from this building to 229 Ballantine Pkwy will be a public meditation trail. That walk is the practice. That walk is the operator. G = U ∘ F ∘ K ∘ C.</p>
     <div class="vision-grid">
-      <div class="vision-item"><div class="vi-label">Wellness center</div><div class="vi-text">Free community wellness programming. Cajueiro workshops, bilingual facilitation, healing meditation circles for Newark North Ward and the Newark-Elizabeth immigrant corridor.</div></div>
+      <div class="vision-item"><div class="vi-label">Wellness center</div><div class="vi-text">Free community wellness programming. Cajueiro workshops, bilingual facilitation, healing meditation circles for Newark North Ward and the Newark–Elizabeth immigrant corridor.</div></div>
       <div class="vision-item"><div class="vi-label">Sound studio</div><div class="vi-text">The dm³ Soundworks moonbase. A physical space for the acoustic machine — ocean, mangue, 111 Hz, the Reeb helix. Recording, synthesis, community listening sessions.</div></div>
       <div class="vision-item"><div class="vi-label">Research node</div><div class="vi-text">Where the Lean 4 formalization and the BRIC education deployment live alongside community work. The formal and the embodied in the same building, on the same block.</div></div>
       <div class="vision-item"><div class="vi-label">Greenway access</div><div class="vi-text">When the Ice &amp; Iron Greenway opens, the homebase sits along the route. The walk from 90 Tiffany Blvd to 229 Ballantine Pkwy becomes a public meditation trail — the operator made walkable.</div></div>
@@ -519,7 +549,7 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
       <a href="https://g6llc.gumroad.com/l/soundworks" target="_blank" class="btn-moon primary">Fund the homebase</a>
       <a href="mailto:grossiatwork@gmail.com" class="btn-moon secondary">Partner with us</a>
     </div>
-    <p class="moon-note">Current funding: Newark Arts ArtStart 2026-27 (applied) · NYFA fiscal sponsorship (pending ~2 days) · NJSCA Individual Artist Fellowship (applying June 2026) · Dodge Foundation LOI (July 2026) · Personal funds confirmed · Uceda School venue confirmed<br>G6 LLC · EIN 33-2880433 · Fiscal sponsor: New York Foundation for the Arts (NYFA) · grossiatwork@gmail.com</p>
+    <p class="moon-note">Current funding: Newark Arts ArtStart 2026–27 (applied) · NYFA fiscal sponsorship (pending) · NJSCA Individual Artist Fellowship (applying June 2026) · Dodge Foundation LOI (July 2026) · Personal funds confirmed · Uceda School venue confirmed<br>G6 LLC · EIN 33-2880433 · Fiscal sponsor: New York Foundation for the Arts (NYFA) · grossiatwork@gmail.com</p>
     <div style="margin-top:3rem;font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.5rem);font-style:italic;color:#f0dda8;opacity:.62;line-height:1.8;max-width:560px">
       "The cajueiro does not plan the forest. It becomes one."<br>
       <span style="font-family:'JetBrains Mono',monospace;font-size:.55em;letter-spacing:.2em;text-transform:uppercase;opacity:.5">— Principia Orthogona Vol. III, Ch. 1</span>
@@ -527,83 +557,14 @@ footer{position:relative;z-index:2;text-align:center;padding:2.5rem 2rem;border-
   </div>
 </section>
 
-<!-- BOONTON -->
 <div class="boonton fade-in">
   <p class="boonton-body">The former Delaware, Lackawanna &amp; Western Railroad Boonton Line. Passenger service abandoned in 2002. Proposed as the Ice &amp; Iron Greenway — Montclair to Jersey City waterfront, through Glen Ridge, Bloomfield, Belleville, Newark North Ward, Kearny. The Tiffany &amp; Co. factory stood at Forest Hill station. The homebase is planned for Forest Hill. The walk between them is the operator.</p>
   <p class="boonton-line">One day we hope to walk the line.</p>
 </div>
 
-<style>
-#article{position:relative;z-index:2;padding:7rem 5vw;background:linear-gradient(180deg,#030a08,#040e0a)}
-.article-inner{max-width:720px;margin:0 auto}
-.article-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--teal);opacity:.6;display:block;margin-bottom:1.6rem}
-.article-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300;font-style:italic;line-height:1.1;color:#e8f5f0;margin-bottom:2.2rem}
-.article-headline em{font-style:normal;color:var(--teal)}
-.article-deck{font-family:'EB Garamond',serif;font-size:1.18rem;line-height:1.85;color:var(--muted);margin-bottom:3rem;border-left:2px solid var(--teal-line);padding-left:1.5rem;font-style:italic}
-.article-body{font-family:'EB Garamond',serif;font-size:1.08rem;line-height:1.95;color:var(--muted)}
-.article-body p{margin-bottom:1.6rem}
-.article-body p:last-child{margin-bottom:0}
-.article-body strong{color:#d4ede4;font-weight:500}
-.article-body em{font-style:italic;color:var(--teal-soft)}
-.article-pullquote{margin:3rem 0;padding:1.8rem 2rem;border-left:3px solid var(--teal);background:rgba(10,186,181,.04);font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:300;font-style:italic;line-height:1.45;color:#c8ede6}
-.article-pullquote cite{display:block;margin-top:.9rem;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);opacity:.5;font-style:normal}
-.article-section-break{width:3rem;height:1px;background:var(--teal-line);margin:2.8rem 0}
-.article-subhead{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:#d4ede4;margin-bottom:1rem;margin-top:2.4rem}
-.article-coda{margin-top:3.5rem;padding:2rem 2.2rem;border:1px solid rgba(10,186,181,.18);border-radius:4px;background:rgba(10,186,181,.03)}
-.article-coda p{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--teal);opacity:.7;line-height:2;margin:0}
-.article-coda strong{color:var(--teal-soft);font-weight:500}
-.article-video-wrap{margin-top:4rem}
-.article-video-wrap .video-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);opacity:.45;display:block;text-align:center;margin-bottom:1rem}
-.article-video-wrap .video-caption{font-family:'EB Garamond',serif;font-size:.95rem;font-style:italic;color:var(--muted);opacity:.7;text-align:center;margin-top:1rem;line-height:1.7}
-.article-clip-link{display:flex;align-items:center;gap:1.2rem;padding:1.4rem 1.8rem;border:1px solid var(--teal-line);border-radius:4px;background:rgba(10,186,181,.03);text-decoration:none;transition:background .2s,border-color .2s;cursor:pointer}
-.article-clip-link:hover{background:rgba(10,186,181,.08);border-color:var(--teal)}
-.clip-play{font-size:1.6rem;color:var(--teal);opacity:.8;flex-shrink:0;line-height:1}
-.clip-text{display:flex;flex-direction:column;gap:.25rem;flex:1}
-.clip-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:#d4ede4}
-.clip-sub{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);opacity:.45}
-.clip-arrow{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--teal);opacity:.5;flex-shrink:0;transition:transform .2s}
-.article-clip-link:hover .clip-arrow{transform:translateX(4px);opacity:.9}
-</style>
-
-<section id="article">
-  <div class="article-inner fade-in">
-    <span class="article-kicker">The case for this work · G6 LLC · Newark NJ · 2026</span>
-    <h2 class="article-headline">The pattern is everywhere.<br><em>Nobody is connecting the dots.</em></h2>
-    <p class="article-deck">A geologist, an economist, a mycologist, and a nurse are each looking at the same curve. They have different names for it, different journals, different funding streams, different professional bodies that will not speak to each other. The cajueiro has been doing what they are all trying to describe — for centuries, alone, in difficult soil — and nobody asked it.</p>
-    <div class="article-body">
-      <p>There is a structure that appears, with remarkable fidelity, across dissipative systems at every scale: a seed compresses to a minimum viable condition, encounters resistance, overshoots, folds back, locks into a new stable band, and begins again. Geologists call it a fold. Economists call it a Kondratieff wave. Ecologists call it succession. Nurses call it a healing crisis. Mathematicians — very few of them — call it a limit cycle on a contact manifold. <strong>They are all describing the same operator chain. None of them know it.</strong></p>
-      <p>This is not an academic observation. It is a structural failure with real costs. When the immunologist and the urban planner cannot read each other's work, cities get designed without immune-system logic. When the economist and the ecologist cannot share a mathematical grammar, climate models do not talk to market models. When the nurse at the bedside has no formal language for the pattern she recognizes every day in patient recovery — the overshoot, the resistance, the new lock point — her knowledge stays in her hands and dies with her retirement. <strong>The cost of this fragmentation is not measured in papers. It is measured in decisions made without the right frame.</strong></p>
-      <div class="article-pullquote">The cajueiro is one organism. Eight thousand five hundred square metres. It did not plan the canopy. It compressed to a seed, touched the ground, re-rooted, became new trunks — each branch a new g6, each g6 tending toward its own g64. The forest is the proof.<cite>— Principia Orthogona, Vol. III, Ch. 1</cite></div>
-      <div class="article-section-break"></div>
-      <div class="article-subhead">The mathematics exists. It is not being used.</div>
-      <p>The Principia Orthogona series — now spanning approximately forty volumes — formalizes this structure as Generative Orthogonal Matrix Compression Science (GOMC), operating through the operator chain <strong>C → K → F → U</strong> on contact manifolds, with a canonical invariant triple (T*, μmax, τ). The dm³ operator algebra provides a classical, falsifiable, computationally tractable framework for dissipative oscillatory systems. Phase portraits have been generated. Limit cycles have been integrated numerically. Stability radii have been computed. Lean 4 formalizations of the colony architecture are partially proven, with open obligations clearly marked. <strong>This is not speculative. It is unfinished — and it is unfinished because one researcher, working independently in Newark, New Jersey, cannot do in isolation what a properly resourced research program would require.</strong></p>
-      <p>The Cajueiro de Pirangi — the largest cashew tree on Earth, one organism covering 8,500 square metres on the coast of Rio Grande do Norte — was not planted by an institution. It was not funded. It grew because the structure demanded it. But the work of <em>formalizing</em> that structure, of building the mathematical bridge that lets the immunologist and the urban planner and the nurse and the geologist finally read each other, requires resources that informal growth cannot provide. It requires a homebase. It requires time. It requires collaborators who are not yet in the room.</p>
-      <div class="article-section-break"></div>
-      <div class="article-subhead">What is being asked — and why now.</div>
-      <p>The XII Bienal of the Brazilian Mathematical Society meets in Natal, twenty kilometres from Pirangi, in August 2026. Five submissions — all accepted: minicurso, exposição, comunicação oral, oficina, pôster. The accepted works lists are published in the AXLE/SBM repository. The Uceda School of Elizabeth has confirmed a venue for the Cajueiro installation in November. The Lean 4 moon-base formalization has three proven phases and open obligations that need collaborators. <strong>The window is not abstract. The window is this year.</strong></p>
-      <p>What is being built is not a research paper. It is an infrastructure: a mathematical grammar shared across disciplines, embodied in a walking meditation through Newark's North Ward, anchored in a homebase that is also a wellness center, a sound studio, and a community space along a former railroad line named for an American silver factory. The formal and the embodied in the same building, on the same block, for the same community — immigrant adults, English-language learners, mathematicians, nurses, architects, the people who do not yet have a word for the pattern they already recognize.</p>
-      <p><strong>The pattern is not missing. The language is missing. The infrastructure is missing. The funding is missing.</strong> The cajueiro principle is the argument that these three absences are one absence — and that solving them together, in one place, with one coherent mathematical framework, is both possible and urgent.</p>
-      <p>The root is in the ground. The question is whether the canopy gets to grow.</p>
-    </div>
-    <!-- PATCH 3: Zenodo DOI 19117399 -->
-    <div class="article-coda">
-      <p><strong>G6 LLC</strong> · EIN 33-2880433 · Fiscal sponsor: New York Foundation for the Arts (NYFA) · ORCID 0009-0000-6496-2186 · Zenodo DOI 10.5281/zenodo.19117399 · ISBN 979-8-9954416-0-1<br>Institutional inquiries, co-authorship, and sponsorship: <strong>grossiatwork@gmail.com</strong></p>
-    </div>
-    <div class="article-video-wrap fade-in">
-      <span class="video-label">same pattern — different substrate — nobody talking</span>
-      <a href="https://www.getyarn.io/yarn-clip/0f900550-e5f7-4494-a6ff-63649d0502d4" target="_blank" rel="noopener" class="article-clip-link">
-        <span class="clip-play">&#9654;</span>
-        <span class="clip-text"><span class="clip-title">Watch the clip</span><span class="clip-sub">getyarn.io · opens in new tab</span></span>
-        <span class="clip-arrow">→</span>
-      </a>
-      <p class="video-caption">This is what it looks like when people who study the same structure have never been in the same room.</p>
-    </div>
-  </div>
-</section>
-
 <footer>
   <p class="footer-copy">
-    copyright 2026 Pablo Nogueira Grossi — G6 LLC · MIT License (code) · CC BY 4.0 (educational materials)<br>
+    © 2026 Pablo Nogueira Grossi — G6 LLC · MIT License (code) · CC BY 4.0 (educational materials)<br>
     90 Tiffany Blvd Apt 242 · Newark NJ 07104 · North Ward · EIN 33-2880433<br>
     grossiatwork@gmail.com · ORCID: 0009-0000-6496-2186<br>
     github.com/grossi-ops/cajueiro · github.com/TOTOGT/AXLE · github.com/DM3-lab<br>
