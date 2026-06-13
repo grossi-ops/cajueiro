@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#030a08">
+<title>The Walk · Cajueiro · Newark</title>
+<style>
+:root {
+  --teal:     #0abad5;
+  --teal-soft:#9fe1cb;
+  --teal-dim: #0f6e56;
+  --bg:       #030a08;
+  --bg2:      #040e0a;
+  --muted:    #5a8a78;
+  --text:     #d0ede5;
+  --gold:     #c9a84c;
+  --font:     system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); overflow-x: hidden; }
+
+/* ── SCREENS ── */
+.screen { min-height: 100dvh; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.4rem; text-align: center; }
+.screen.active { display: flex; }
+
+/* ── START ── */
+#s-start { background: radial-gradient(ellipse at center bottom, #071a10 0%, #030a08 70%); }
+.logo-mark   { font-size: 2.6rem; margin-bottom: .6rem; opacity: .7; }
+.title-main  { font-size: 1.65rem; font-weight: 300; letter-spacing: .18em; text-transform: uppercase; color: var(--teal-soft); margin-bottom: .3rem; }
+.title-sub   { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+
+/* ── AUDIO PLAYER ── */
+.player-wrap {
+  width: 100%; max-width: 340px; margin: 0 auto 2rem;
+  background: rgba(10,186,213,.06); border: 1px solid rgba(10,186,213,.18);
+  border-radius: 6px; padding: 1rem 1.2rem;
+}
+.player-label { font-size: .62rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: .65rem; }
+.player-title { font-size: .82rem; color: var(--teal-soft); margin-bottom: .9rem; line-height: 1.4; }
+.player-controls { display: flex; align-items: center; gap: .9rem; }
+.play-btn {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(10,186,213,.15); border: 1px solid var(--teal);
+  color: var(--teal); font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent; transition: background .2s;
+}
+.play-btn:active { background: rgba(10,186,213,.28); }
+.player-right { flex: 1; display: flex; flex-direction: column; gap: .35rem; }
+.seek-bar {
+  width: 100%; height: 4px; border-radius: 2px;
+  background: rgba(10,186,213,.15); cursor: pointer;
+  -webkit-appearance: none; appearance: none; outline: none;
+}
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--teal); cursor: pointer; }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--teal); cursor: pointer; border: none; }
+.time-row { display: flex; justify-content: space-between; font-size: .65rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ── MINI PLAYER (sticky, shown during walk) ── */
+#mini-player {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(3,10,8,.96); border-top: 1px solid rgba(10,186,213,.15);
+  padding: .7rem 1.2rem; flex-direction: row; align-items: center; gap: .8rem;
+}
+#mini-player.visible { display: flex; }
+.mini-play-btn {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(10,186,213,.12); border: 1px solid rgba(10,186,213,.4);
+  color: var(--teal); font-size: .95rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.mini-seek { flex: 1; height: 3px; border-radius: 2px; background: rgba(10,186,213,.15); cursor: pointer; -webkit-appearance: none; appearance: none; outline: none; }
+.mini-seek::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); cursor: pointer; }
+.mini-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); cursor: pointer; border: none; }
+.mini-time { font-size: .62rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini-label { font-size: .6rem; letter-spacing: .12em; color: var(--teal-dim); white-space: nowrap; }
+
+/* ── BEGIN BUTTON ── */
+.btn-start {
+  display: inline-block; padding: 1rem 2.8rem;
+  border: 1px solid var(--teal); border-radius: 2px;
+  background: transparent; color: var(--teal);
+  font-size: 1rem; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; transition: all .25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-start:active { background: rgba(10,186,213,.12); }
+.walk-hint { font-size: .72rem; color: var(--muted); margin-top: 1.4rem; line-height: 1.7; max-width: 280px; }
+
+/* ── PHASE SCREEN ── */
+#s-phase { background: var(--bg2); flex-direction: column; justify-content: space-between; padding-top: 2.5rem; padding-bottom: 5.5rem; /* room for mini-player */ }
+.phase-header { width: 100%; }
+.phase-tag    { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.phase-letter { font-size: 4.2rem; font-weight: 700; color: var(--teal); line-height: 1; margin-bottom: .2rem; letter-spacing: -.02em; }
+.phase-name   { font-size: 1.05rem; font-weight: 300; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-soft); margin-bottom: .8rem; }
+
+/* ── BREATH RING ── */
+.breath-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
+.breath-ring {
+  width: 160px; height: 160px; border-radius: 50%;
+  border: 1.5px solid rgba(10,186,213,.25);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 4s ease-in-out;
+}
+.breath-inner {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(10,186,213,.16) 0%, rgba(10,186,213,.04) 100%);
+  border: 1px solid rgba(10,186,213,.5);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal); font-weight: 600;
+  transition: all 4s ease-in-out;
+}
+.breath-ring.expand .breath-inner { transform: scale(1.85); background: radial-gradient(circle, rgba(10,186,213,.24) 0%, rgba(10,186,213,.06) 100%); }
+.breath-ring.expand { border-color: rgba(10,186,213,.45); }
+
+/* ── PHASE BODY ── */
+.phase-body  { max-width: 360px; margin: 0 auto; width: 100%; }
+.phase-desc  { font-size: .9rem; color: var(--text); line-height: 1.72; margin-bottom: .9rem; opacity: .85; }
+.phase-cue   { font-size: .74rem; color: var(--gold); letter-spacing: .07em; font-style: italic; margin-bottom: 1.4rem; }
+.progress-bar  { width: 100%; height: 2px; background: rgba(10,186,213,.1); border-radius: 1px; margin-bottom: 1.2rem; }
+.progress-fill { height: 100%; background: var(--teal); border-radius: 1px; transition: width .6s ease; }
+.timer-row   { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.timer-num   { font-size: 1.5rem; font-weight: 300; color: var(--teal-soft); font-variant-numeric: tabular-nums; }
+.phase-of    { font-size: .62rem; letter-spacing: .18em; color: var(--muted); }
+.btn-next {
+  display: inline-block; padding: .72rem 2.2rem;
+  border: 1px solid rgba(10,186,213,.3); border-radius: 2px;
+  background: transparent; color: var(--teal-soft);
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  cursor: pointer; transition: all .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-next:active { background: rgba(10,186,213,.08); }
+
+/* ── OP BAR ── */
+.op-bar { display: flex; gap: .45rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.op-dot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(10,186,213,.18); display: flex; align-items: center; justify-content: center; font-size: .68rem; font-weight: 600; color: var(--muted); transition: all .3s; }
+.op-dot.done-op   { background: rgba(10,186,213,.12); border-color: var(--teal); color: var(--teal); }
+.op-dot.active-op { background: rgba(10,186,213,.22); border-color: var(--teal); color: var(--teal); box-shadow: 0 0 10px rgba(10,186,213,.3); }
+
+/* ── DONE ── */
+#s-done { background: radial-gradient(ellipse at center top, #061a10 0%, #030a08 70%); }
+.done-glyph    { font-size: 2.8rem; margin-bottom: .8rem; opacity: .8; }
+.done-title    { font-size: 1.35rem; font-weight: 300; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-soft); margin-bottom: .4rem; }
+.done-operator { font-family: 'Courier New', monospace; font-size: .73rem; letter-spacing: .16em; color: var(--teal); margin-bottom: 1.6rem; opacity: .7; }
+.done-body     { font-size: .88rem; color: var(--muted); line-height: 1.75; max-width: 300px; margin: 0 auto 2rem; }
+.btn-again     { display: inline-block; padding: .65rem 2rem; border: 1px solid var(--muted); border-radius: 2px; background: transparent; color: var(--muted); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+</style>
+</head>
+<body>
+
+<!-- ── HIDDEN AUDIO ── -->
+<audio id="audio" preload="auto" loop>
+  <source src="helical_acoustic_dm3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ── MINI PLAYER (shown during walk phases) ── -->
+<div id="mini-player">
+  <button class="mini-play-btn" id="mini-play-btn" onclick="togglePlay()">▶</button>
+  <input class="mini-seek" id="mini-seek" type="range" min="0" max="100" value="0" step="0.1" oninput="seek(this.value)">
+  <span class="mini-time" id="mini-time">0:00</span>
+  <span class="mini-label">Helical r*=0.77594</span>
+</div>
+
+<!-- ── SCREEN: START ── -->
+<div class="screen active" id="s-start">
+  <div class="logo-mark">🌿</div>
+  <div class="title-main">The Walk</div>
+  <div class="title-sub">Cajueiro · Healing Meditation · Newark</div>
+
+  <!-- PLAYER -->
+  <div class="player-wrap">
+    <div class="player-label">Walk Score · dm³ Acoustic</div>
+    <div class="player-title">Helical Contact r*=0.77594<br><span style="color:var(--muted);font-size:.75rem">4 layers · infrasonic ocean · 432 Hz mangrove · 111 Hz resonance · helical sweep</span></div>
+    <div class="player-controls">
+      <button class="play-btn" id="play-btn" onclick="togglePlay()">▶</button>
+      <div class="player-right">
+        <input class="seek-bar" id="seek-bar" type="range" min="0" max="100" value="0" step="0.1" oninput="seek(this.value)">
+        <div class="time-row">
+          <span id="time-cur">0:00</span>
+          <span id="time-dur">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-start" onclick="beginWalk()">Begin Walk</button>
+  <p class="walk-hint">5 phases · ~20 min · G = U ∘ F ∘ K ∘ C<br>Press play, find an open path, put the phone in your pocket.</p>
+</div>
+
+<!-- ── SCREEN: PHASE ── -->
+<div class="screen" id="s-phase">
+  <div class="phase-header">
+    <div class="op-bar" id="op-bar"></div>
+    <div class="phase-tag" id="phase-tag"></div>
+    <div class="phase-letter" id="phase-letter"></div>
+    <div class="phase-name" id="phase-name"></div>
+  </div>
+
+  <div class="breath-wrap">
+    <div class="breath-ring" id="breath-ring">
+      <div class="breath-inner" id="breath-label">inhale</div>
+    </div>
+  </div>
+
+  <div class="phase-body">
+    <div class="phase-desc" id="phase-desc"></div>
+    <div class="phase-cue" id="phase-cue"></div>
+    <div class="timer-row">
+      <span class="timer-num" id="timer-num">4:00</span>
+      <span class="phase-of">remaining</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    <button class="btn-next" id="btn-next" onclick="nextPhase()">Next phase →</button>
+  </div>
+</div>
+
+<!-- ── SCREEN: DONE ── -->
+<div class="screen" id="s-done">
+  <div class="done-glyph">🌿</div>
+  <div class="done-title">Walk Complete</div>
+  <div class="done-operator">G = U ∘ F ∘ K ∘ C ✓</div>
+  <p class="done-body">The operator is closed. You moved through the five regimes — arrival, contraction, curvature, fold, expansion — and returned as the same organism that is also new trunks.<br><br>Carry the resonance.</p>
+  <button class="btn-again" onclick="resetWalk()">Walk again</button>
+</div>
+
+<script>
+// ── PHASES ────────────────────────────────────────────────────────────
+const PHASES = [
+  { letter:'g⁰', name:'Chegada',    tag:'Arrival · Initialise',       secs:120,
+    desc:'Stand still. You are at the seed — the cajueiro nut before germination. The system has not yet oscillated. Full attention, no prior compression. Take three slow breaths before the first step.',
+    cue:'Feel the ground. Notice the temperature. Notice the weight of your feet.' },
+  { letter:'C',  name:'Contração',  tag:'Operator C · Contract',      secs:240,
+    desc:'Begin walking slowly. Contract inward — feel the boundary between you and the city. Where does your body end? Where does the air begin? Walk as if the pavement were new.',
+    cue:'From Latin simulare — to make alike. Let the body stand in for the system.' },
+  { letter:'K',  name:'Curvatura',  tag:'Operator K · Curvature',     secs:300,
+    desc:'Increase your pace slightly. Curvature is accumulating — each step compounds. Notice curves in the path, the buildings, the trees. The helical attractor is a curvature. You are tracing it.',
+    cue:'From Latin probare — to test, to taste, to try on. The fold approaches.' },
+  { letter:'F',  name:'Dobramento', tag:'Operator F · Fold',          secs:240,
+    desc:'Slow down. This is the threshold — the root touches the ground. Pause at a corner, a tree, any threshold. Breathe. The fold is the proof the body checks.',
+    cue:'The system is at the bifurcation point. What stays? What transforms?' },
+  { letter:'U',  name:'Expansão',   tag:'Operator U · Unfold',        secs:300,
+    desc:'Walk freely now — any pace, any direction. This is the canopy. 8,500 m² from one root. The attractor is locked. The walk becomes the forest. The operator is closed.',
+    cue:'G = U ∘ F ∘ K ∘ C. The sequence is complete. Carry it forward.' },
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────
+let phaseIdx = 0, elapsed = 0;
+let tickInterval = null, breathInterval = null;
+const aud = document.getElementById('audio');
+
+// ── AUDIO PLAYER ──────────────────────────────────────────────────────
+let playing = false;
+
+function togglePlay() {
+  if (playing) {
+    aud.pause(); playing = false;
+    document.getElementById('play-btn').textContent     = '▶';
+    document.getElementById('mini-play-btn').textContent = '▶';
+  } else {
+    aud.play().catch(()=>{});
+    playing = true;
+    document.getElementById('play-btn').textContent     = '⏸';
+    document.getElementById('mini-play-btn').textContent = '⏸';
+  }
+}
+
+function seek(val) {
+  if (aud.duration) aud.currentTime = (val / 100) * aud.duration;
+}
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
+}
+
+aud.addEventListener('timeupdate', () => {
+  const pct = aud.duration ? (aud.currentTime / aud.duration) * 100 : 0;
+  document.getElementById('seek-bar').value  = pct;
+  document.getElementById('mini-seek').value = pct;
+  document.getElementById('time-cur').textContent = fmt(aud.currentTime);
+  document.getElementById('mini-time').textContent = fmt(aud.currentTime);
+});
+
+aud.addEventListener('loadedmetadata', () => {
+  document.getElementById('time-dur').textContent = fmt(aud.duration);
+});
+
+document.getElementById('mini-seek').addEventListener('input', e => seek(e.target.value));
+
+// ── BREATH ────────────────────────────────────────────────────────────
+function startBreath() {
+  const ring = document.getElementById('breath-ring');
+  const lbl  = document.getElementById('breath-label');
+  let inhale = true;
+  function cycle() {
+    ring.classList.toggle('expand', inhale);
+    lbl.textContent = inhale ? 'inhale' : 'exhale';
+    inhale = !inhale;
+  }
+  cycle();
+  breathInterval = setInterval(cycle, 4000);
+}
+function stopBreath() {
+  clearInterval(breathInterval);
+  document.getElementById('breath-ring').classList.remove('expand');
+}
+
+// ── OP BAR ────────────────────────────────────────────────────────────
+function renderOpBar() {
+  document.getElementById('op-bar').innerHTML = PHASES.map((p,i) => {
+    const cls = i < phaseIdx ? 'op-dot done-op' : i === phaseIdx ? 'op-dot active-op' : 'op-dot';
+    return `<div class="${cls}">${p.letter}</div>`;
+  }).join('');
+}
+
+// ── SHOW PHASE ────────────────────────────────────────────────────────
+function showPhase(idx) {
+  phaseIdx = idx; elapsed = 0;
+  const p  = PHASES[idx];
+  document.getElementById('phase-tag').textContent    = `Phase ${idx+1} of ${PHASES.length} · ${p.tag}`;
+  document.getElementById('phase-letter').textContent = p.letter;
+  document.getElementById('phase-name').textContent   = p.name;
+  document.getElementById('phase-desc').textContent   = p.desc;
+  document.getElementById('phase-cue').textContent    = p.cue;
+  document.getElementById('prog-fill').style.width    = '0%';
+  const btn = document.getElementById('btn-next');
+  btn.textContent    = idx < PHASES.length-1 ? 'Next phase →' : 'Complete walk ✓';
+  btn.style.borderColor = '';
+  btn.style.color       = '';
+  renderOpBar();
+  startBreath();
+  clearInterval(tickInterval);
+  tickInterval = setInterval(() => {
+    elapsed++;
+    const left = Math.max(0, p.secs - elapsed);
+    const m = Math.floor(left/60), s = left%60;
+    document.getElementById('timer-num').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    document.getElementById('prog-fill').style.width = `${Math.min(100,(elapsed/p.secs)*100)}%`;
+    if (elapsed >= p.secs) {
+      btn.style.borderColor = 'var(--teal)';
+      btn.style.color       = 'var(--teal)';
+    }
+  }, 1000);
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────
+function beginWalk() {
+  document.getElementById('s-start').classList.remove('active');
+  document.getElementById('s-phase').classList.add('active');
+  document.getElementById('mini-player').classList.add('visible');
+  showPhase(0);
+}
+
+function nextPhase() {
+  stopBreath(); clearInterval(tickInterval);
+  if (phaseIdx < PHASES.length-1) {
+    showPhase(phaseIdx+1);
+  } else {
+    document.getElementById('s-phase').classList.remove('active');
+    document.getElementById('s-done').classList.add('active');
+    document.getElementById('mini-player').classList.remove('visible');
+  }
+}
+
+function resetWalk() {
+  document.getElementById('s-done').classList.remove('active');
+  document.getElementById('s-start').classList.add('active');
+  phaseIdx = 0; elapsed = 0;
+}
+</script>
+</body>
+</html>
