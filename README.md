@@ -176,18 +176,4 @@ HAL: hal-05555216 · hal-05559997
 | NYFA fiscal sponsorship | Submitted · ~2 days processing |
 | NJ State Council on the Arts | Applying June 2026 |
 | Geraldine R. Dodge Foundation | LOI July 2026 |
-| Newark Wellness Center · 229 Ballantine Pkwy · Forest Hill | Vision |
-
----
-
-## License
-
-Research code (AXLE, numerics): **MIT License**  
-Educational materials (Bienal submissions, Teachers Manual): **CC BY 4.0**  
-Art and soundworks: **MIT License**
-
-© 2026 Pablo Nogueira Grossi — G6 LLC  
-EIN: 33-2880433 · NJSOS: 0600484861  
-90 Tiffany Blvd Apt 242 · Newark NJ 07104  
-pg6llc@gmail.com· ORCID: 0009-0000-6496-2186  
-github.com/TOTOGT/GTCT · github.com/TOTOGT/AXLE · github.com/DM3-lab
+| Newark Wellness Center
