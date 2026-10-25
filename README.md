@@ -173,7 +173,7 @@ HAL: hal-05555216 · hal-05559997
 | Project | Status |
 |---------|--------|
 | Newark Arts ArtStart 2026–27 | Applied May 1, 2026 |
-| NYFA fiscal sponsorship | Submitted · ~2 days processing |
+| NYFA fiscal sponsorship | In place · NYFA project PG2110 |
 | NJ State Council on the Arts | Applying June 2026 |
 | Geraldine R. Dodge Foundation | LOI July 2026 |
 | Newark Wellness Center
