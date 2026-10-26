@@ -28,7 +28,7 @@ G = U ∘ F ∘ K ∘ C
 
 — compress, curvature, fold, unfold — runs in every generative system. In a helical attractor on a contact 3-manifold. In a cashew tree establishing itself in difficult soil. In a nurse and a civil engineer sitting across a room realizing they have been working on the same pattern in different languages.
 
-The research is formal (Lean 4 / Mathlib4, zero axioms beyond the library), numerical (DOP853, rtol=10⁻¹⁰), acoustic (Web Audio API, synthesized in-browser), bilingual (Portuguese / English), and community-facing (ArtStart 2026–27, NYFA fiscal sponsorship, five free public workshops in Newark and Elizabeth NJ, starting October 2026).
+The research is formal (Lean 4 / Mathlib4, zero axioms beyond the library), numerical (DOP853, rtol=10⁻¹⁰), acoustic (Web Audio API, synthesized in-browser), bilingual (Portuguese / English), and community-facing (ArtStart 2026–27, NYFA fiscal sponsorship, five free public workshops in Newark and Elizabeth NJ, in person from spring 2027, with a video series from November 2026).
 
 ---
 
@@ -82,7 +82,7 @@ The cashew tree (*Anacardium occidentale*) establishes itself in difficult soil.
 
 This is the g6 moment: not abundance, not saturation — the first stable seed before the canopy.
 
-The **Cajueiro Workshops** translate this observation into five free public workshops in Newark and Elizabeth NJ (October 2026 – January 2027), a bilingual public installation at Uceda School of Elizabeth (November 2026), and a closing community celebration (February 2027). Funded in part by Newark Arts ArtStart 2026–27. Fiscal sponsor: NYFA.
+The **Cajueiro Workshops** translate this observation into five free public workshops in Newark and Elizabeth NJ (in person from spring 2027, venue to be announced, since Uceda School of Elizabeth closed in June 2026; a video series is recorded at the Newark Public Library studio from 5 November 2026) and a bilingual public installation (spring 2027, venue to be announced). Funded in part by Newark Arts ArtStart 2026–27. Fiscal sponsor: NYFA.
 
 ---
 
