@@ -82,7 +82,7 @@ The cashew tree (*Anacardium occidentale*) establishes itself in difficult soil.
 
 This is the g6 moment: not abundance, not saturation — the first stable seed before the canopy.
 
-The **Cajueiro Workshops** translate this observation into five free public workshops in Newark and Elizabeth NJ (in person from spring 2027, venue to be announced, since Uceda School of Elizabeth closed in June 2026; a video series is recorded at the Newark Public Library from 5 November 2026) and a bilingual public installation (spring 2027, venue to be announced). Funded in part by Newark Arts ArtStart 2026–27. Fiscal sponsor: NYFA.
+The **Cajueiro Workshops** translate this observation into five free public workshops in Newark and Elizabeth NJ (in person from spring 2027, venue to be announced, since Uceda School of Elizabeth closed in June 2026; a video series is recorded at Made @ NPL, the Newark Public Library makerspace, on 5 November 2026) and a bilingual public installation (spring 2027, venue to be announced). Funded in part by Newark Arts ArtStart 2026–27. Fiscal sponsor: NYFA.
 
 ---
 
